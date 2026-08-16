@@ -1,0 +1,11 @@
+{
+  "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+  "model_weights_included": false,
+  "model_parameters": 494032768,
+  "hidden_size": 896,
+  "trainable_parameters": 896,
+  "old_tokenizer_vocabulary": 151665,
+  "new_tokenizer_vocabulary": 151666,
+  "new_token_id": 151665
+}
+

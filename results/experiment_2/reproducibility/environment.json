@@ -1,0 +1,11 @@
+{
+  "python": "3.13.3",
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "hardware": "MacBook Pro M3, 8 GB RAM",
+  "torch": "2.13.0",
+  "transformers": "5.15.0",
+  "mps_built": true,
+  "mps_available": false,
+  "selected_device": "cpu"
+}
+

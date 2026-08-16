@@ -1,0 +1,10 @@
+{
+  "quick_initialization_seeds": [1],
+  "quick_shuffled_seeds": [1],
+  "prepared_full_initialization_seeds": [1, 2, 3, 4, 5],
+  "prepared_full_shuffled_seeds": [1, 2, 3],
+  "split_seed": 20260816,
+  "shuffle_seed": 991,
+  "bootstrap_seed": 31415
+}
+

@@ -1,0 +1,11 @@
+{
+  "method": "Each example label is independently flipped when random.Random(991).random() < 0.5; at least one flip is forced.",
+  "shuffle_seed": 991,
+  "flips": [
+    true,
+    false,
+    true,
+    false,
+    false
+  ]
+}
