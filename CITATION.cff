@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this work-in-progress research software, please cite it using this metadata."
+title: "Learning Behavioral Concepts as Single Token Embeddings in Frozen Language Models"
+type: software
+authors:
+  - name: "BobbY-24"
+repository-code: "https://github.com/BobbY-24/neologism-embedding-learning"
+license: MIT
+version: 0.1.0
+date-released: 2026-08-16
+keywords:
+  - neologisms
+  - embeddings
+  - preference learning
+  - interpretability
+  - language models
+abstract: >-
+  Work-in-progress research software for testing whether a single learned token
+  embedding in a frozen language model progresses from preference fitting to
+  behavioral control, held-out generalization, and word-like composition.
