@@ -1,0 +1,12 @@
+{
+  "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+  "new_token": "<ENSURE_LONG>",
+  "learning_rate": 0.01,
+  "epochs": 3,
+  "beta": 0.1,
+  "seed": 42,
+  "device": "auto",
+  "max_new_tokens": 512,
+  "training_examples": 3
+}
+
