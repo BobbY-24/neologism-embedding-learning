@@ -63,9 +63,11 @@ def write_csv(path: Path, rows: list[dict]) -> None:
         writer.writerows(rows)
 
 
-def load_model(path: Path, requested_device: str):
+def load_model(path: Path, requested_device: str, dtype: torch.dtype | None = None):
+    """dtype=None keeps the original rule: float16 on MPS, float32 elsewhere."""
     device = resolve_device(requested_device)
-    dtype = torch.float16 if device.type == "mps" else torch.float32
+    if dtype is None:
+        dtype = torch.float16 if device.type == "mps" else torch.float32
     fallback_reason = None
     try:
         model = AutoModelForCausalLM.from_pretrained(

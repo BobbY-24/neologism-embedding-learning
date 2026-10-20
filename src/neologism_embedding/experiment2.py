@@ -52,10 +52,44 @@ from .experiment1 import (  # noqa: E402
 )
 
 CONFIG_PATH = EXP_DIR / "configs" / "default.json"
+SCALE_CONFIG_PATH = PROJECT_ROOT / "experiments" / "experiment_3" / "configs" / "scale_models.json"
+DTYPES = {"float32": torch.float32, "bfloat16": torch.bfloat16, "float16": torch.float16}
 DATA_DIR = EXP_DIR / "data"
+DEFAULT_HIDDEN_SIZE = 896  # Qwen2.5-0.5B, the Experiment 2 model
+
+
+def scale_spec(key: str | None, dtype_override: str | None = None) -> dict[str, Any] | None:
+    """Experiment 3 model entry for NEOLOGISM_MODEL=key; None runs the original 0.5B Experiment 2."""
+    if not key:
+        return None
+    registry = json.loads(SCALE_CONFIG_PATH.read_text())
+    if key not in registry["models"]:
+        raise ValueError(f"Unknown NEOLOGISM_MODEL {key!r}; choose from {sorted(registry['models'])}")
+    entry = registry["models"][key]
+    dtype = dtype_override or entry["dtype"]
+    if dtype not in DTYPES:
+        raise ValueError(f"Unknown NEOLOGISM_DTYPE {dtype!r}; choose from {sorted(DTYPES)}")
+    return {
+        "scale_model": key,
+        "model_id": entry["model_id"],
+        "hidden_size": entry["hidden_size"],
+        "dtype": dtype,
+        "screening_model_id": registry["screening_model_id"],
+    }
+
+
+def output_root(base: Path, scale: dict[str, Any] | None) -> Path:
+    # Each model and dtype gets its own tree, so caches and embeddings never mix across scales.
+    if scale is None:
+        return base / "experiment_2"
+    return base / "experiment_3" / f"{scale['scale_model']}-{scale['dtype']}"
+
+
 # NEOLOGISM_OUTPUT_ROOT lets Colab write caches and results straight to Drive,
 # which also makes every stage resumable across disconnects.
-OUTPUT_ROOT = Path(os.environ.get("NEOLOGISM_OUTPUT_ROOT", PROJECT_ROOT / "outputs")).expanduser() / "experiment_2"
+OUTPUT_BASE = Path(os.environ.get("NEOLOGISM_OUTPUT_ROOT", PROJECT_ROOT / "outputs")).expanduser()
+SCALE = scale_spec(os.environ.get("NEOLOGISM_MODEL"), os.environ.get("NEOLOGISM_DTYPE"))
+OUTPUT_ROOT = output_root(OUTPUT_BASE, SCALE)
 FROZEN_MANIFEST = PROJECT_ROOT / "results" / "experiment_2" / "prepared_full_dataset" / "dataset_manifest.json"
 SCREEN_INT_FIELDS = ("words", "tokens", "paragraphs", "sentences", "example_indicators", "explanatory_transitions", "elaboration_score")
 SCREEN_FLOAT_FIELDS = ("lexical_diversity", "repeated_bigram_fraction", "repeated_trigram_fraction", "repeated_sentence_fraction")
@@ -63,7 +97,9 @@ SCREEN_BOOL_FIELDS = ("passes_limit", "preferred_range")
 FIGURE_DIR = OUTPUT_ROOT / "figures"
 
 
-def load_config(mode: str) -> dict[str, Any]:
+def load_config(mode: str, scale: dict[str, Any] | None = None) -> dict[str, Any]:
+    """Experiment 2 config; a scale spec (default: NEOLOGISM_MODEL) swaps only the model."""
+    scale = scale or SCALE
     config = json.loads(CONFIG_PATH.read_text())
     config["mode"] = mode
     config["mode_config"] = config[mode]
@@ -71,10 +107,33 @@ def load_config(mode: str) -> dict[str, Any]:
     for key in ("max_new_tokens", "epochs"):
         if key in config["mode_config"]:
             config[key] = config["mode_config"][key]
+    if scale:
+        if os.environ.get("NEOLOGISM_RESCREEN") == "1":
+            raise RuntimeError("Per-model re-screening is not supported: it would overwrite the committed 0.5B data")
+        # Data, templates, hyperparameters and seeds stay exactly as in Experiment 2.
+        config.update(scale)
+        config["experiment_name"] = "experiment_3_scale_replication"
+        config["model_path"] = f"../../models/{scale['model_id'].split('/')[-1]}"
     model_override = os.environ.get("QWEN_MODEL_PATH")
     model_path = Path(model_override or config["model_path"])
     config["resolved_model_path"] = str(model_path.expanduser().resolve() if model_override else (EXP_DIR / model_path).resolve())
     return config
+
+
+def neologism_parameters(config: dict[str, Any]) -> int:
+    return int(config.get("hidden_size", DEFAULT_HIDDEN_SIZE))
+
+
+def check_hidden_size(model, config: dict[str, Any]) -> int:
+    hidden = int(model.config.hidden_size)
+    expected = neologism_parameters(config)
+    if hidden != expected:
+        raise AssertionError(f"{config['resolved_model_path']} has hidden_size {hidden}, expected {expected} for {config['model_id']}")
+    return hidden
+
+
+def figure_subtitle(config: dict[str, Any]) -> str:
+    return f"{config['model_id'].split('/')[-1]} · one {neologism_parameters(config)}-D embedding · frozen model"
 
 
 def canonical_json(value: Any) -> str:
@@ -152,13 +211,16 @@ def runtime(config: dict[str, Any], seed: int = 1):
     tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True, use_fast=True)
     old_vocab, new_vocab, neo_id = add_exactly_one_token(tokenizer)
     assert tokenizer.encode(NEW_TOKEN, add_special_tokens=False) == [neo_id]
-    model, device, fallback = load_model(model_path, os.environ.get("NEOLOGISM_DEVICE", "auto"))
+    # Only scale runs set a dtype; they also keep a float32 master copy of the vector.
+    scaled = "dtype" in config
+    model, device, fallback = load_model(
+        model_path, os.environ.get("NEOLOGISM_DEVICE", "auto"), DTYPES[config["dtype"]] if scaled else None
+    )
     initial = random_initial_embedding(model.get_input_embeddings().weight, seed)
-    wrapper = FrozenLMWithNeologism(model, neo_id, initial)
-    hidden = int(model.config.hidden_size)
-    assert hidden == 896
-    assert wrapper.neo_embedding.numel() == 896
-    assert sum(p.numel() for p in wrapper.parameters() if p.requires_grad) == 896
+    wrapper = FrozenLMWithNeologism(model, neo_id, initial, torch.float32 if scaled else None)
+    hidden = check_hidden_size(model, config)
+    assert wrapper.neo_embedding.numel() == hidden
+    assert sum(p.numel() for p in wrapper.parameters() if p.requires_grad) == hidden
     assert all(not p.requires_grad for p in model.parameters())
     write_reproducibility(config, tokenizer, model, device, old_vocab, new_vocab, fallback)
     return tokenizer, model, wrapper, device, neo_id, old_vocab
@@ -237,7 +299,8 @@ def generate(wrapper, tokenizer, prompt, vector, max_new_tokens, device):
 def screen_signature(config, candidates):
     return {
         "stage": "screen",
-        "model_id": config["model_id"],
+        # Scale runs reuse the frozen 0.5B screen, so the cache names the model that produced it.
+        "model_id": config.get("screening_model_id", config["model_id"]),
         "prompt_hash": fingerprint(candidates),
         "decoding": {"do_sample": False, "max_new_tokens": config["max_new_tokens"]},
         "chat_template": True,
@@ -450,6 +513,8 @@ def stage_dataset(config):
     existing = json.loads(preferences_path.read_text()) if preferences_path.exists() else []
     by_id = {row["id"]: row for row in existing}
     missing = [row for row in train_pool[:required] if row["id"] not in by_id]
+    if missing and "scale_model" in config:
+        raise RuntimeError(f"Scale runs reuse the committed 0.5B pairs, but {len(missing)} are missing from {preferences_path}")
     if missing:
         tokenizer, model, wrapper, device, _, _ = runtime(config)
         for index, item in enumerate(missing, start=1):
@@ -587,7 +652,12 @@ def save_training_run(config, model, wrapper, tokenizer, device, neo_id, old_voc
         "model_path": config["resolved_model_path"], "new_token_id": neo_id,
     }, out_dir / "embedding.pt")
     write_csv(out_dir / "training_metrics.csv", metrics)
+    # Scale runs record peak GPU memory; smoke mode trains on full-length pairs, so its value is representative.
+    memory = {}
+    if "scale_model" in config and device.type == "cuda":
+        memory["peak_cuda_memory_gb"] = torch.cuda.max_memory_allocated(device) / 1e9
     json_dump(out_dir / "training_summary.json", {
+        **memory,
         "seed": seed, "kind": kind, "n_examples": n_examples,
         "initial_loss": initial_loss, "final_loss": final_loss,
         "final_mean_preference_margin": final_margin,
@@ -932,7 +1002,8 @@ def stage_analyze(config):
                 })
     write_csv(OUTPUT_ROOT / "embedding_analysis" / "ordinary_word_comparisons.csv", ordinary)
     create_figures(config, behavior, aggregates, cosine_rows)
-    write_summary(config, behavior, aggregates, training_summaries, cosine_rows)
+    model_parameters = sum(p.numel() for p in model.parameters())
+    write_summary(config, behavior, aggregates, training_summaries, cosine_rows, model_parameters)
 
 
 def create_figures(config, behavior, aggregates, cosine_rows):
@@ -942,7 +1013,7 @@ def create_figures(config, behavior, aggregates, cosine_rows):
     import numpy as np
 
     FIGURE_DIR.mkdir(parents=True, exist_ok=True)
-    subtitle = "Qwen2.5-0.5B-Instruct · one 896-D embedding · frozen model"
+    subtitle = figure_subtitle(config)
     conditions = ["base", "untrained", "trained", "explicit", "shuffled"]
     means = []
     for condition in conditions:
@@ -988,7 +1059,7 @@ def evidence_label(preference_ok, mean_delta, positive_rate):
     return "Absent"
 
 
-def write_summary(config, behavior, aggregates, training_summaries, cosine_rows):
+def write_summary(config, behavior, aggregates, training_summaries, cosine_rows, model_parameters):
     trained = [r for r in aggregates if r["condition"] == "trained"]
     shuffled = [r for r in aggregates if r["condition"] == "shuffled"]
     mean_delta = statistics.mean(r["mean_delta_base"] for r in trained)
@@ -1020,8 +1091,8 @@ def write_summary(config, behavior, aggregates, training_summaries, cosine_rows)
 
 ## Configuration
 
-- Model: Qwen/Qwen2.5-0.5B-Instruct
-- Trainable parameters: one 896-dimensional embedding; all 494,032,768 Qwen parameters frozen
+- Model: {config['model_id']}
+- Trainable parameters: one {neologism_parameters(config)}-dimensional embedding; all {model_parameters:,} Qwen parameters frozen
 - Primary syntax: `{config['primary_template']}`
 - Training examples: {config['mode_config']['train_count']}; held-out prompts: {config['mode_config']['heldout_count']}
 - Genuine seeds: {config['mode_config']['seeds']}; shuffled seeds: {config['mode_config']['shuffled_seeds']}

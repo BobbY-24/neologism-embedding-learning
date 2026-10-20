@@ -1,0 +1,33 @@
+{
+  "description": "Experiment 3 (RQ6): within-family scale replication. Select a model with NEOLOGISM_MODEL=<key>. Everything except the model and its dtype comes from experiments/experiment_2/configs/default.json.",
+  "dataset_policy": "reuse_frozen_0.5b",
+  "dataset_note": "The committed Experiment 2 pairs, held-out prompts and screening outputs are reused unchanged, so the rejected answers are Qwen2.5-0.5B's own concise outputs rather than the larger model's. Per-model re-screening is refused (NEOLOGISM_RESCREEN=1 raises).",
+  "screening_model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+  "reference": "qwen2.5-0.5b",
+  "models": {
+    "qwen2.5-0.5b": {
+      "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+      "hidden_size": 896,
+      "num_hidden_layers": 24,
+      "parameters": 494032768,
+      "dtype": "float32",
+      "note": "Reference. Its canonical results come from Experiment 2 (outputs/experiment_2). This entry exists for a bf16 dtype control (NEOLOGISM_DTYPE=bfloat16) and for local smoke tests of the scale code path."
+    },
+    "qwen2.5-1.5b": {
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+      "hidden_size": 1536,
+      "num_hidden_layers": 28,
+      "parameters": 1543714304,
+      "dtype": "float32",
+      "note": "float32 weights are about 6.2 GB, well inside an L4's 24 GB, so this keeps the 0.5B run's numerics."
+    },
+    "qwen2.5-3b": {
+      "model_id": "Qwen/Qwen2.5-3B-Instruct",
+      "hidden_size": 2048,
+      "num_hidden_layers": 36,
+      "parameters": 3085938688,
+      "dtype": "bfloat16",
+      "note": "float32 weights would be about 12.3 GB plus an estimated 5-7 GB of backward activations (no gradient checkpointing in eval mode), too close to an L4's ~22 GB usable. bfloat16 halves the weights to about 6.2 GB; the trainable vector keeps a float32 master copy. On an A100 set NEOLOGISM_DTYPE=float32 to remove the dtype difference."
+    }
+  }
+}

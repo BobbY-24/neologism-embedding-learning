@@ -5,7 +5,7 @@
 
 > Instead of fine-tuning an entire language model, can we add one new token and optimize only its embedding from preference pairs—and when does that embedding begin to behave like a reusable word rather than a soft control vector?
 
-> **Status / Scope: work in progress.** Experiment 1 and Experiment 2 **quick mode** are complete on `Qwen/Qwen2.5-0.5B-Instruct`, which serves as a development and mechanistic testbed. Full multi-seed Experiment 2, the LoRA baseline and the interpretability analyses are **implemented and CPU-tested but not yet run**. They run on a Colab GPU through [`notebooks/colab_runner.ipynb`](notebooks/colab_runner.ipynb). Larger-model replications have not started. Current results establish within-model behavior only and should not be generalized to language models broadly.
+> **Status / Scope: work in progress.** Experiment 1 and Experiment 2 **quick mode** are complete on `Qwen/Qwen2.5-0.5B-Instruct`, which serves as a development and mechanistic testbed. Full multi-seed Experiment 2, the LoRA baseline and the interpretability analyses are **implemented and CPU-tested but not yet run**. They run on a Colab GPU through [`notebooks/colab_runner.ipynb`](notebooks/colab_runner.ipynb). A within-family scale replication (Qwen2.5-1.5B and 3B) is also implemented and CPU-tested but not run. Cross-family replication has not started. Current results establish within-model behavior only and should not be generalized to language models broadly.
 
 ## Done vs pending
 
@@ -18,7 +18,8 @@
 | Interpretability: vocabulary neighbours, logit lens, activation patching | ✅ | ⏳ not run |
 | Colab driver notebook | ✅ | n/a |
 | CPU tests (tiny random Qwen2; no download) | ✅ in CI | n/a |
-| Within-family scale (1.5B, 3B) and cross-family replication | ❌ | ❌ |
+| Experiment 3: within-family scale (1.5B in fp32, 3B in bf16; frozen 0.5B data; full protocol) | ✅ | ⏳ not run; needs the 0.5B full run first |
+| Cross-family replication | ❌ | ❌ |
 
 Everything below the "Current result" heading comes from completed runs. Sections marked *pending* describe methods only and report no numbers.
 
@@ -105,7 +106,7 @@ Some long generations were also repetitive: trained outputs had repeated-bigram 
 | Seed robustness | **Unknown** | Full multi-seed run implemented, not yet executed |
 | Advantage over a LoRA of similar size | **Unknown** | LoRA baseline implemented, not yet executed |
 | Where in the network the token acts | **Unknown** | Logit lens / patching implemented, not yet executed |
-| Scale generalization | **Unknown** | No larger model tested |
+| Scale generalization | **Unknown** | 1.5B / 3B replication implemented, not yet executed |
 | Cross-family generalization | **Unknown** | Qwen only |
 | Richer concepts | **Unknown** | Length/elaboration only |
 
@@ -129,7 +130,7 @@ Each arm is evaluated with the token template and on plain prompts. LoRA is alwa
 
 Figures are written to `OUTPUT_ROOT/experiment_2/figures/` (`interp_logit_lens_stop.png`, `interp_patching.png`, `interp_residual_change.png`, `lora_vs_neologism.png`) alongside Experiment 2's own figures.
 
-Read [Experiment 1](docs/experiment_1.md), [Experiment 2](docs/experiment_2.md), [limitations](docs/limitations.md), and the [research roadmap](docs/research_roadmap.md) for the complete progression.
+Read [Experiment 1](docs/experiment_1.md), [Experiment 2](docs/experiment_2.md), [Experiment 3 (scale)](docs/experiment_3.md), [limitations](docs/limitations.md), and the [research roadmap](docs/research_roadmap.md) for the complete progression.
 
 ## Reproduce
 
@@ -168,7 +169,8 @@ The full multi-seed Experiment 2, the LoRA baseline and the interpretability ana
 1. Open [`notebooks/colab_runner.ipynb`](notebooks/colab_runner.ipynb) in Colab (File → Open notebook → GitHub → `BobbY-24/neologism-embedding-learning`) and choose a GPU runtime (L4 or A100).
 2. Optional: add `HF_TOKEN` under 🔑 Secrets with notebook access. The model is public, and the token is never printed.
 3. Run the cells top to bottom. Results go to `MyDrive/neologism-embedding-learning/outputs`, and each stage resumes after a disconnect.
-4. The last cell writes `results_full.zip` (CSV/JSON/PNG/summary only), which can be copied into `results/experiment_2/full/`.
+4. The Phase 4 cell writes `results_full.zip` (CSV/JSON/PNG/summary only), which can be copied into `results/experiment_2/full/`.
+5. Phase 5 is the scale replication. Set `SCALE_MODEL` to `qwen2.5-1.5b`, run the section, then repeat with `qwen2.5-3b`. It reuses the frozen 0.5B pairs and prompts, writes to `outputs/experiment_3/<model>-<dtype>/`, compares every finished size with the 0.5B run, and bundles `results_scale.zip`. The dataset and dtype choices are explained in [docs/experiment_3.md](docs/experiment_3.md).
 
 The same scripts run anywhere with a checkpoint:
 
@@ -179,6 +181,9 @@ python scripts/run_experiment2.py --mode full --stage all
 python scripts/run_interp.py --mode full
 python scripts/run_lora_baseline.py --mode full
 python scripts/make_figures.py --mode full
+
+# Experiment 3: the same stages with NEOLOGISM_MODEL=qwen2.5-1.5b or qwen2.5-3b, then
+python scripts/compare_scales.py --mode full
 ```
 
 Full mode reuses the committed screening outputs and aborts if the train/held-out split it rebuilds differs from the frozen manifest. All conditions, base included, are generated in the same runtime, so they share one device and dtype.
@@ -192,16 +197,18 @@ src/neologism_embedding/       frozen-model wrapper and experiment pipelines
   lora_baseline.py             LoRA arm with the same pairs and DPO objective
   interp.py                    neighbours, logit lens, activation patching
   figures.py                   interpretability and LoRA figures
+  scale.py                     Experiment 3 cross-size comparison
 notebooks/colab_runner.ipynb   Colab GPU driver for the full runs
 experiments/experiment_1/      3-pair pilot data and configuration
 experiments/experiment_2/      100 candidates, frozen split, 20 prefix-purified pairs
+experiments/experiment_3/      scale-replication model registry (0.5B, 1.5B, 3B)
 results/experiment_1/          pilot metrics and diagnostics
 results/experiment_2/quick/    completed quick-run metrics, figures, and examples
 results/experiment_2/prepared_full_dataset/
                                prepared full split; no full behavioral results
 docs/                          experiment narratives, limitations, and roadmap
 tests/                         freezing, gradient, data, split, cache, LoRA, patching,
-                               figure and notebook checks (CPU, tiny random models)
+                               scale, figure and notebook checks (CPU, tiny random models)
 ```
 
 ## Origin and citation

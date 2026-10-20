@@ -78,6 +78,10 @@ class FrozenLMWithNeologism(nn.Module):
     The tokenizer can grow by one without resizing the model. Every occurrence of
     neo_token_id is replaced in inputs_embeds, so no pretrained embedding row is
     writable and the LM output vocabulary remains untouched.
+
+    trainable_dtype keeps the trainable vector in a wider dtype than a bf16/fp16
+    model (a float32 master copy, cast down at the input). None keeps it in the
+    model's dtype, which is a no-op for float32 models.
     """
 
     def __init__(
@@ -85,20 +89,23 @@ class FrozenLMWithNeologism(nn.Module):
         base_model: nn.Module,
         neo_token_id: int,
         initial_embedding: torch.Tensor,
+        trainable_dtype: torch.dtype | None = None,
     ) -> None:
         super().__init__()
         freeze_pretrained_model(base_model)
         self.base_model = base_model
         self.neo_token_id = int(neo_token_id)
         embedding = base_model.get_input_embeddings().weight
-        self.neo_embedding = nn.Parameter(initial_embedding.to(device=embedding.device, dtype=embedding.dtype))
+        dtype = embedding.dtype if trainable_dtype is None else trainable_dtype
+        self.neo_embedding = nn.Parameter(initial_embedding.to(device=embedding.device, dtype=dtype))
 
     def embed(self, input_ids: torch.Tensor, vector: torch.Tensor | None = None) -> torch.Tensor:
         mask = input_ids.eq(self.neo_token_id)
         # Replace the out-of-table new id before calling the frozen embedding layer.
         safe_ids = input_ids.masked_fill(mask, 0)
         inputs_embeds = self.base_model.get_input_embeddings()(safe_ids)
-        chosen_vector = self.neo_embedding if vector is None else vector
+        # .to() returns the same tensor when the dtypes already match.
+        chosen_vector = (self.neo_embedding if vector is None else vector).to(inputs_embeds.dtype)
         return torch.where(mask.unsqueeze(-1), chosen_vector.view(1, 1, -1), inputs_embeds)
 
     def forward(self, input_ids: torch.Tensor, vector: torch.Tensor | None = None, **kwargs):

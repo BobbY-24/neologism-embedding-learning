@@ -47,11 +47,11 @@ def _mean_by(rows, key, value, where=lambda r: True):
     return keys, [statistics.mean(groups[k]) for k in keys]
 
 
-def _title(ax, title, n_note):
-    ax.set_title(f"{title}\n{SUBTITLE} · {n_note}", loc="left", fontsize=10, color=INK)
+def _title(ax, title, n_note, subtitle=SUBTITLE):
+    ax.set_title(f"{title}\n{subtitle} · {n_note}", loc="left", fontsize=10, color=INK)
 
 
-def logit_lens_stop_figure(interp_dir: Path, figure_dir: Path):
+def logit_lens_stop_figure(interp_dir: Path, figure_dir: Path, subtitle: str = SUBTITLE):
     rows = _read(interp_dir / "logit_lens_stop.csv")
     if not rows:
         return None
@@ -71,14 +71,14 @@ def logit_lens_stop_figure(interp_dir: Path, figure_dir: Path):
     ax.set_xlabel("Layer (−1 = embeddings)")
     ax.set_ylabel("Δ logit-lens log p(<|im_end|>) vs no token")
     ax.legend(frameon=False)
-    _title(ax, "Stop probability after the concise answer, decoded at each layer", f"{n} seed×prompt pairs; <0 = less likely to stop")
+    _title(ax, "Stop probability after the concise answer, decoded at each layer", f"{n} seed×prompt pairs; <0 = less likely to stop", subtitle)
     fig.tight_layout()
     path = figure_dir / "interp_logit_lens_stop.png"
     fig.savefig(path, dpi=150); plt.close(fig)
     return path
 
 
-def patching_figure(interp_dir: Path, figure_dir: Path):
+def patching_figure(interp_dir: Path, figure_dir: Path, subtitle: str = SUBTITLE):
     rows = _read(interp_dir / "patching.csv")
     if not rows:
         return None
@@ -101,14 +101,14 @@ def patching_figure(interp_dir: Path, figure_dir: Path):
     ax.set_ylabel("Fraction of trained effect restored")
     ax.legend(frameon=False)
     n = len({r["prompt_id"] for r in rows})
-    _title(ax, "Activation patching: trained → untrained run, token position only", f"{n} held-out prompts")
+    _title(ax, "Activation patching: trained → untrained run, token position only", f"{n} held-out prompts", subtitle)
     fig.tight_layout()
     path = figure_dir / "interp_patching.png"
     fig.savefig(path, dpi=150); plt.close(fig)
     return path
 
 
-def residual_change_figure(interp_dir: Path, figure_dir: Path):
+def residual_change_figure(interp_dir: Path, figure_dir: Path, subtitle: str = SUBTITLE):
     rows = _read(interp_dir / "residual_change.csv")
     if not rows:
         return None
@@ -121,14 +121,14 @@ def residual_change_figure(interp_dir: Path, figure_dir: Path):
     ax.set_ylabel("‖h_trained − h_untrained‖ / ‖h_untrained‖")
     ax.set_yscale("log")
     ax.legend(frameon=False)
-    _title(ax, "Where the learned vector changes the residual stream", "mean over seeds and prompts")
+    _title(ax, "Where the learned vector changes the residual stream", "mean over seeds and prompts", subtitle)
     fig.tight_layout()
     path = figure_dir / "interp_residual_change.png"
     fig.savefig(path, dpi=150); plt.close(fig)
     return path
 
 
-def lora_comparison_figure(table_path: Path, figure_dir: Path):
+def lora_comparison_figure(table_path: Path, figure_dir: Path, subtitle: str = SUBTITLE):
     rows = _read(table_path)
     if not rows:
         return None
@@ -152,32 +152,33 @@ def lora_comparison_figure(table_path: Path, figure_dir: Path):
     ax.set_xticks(x, labels)
     ax.set_ylabel("Mean Δ words vs base")
     ax.legend(frameon=False)
-    _title(ax, "Neologism vs LoRA: held-out length effect and leakage", "error bars: seed min–max")
+    _title(ax, "Neologism vs LoRA: held-out length effect and leakage", "error bars: seed min–max", subtitle)
     fig.tight_layout()
     path = figure_dir / "lora_vs_neologism.png"
     fig.savefig(path, dpi=150); plt.close(fig)
     return path
 
 
-def make_all(output_root: Path, mode: str):
+def make_all(output_root: Path, mode: str, subtitle: str = SUBTITLE):
     figure_dir = output_root / "figures"
     figure_dir.mkdir(parents=True, exist_ok=True)
     interp_dir = output_root / "interp" / mode
     made = [
-        logit_lens_stop_figure(interp_dir, figure_dir),
-        patching_figure(interp_dir, figure_dir),
-        residual_change_figure(interp_dir, figure_dir),
-        lora_comparison_figure(output_root / "lora_baseline" / f"lora_vs_neologism_{mode}.csv", figure_dir),
+        logit_lens_stop_figure(interp_dir, figure_dir, subtitle),
+        patching_figure(interp_dir, figure_dir, subtitle),
+        residual_change_figure(interp_dir, figure_dir, subtitle),
+        lora_comparison_figure(output_root / "lora_baseline" / f"lora_vs_neologism_{mode}.csv", figure_dir, subtitle),
     ]
     return [path for path in made if path]
 
 
 def main():
-    from .experiment2 import OUTPUT_ROOT
+    from .experiment2 import OUTPUT_ROOT, load_config
     parser = argparse.ArgumentParser(description="Interpretability and LoRA-baseline figures")
     parser.add_argument("--mode", choices=["quick", "full", "smoke"], default="full")
     args = parser.parse_args()
-    for path in make_all(OUTPUT_ROOT, args.mode):
+    subtitle = f"{load_config(args.mode)['model_id'].split('/')[-1]} · frozen model"
+    for path in make_all(OUTPUT_ROOT, args.mode, subtitle):
         print(path)
 
 

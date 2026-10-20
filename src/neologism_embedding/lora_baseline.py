@@ -45,6 +45,7 @@ from .experiment2 import (
     generate,
     load_compatible_cache,
     load_config,
+    neologism_parameters,
     runtime,
     save_cache,
     stage_dataset,
@@ -52,7 +53,6 @@ from .experiment2 import (
 )
 
 ARM_CONFIG_PATH = EXP_DIR / "configs" / "lora_baseline.json"
-NEOLOGISM_PARAMETERS = 896
 LAYER_INDEX = re.compile(r"\.layers\.(\d+)\.")
 
 
@@ -208,7 +208,7 @@ def run_arm_seed(config, arm_name, arm, seed, preferences, heldout, rows, cache_
             "arm": arm_name, "seed": seed, "n_examples": n_examples, "arm_config": arm,
             "trainable_parameters": counts["trainable_parameters"],
             "expected_trainable_parameters": expected,
-            "ratio_to_neologism": counts["trainable_parameters"] / NEOLOGISM_PARAMETERS,
+            "ratio_to_neologism": counts["trainable_parameters"] / neologism_parameters(config),
             "initial_loss": initial_loss, "final_loss": final_loss, "final_mean_preference_margin": final_margin,
             "pretrained_checksums_unchanged": True,
         })
@@ -259,7 +259,7 @@ def summarize(config, arms, rows, behavior):
         summary_path = seed_output_dir(config, seed, "genuine") / "training_summary.json"
         summary = json.loads(summary_path.read_text()) if summary_path.exists() else {}
         # The plain prompt never contains the token, so its output is the base output.
-        entry("neologism", seed, NEOLOGISM_PARAMETERS, deltas, [], "identical_to_base_by_construction", summary)
+        entry("neologism", seed, neologism_parameters(config), deltas, [], "identical_to_base_by_construction", summary)
     for arm_name in arms:
         for seed in sorted({r["seed"] for r in rows if r["arm"] == arm_name}):
             selected = [r for r in rows if r["arm"] == arm_name and r["seed"] == seed]

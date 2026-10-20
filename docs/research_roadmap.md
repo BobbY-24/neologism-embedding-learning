@@ -40,7 +40,7 @@ Does the phenomenon survive a controlled within-family progression?
 Qwen2.5-0.5B → Qwen ~1.5B → Qwen ~3B → larger models if resources permit
 ```
 
-**Current evidence:** Unknown. Compare behavior strength, repetition, position sensitivity, optimization stability, and memory/runtime at every scale.
+**Current evidence:** Unknown. Compare behavior strength, repetition, position sensitivity, optimization stability, and memory/runtime at every scale. The 1.5B and 3B replication is implemented as [Experiment 3](experiment_3.md) and has not been run yet.
 
 ## RQ7 — Cross-family replication
 
