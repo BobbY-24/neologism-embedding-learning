@@ -1,0 +1,25 @@
+{
+  "arm": "lora_matched",
+  "seed": 2,
+  "n_examples": 20,
+  "arm_config": {
+    "rank": 1,
+    "alpha": 2,
+    "dropout": 0.0,
+    "target_modules": [
+      "v_proj"
+    ],
+    "layers": [
+      0
+    ],
+    "learning_rate": 0.001,
+    "budget_note": "Closest standard LoRA to 896 parameters: rank 1 on one 896->128 projection = 1,024 parameters."
+  },
+  "trainable_parameters": 1024,
+  "expected_trainable_parameters": 1024,
+  "ratio_to_neologism": 1.1428571428571428,
+  "initial_loss": 0.6931471824645996,
+  "final_loss": 0.13809354715049266,
+  "final_mean_preference_margin": 20.1822096824646,
+  "pretrained_checksums_unchanged": true
+}

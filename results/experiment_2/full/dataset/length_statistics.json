@@ -1,0 +1,20 @@
+{
+  "rejected_words": {
+    "minimum": 63,
+    "maximum": 99,
+    "mean": 82.05,
+    "median": 83.5
+  },
+  "chosen_words": {
+    "minimum": 352,
+    "maximum": 500,
+    "mean": 422.5,
+    "median": 434.5
+  },
+  "length_gap": {
+    "minimum": 270,
+    "maximum": 414,
+    "mean": 340.45,
+    "median": 346.0
+  }
+}

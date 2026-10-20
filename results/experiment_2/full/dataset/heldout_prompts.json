@@ -1,0 +1,254 @@
+[
+  {
+    "id": "computing_04",
+    "domain": "computing",
+    "topic": "cache",
+    "prompt": "In a few sentences, explain why computers use caches.",
+    "words": 79
+  },
+  {
+    "id": "history_03",
+    "domain": "history",
+    "topic": "silk_road",
+    "prompt": "In 2–3 sentences, explain the importance of the Silk Road.",
+    "words": 89
+  },
+  {
+    "id": "economics_07",
+    "domain": "economics",
+    "topic": "public_goods",
+    "prompt": "In 2–3 sentences, explain what economists mean by a public good.",
+    "words": 71
+  },
+  {
+    "id": "history_06",
+    "domain": "history",
+    "topic": "renaissance",
+    "prompt": "In a few sentences, explain what the Renaissance was.",
+    "words": 107
+  },
+  {
+    "id": "engineering_06",
+    "domain": "engineering",
+    "topic": "shock_absorber",
+    "prompt": "In a few sentences, explain how a car's shock absorbers work.",
+    "words": 91
+  },
+  {
+    "id": "economics_04",
+    "domain": "economics",
+    "topic": "comparative_advantage",
+    "prompt": "In a few sentences, explain comparative advantage.",
+    "words": 82
+  },
+  {
+    "id": "computing_06",
+    "domain": "computing",
+    "topic": "machine_learning",
+    "prompt": "Briefly explain what machine learning is.",
+    "words": 115
+  },
+  {
+    "id": "science_06",
+    "domain": "everyday_science",
+    "topic": "soap_cleaning",
+    "prompt": "In a few sentences, explain how soap removes grease.",
+    "words": 67
+  },
+  {
+    "id": "computing_01",
+    "domain": "computing",
+    "topic": "binary",
+    "prompt": "In 2–3 sentences, explain why computers use binary.",
+    "words": 64
+  },
+  {
+    "id": "science_02",
+    "domain": "everyday_science",
+    "topic": "blue_sky",
+    "prompt": "Briefly explain why the sky appears blue.",
+    "words": 95
+  },
+  {
+    "id": "math_01",
+    "domain": "mathematics",
+    "topic": "prime_numbers",
+    "prompt": "In 2–3 sentences, explain what a prime number is.",
+    "words": 50
+  },
+  {
+    "id": "psychology_04",
+    "domain": "psychology",
+    "topic": "sleep_memory",
+    "prompt": "In a few sentences, explain how sleep supports memory.",
+    "words": 75
+  },
+  {
+    "id": "math_02",
+    "domain": "mathematics",
+    "topic": "pythagorean_theorem",
+    "prompt": "Give a concise explanation of the Pythagorean theorem.",
+    "words": 90
+  },
+  {
+    "id": "geography_08",
+    "domain": "geography",
+    "topic": "volcano_locations",
+    "prompt": "Give a short explanation of why many volcanoes occur near plate boundaries.",
+    "words": 119
+  },
+  {
+    "id": "physics_03",
+    "domain": "physics",
+    "topic": "electric_current",
+    "prompt": "In 2–3 sentences, explain what electric current is.",
+    "words": 48
+  },
+  {
+    "id": "computing_03",
+    "domain": "computing",
+    "topic": "encryption",
+    "prompt": "Briefly explain what encryption does.",
+    "words": 101
+  },
+  {
+    "id": "science_07",
+    "domain": "everyday_science",
+    "topic": "thunder_delay",
+    "prompt": "Give a concise explanation of why thunder is heard after lightning is seen.",
+    "words": 90
+  },
+  {
+    "id": "physics_01",
+    "domain": "physics",
+    "topic": "airplane_lift",
+    "prompt": "Give a short explanation of how airplane wings generate lift.",
+    "words": 90
+  },
+  {
+    "id": "biology_08",
+    "domain": "biology",
+    "topic": "hibernation",
+    "prompt": "Give a concise explanation of how hibernation helps animals survive.",
+    "words": 112
+  },
+  {
+    "id": "psychology_02",
+    "domain": "psychology",
+    "topic": "confirmation_bias",
+    "prompt": "Briefly explain confirmation bias.",
+    "words": 56
+  },
+  {
+    "id": "psychology_07",
+    "domain": "psychology",
+    "topic": "stress_response",
+    "prompt": "In 2–3 sentences, explain the fight-or-flight response.",
+    "words": 68
+  },
+  {
+    "id": "biology_02",
+    "domain": "biology",
+    "topic": "natural_selection",
+    "prompt": "In a few sentences, explain natural selection.",
+    "words": 79
+  },
+  {
+    "id": "math_07",
+    "domain": "mathematics",
+    "topic": "symmetry",
+    "prompt": "In 2–3 sentences, explain mathematical symmetry.",
+    "words": 72
+  },
+  {
+    "id": "psychology_05",
+    "domain": "psychology",
+    "topic": "placebo_effect",
+    "prompt": "Briefly explain the placebo effect.",
+    "words": 119
+  },
+  {
+    "id": "physics_08",
+    "domain": "physics",
+    "topic": "refraction",
+    "prompt": "Briefly explain why a straw looks bent in water.",
+    "words": 75
+  },
+  {
+    "id": "knowledge_06",
+    "domain": "general_knowledge",
+    "topic": "scientific_theory",
+    "prompt": "Give a short explanation of what a scientific theory is.",
+    "words": 85
+  },
+  {
+    "id": "biology_01",
+    "domain": "biology",
+    "topic": "photosynthesis",
+    "prompt": "Give a concise explanation of how photosynthesis works.",
+    "words": 114
+  },
+  {
+    "id": "computing_07",
+    "domain": "computing",
+    "topic": "dns",
+    "prompt": "In 2–3 sentences, explain what the Domain Name System does.",
+    "words": 77
+  },
+  {
+    "id": "geography_03",
+    "domain": "geography",
+    "topic": "desert_climate",
+    "prompt": "In 2–3 sentences, explain why many deserts are dry.",
+    "words": 70
+  },
+  {
+    "id": "history_07",
+    "domain": "history",
+    "topic": "cold_war",
+    "prompt": "Give a concise explanation of why the Cold War was called cold.",
+    "words": 111
+  },
+  {
+    "id": "knowledge_01",
+    "domain": "general_knowledge",
+    "topic": "democracy",
+    "prompt": "In 2–3 sentences, explain the basic idea of democracy.",
+    "words": 70
+  },
+  {
+    "id": "knowledge_04",
+    "domain": "general_knowledge",
+    "topic": "maps_scale",
+    "prompt": "In a few sentences, explain what a map scale means.",
+    "words": 88
+  },
+  {
+    "id": "physics_04",
+    "domain": "physics",
+    "topic": "sound_pitch",
+    "prompt": "Give a concise explanation of what determines a sound's pitch.",
+    "words": 76
+  },
+  {
+    "id": "health_06",
+    "domain": "health",
+    "topic": "muscle_growth",
+    "prompt": "In a few sentences, explain how resistance training promotes muscle growth.",
+    "words": 96
+  },
+  {
+    "id": "knowledge_07",
+    "domain": "general_knowledge",
+    "topic": "jury",
+    "prompt": "In 2–3 sentences, explain the role of a jury in a trial.",
+    "words": 65
+  },
+  {
+    "id": "psychology_01",
+    "domain": "psychology",
+    "topic": "working_memory",
+    "prompt": "In 2–3 sentences, explain what working memory is.",
+    "words": 56
+  }
+]

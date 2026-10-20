@@ -10,7 +10,7 @@ Only Qwen has been tested. Architecture, tokenizer, chat template, pretraining d
 
 ## Seed coverage
 
-Experiment 2 quick mode has one genuine initialization and one shuffled-control initialization. Its prompt-level bootstrap interval does not measure initialization uncertainty. The five-seed configuration is prepared, not executed.
+The full run has five genuine and three shuffled initializations. Effect sizes differ about 3× across seeds, so a single seed's prompt-level bootstrap interval understates the real uncertainty. Five seeds remain a small sample of initializations. Length is measured under a 512-token cap that truncates the largest effects, and word count overstates useful elaboration because long outputs are often repetitive.
 
 ## One development concept
 

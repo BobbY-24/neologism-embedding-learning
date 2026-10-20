@@ -1,0 +1,17 @@
+{
+  "initialization_seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "shuffled_seeds": [
+    1,
+    2,
+    3
+  ],
+  "split_seed": 20260816,
+  "shuffle_seed": 991,
+  "bootstrap_seed": 31415
+}

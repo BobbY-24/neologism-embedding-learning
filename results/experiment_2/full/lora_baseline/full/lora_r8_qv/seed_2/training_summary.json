@@ -1,0 +1,24 @@
+{
+  "arm": "lora_r8_qv",
+  "seed": 2,
+  "n_examples": 20,
+  "arm_config": {
+    "rank": 8,
+    "alpha": 16,
+    "dropout": 0.0,
+    "target_modules": [
+      "q_proj",
+      "v_proj"
+    ],
+    "layers": null,
+    "learning_rate": 0.0001,
+    "budget_note": "Typical LoRA setting (rank 8, alpha 16, lr 1e-4 as in qwen-lora-finetuning), q_proj and v_proj in every layer. Parameter count is reported, not matched."
+  },
+  "trainable_parameters": 540672,
+  "expected_trainable_parameters": 540672,
+  "ratio_to_neologism": 603.4285714285714,
+  "initial_loss": 0.6931471824645996,
+  "final_loss": 0.023282433010172097,
+  "final_mean_preference_margin": 42.26280059814453,
+  "pretrained_checksums_unchanged": true
+}

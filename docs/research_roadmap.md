@@ -12,25 +12,25 @@ Can one embedding encode preference information while the model is frozen?
 
 Does that fitted information change generation in the intended direction?
 
-**Current evidence:** Moderate within-model evidence from one quick seed.
+**Current evidence:** Strong in length: 5/5 seeds, +240.9 words on average. Output quality degrades substantially (repetition; 47% of outputs hit the 512-token cap).
 
 ## RQ3 — Held-out topic transfer
 
 Does the effect transfer to unseen prompts and topics in the same model?
 
-**Current evidence:** Preliminary moderate evidence on ten quick-run prompts.
+**Current evidence:** Strong within the model: 97–100% of 36 topic-disjoint held-out prompts lengthened per seed.
 
 ## RQ4 — Compositionality
 
 Does behavior survive position and syntax changes without retraining?
 
-**Current evidence:** Absent / weak; effects are highly context-dependent.
+**Current evidence:** Absent. The full-run effect drops from +240 words at the prefix to +25–35 as a suffix or in an alternate form.
 
 ## RQ5 — Seed robustness
 
 Do independent initializations fit the objective and induce comparable behavior? Do final embeddings converge geometrically?
 
-**Current evidence:** Unknown. Next step: execute the prepared five-seed genuine and at least three-seed shuffled controls.
+**Current evidence:** Partial. All five seeds fit and lengthen outputs, but effect sizes differ about 3× (+114 to +349 words) and the final embeddings are nearly orthogonal (cosine 0.01–0.12). They do not converge geometrically.
 
 ## RQ6 — Scale generalization
 
@@ -56,7 +56,7 @@ Candidate criteria include held-out topic transfer, syntax and position invarian
 
 ## Planned sequence
 
-1. Complete Experiment 2 multi-seed runs on the 0.5B testbed, together with the LoRA baseline and the logit-lens / activation-patching analyses. All three are implemented and run on Colab via `notebooks/colab_runner.ipynb`.
+1. ~~Complete Experiment 2 multi-seed runs on the 0.5B testbed, with the LoRA baseline and logit-lens / activation-patching analyses.~~ Done on 2026-10-20 (`results/experiment_2/full/`).
 2. Replicate within the Qwen family at approximately 1.5B and 3B.
 3. Replicate across model families under matched data and decoding.
 4. Move beyond length to richer concepts with purpose-built behavioral metrics.

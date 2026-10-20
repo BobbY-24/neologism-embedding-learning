@@ -1,0 +1,37 @@
+{
+  "seed": 3,
+  "kind": "genuine",
+  "n_examples": 1,
+  "initial_loss": 0.6931471824645996,
+  "final_loss": 0.4876474440097809,
+  "final_mean_preference_margin": 4.644500732421875,
+  "embedding_movement": 0.6234428286552429,
+  "embedding_initial_final_cosine": 0.5970967411994934,
+  "pretrained_checksums_unchanged": true,
+  "max_no_token_logit_difference": 0.0,
+  "shuffle_flips": [
+    false
+  ],
+  "initial_state": [
+    {
+      "example_index": 0,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -94.98191833496094,
+      "rejected_log_probability": -42.03765106201172,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    }
+  ],
+  "final_state": [
+    {
+      "example_index": 0,
+      "loss": 0.4876474440097809,
+      "chosen_log_probability": -91.94352722167969,
+      "rejected_log_probability": -43.643760681152344,
+      "r_chosen": 3.03839111328125,
+      "r_rejected": -1.606109619140625,
+      "preference_margin": 4.644500732421875
+    }
+  ]
+}

@@ -1,0 +1,324 @@
+seed,vector,space,rank,token_id,token,decoded,cosine_similarity
+1,initial,input_embedding,1,918,.l,.l,0.12022402137517929
+1,initial,input_embedding,2,129224,ãĥŃãĥ¼,ロー,0.11796890199184418
+1,initial,input_embedding,3,116385,é¢Īæ¤İ,颈椎,0.11787839978933334
+1,initial,input_embedding,4,3935,Ġsizeof, sizeof,0.11528106033802032
+1,initial,input_embedding,5,107354,å¡«åĨĻ,填写,0.11300957202911377
+1,initial,input_embedding,6,4142,âĢĵ,–,0.11258284747600555
+1,initial,input_embedding,7,124082,Ø¦,ئ,0.11203334480524063
+1,initial,input_embedding,8,90066,Ä±kl,ıkl,0.10990831255912781
+1,initial,input_embedding,9,111076,åĩĨç¡®æĢ§,准确性,0.10969805717468262
+1,initial,input_embedding,10,131766,Ġë§ĪìĿĮ, 마음,0.109632208943367
+1,initial,input_embedding,11,6773,Ġarm, arm,0.10666647553443909
+1,initial,input_embedding,12,1365,ĠâĢĵ, –,0.10600965470075607
+1,initial,input_embedding,13,116692,èĦ¾èĥĥ,脾胃,0.10492613166570663
+1,initial,input_embedding,14,111356,åĭ¤å¥ĭ,勤奋,0.10431599617004395
+1,initial,input_embedding,15,36998,ĠÐºÐ¾Ð½, кон,0.10375124216079712
+1,initial,input_embedding,16,65663,Ġmastery, mastery,0.10334564000368118
+1,initial,input_embedding,17,124807,×ķ×ł×Ļ,וני,0.10285903513431549
+1,initial,input_embedding,18,112410,æĺ¯æľĢå¥½çļĦ,是最好的,0.10253182798624039
+1,initial,input_embedding,19,25506,Ġliver, liver,0.10198214650154114
+1,initial,input_embedding,20,44900,Ġposterior, posterior,0.10175609588623047
+1,learned,input_embedding,1,112653,ä¸ĵåľº,专场,0.13388517498970032
+1,learned,input_embedding,2,118380,å°ģè£ħ,封装,0.12873317301273346
+1,learned,input_embedding,3,91228,ĠEquivalent, Equivalent,0.12572889029979706
+1,learned,input_embedding,4,42237,ĠFusion, Fusion,0.12411376088857651
+1,learned,input_embedding,5,104440,ç»´ä¿®,维修,0.12275108695030212
+1,learned,input_embedding,6,38596,ĠHil, Hil,0.12099844217300415
+1,learned,input_embedding,7,100897,è¾£,辣,0.12027817964553833
+1,learned,input_embedding,8,121562,èķĻ,蕙,0.11959599703550339
+1,learned,input_embedding,9,113645,æ¼Ķç¤º,演示,0.1164097860455513
+1,learned,input_embedding,10,20017,Ġinsight, insight,0.1157444417476654
+1,learned,input_embedding,11,73713,ĠKelley, Kelley,0.11506854742765427
+1,learned,input_embedding,12,113469,åĺ¿åĺ¿,嘿嘿,0.11405235528945923
+1,learned,input_embedding,13,103224,å´ĸ,崖,0.11250634491443634
+1,learned,input_embedding,14,126123,Ø´Ø¹,شع,0.11250463128089905
+1,learned,input_embedding,15,130469,Ġgiá»ĳng, giống,0.1119157075881958
+1,learned,input_embedding,16,30878,Ġcontinuously, continuously,0.11092625558376312
+1,learned,input_embedding,17,100944,è²¸,貸,0.11091791838407516
+1,learned,input_embedding,18,81691,Ġdivul, divul,0.1104995459318161
+1,learned,input_embedding,19,62868,Ġvip, vip,0.11036490648984909
+1,learned,input_embedding,20,30698,VL,VL,0.11030728369951248
+1,update,input_embedding,1,38596,ĠHil, Hil,0.12996897101402283
+1,update,input_embedding,2,42237,ĠFusion, Fusion,0.12831565737724304
+1,update,input_embedding,3,91228,ĠEquivalent, Equivalent,0.12706714868545532
+1,update,input_embedding,4,112653,ä¸ĵåľº,专场,0.12316206842660904
+1,update,input_embedding,5,100897,è¾£,辣,0.12262841314077377
+1,update,input_embedding,6,52339,ĠLLVM, LLVM,0.12216153740882874
+1,update,input_embedding,7,118380,å°ģè£ħ,封装,0.12204872071743011
+1,update,input_embedding,8,104440,ç»´ä¿®,维修,0.12163420021533966
+1,update,input_embedding,9,45560,ĠMH, MH,0.12056607753038406
+1,update,input_embedding,10,73713,ĠKelley, Kelley,0.11892526596784592
+1,update,input_embedding,11,113645,æ¼Ķç¤º,演示,0.11848210543394089
+1,update,input_embedding,12,126123,Ø´Ø¹,شع,0.11767930537462234
+1,update,input_embedding,13,30698,VL,VL,0.11685756593942642
+1,update,input_embedding,14,11542,Wrapper,Wrapper,0.11679113656282425
+1,update,input_embedding,15,81691,Ġdivul, divul,0.11622578650712967
+1,update,input_embedding,16,35488,ĠWrapper, Wrapper,0.11519178748130798
+1,update,input_embedding,17,108641,æĭĽåķĨå¼ķèµĦ,招商引资,0.11512014269828796
+1,update,input_embedding,18,49362,Ġhm, hm,0.11392956227064133
+1,update,input_embedding,19,64624,_CPP,_CPP,0.11387745290994644
+1,update,input_embedding,20,113469,åĺ¿åĺ¿,嘿嘿,0.11346130818128586
+2,initial,input_embedding,1,91434,ĠBeaver, Beaver,0.12748350203037262
+2,initial,input_embedding,2,78988,ÃĹĊĊ,"×
+
+",0.12332384288311005
+2,initial,input_embedding,3,108318,ä½ľçĤº,作為,0.12239675223827362
+2,initial,input_embedding,4,24799,ĠXP, XP,0.12065684050321579
+2,initial,input_embedding,5,138567,ĠØ´Ø¨ÙĥØ©, شبكة,0.12025034427642822
+2,initial,input_embedding,6,72035,Ġsavage, savage,0.11908377707004547
+2,initial,input_embedding,7,55977,Ġspectral, spectral,0.11886321008205414
+2,initial,input_embedding,8,112727,æİ¨åĲĳ,推向,0.11565802991390228
+2,initial,input_embedding,9,30871,ĠLC, LC,0.11509162187576294
+2,initial,input_embedding,10,21580,âĢ³,″,0.115046925842762
+2,initial,input_embedding,11,145940,ðĿĳł,𝑠,0.11487329751253128
+2,initial,input_embedding,12,6912,Ġtheme, theme,0.11257139593362808
+2,initial,input_embedding,13,49466,ĠPix, Pix,0.1114988774061203
+2,initial,input_embedding,14,6306,Ġ^, ^,0.11037646234035492
+2,initial,input_embedding,15,12594,Theme,Theme,0.10908715426921844
+2,initial,input_embedding,16,135377,ĠØ«ÙĦØ§Ø«Ø©, ثلاثة,0.10900109261274338
+2,initial,input_embedding,17,112896,åĪĨå¸ĥå¼ı,分布式,0.1087256371974945
+2,initial,input_embedding,18,75840,ĠMarkus, Markus,0.10759357362985611
+2,initial,input_embedding,19,16566,Ġatmosphere, atmosphere,0.10745884478092194
+2,initial,input_embedding,20,45785,æĹ¥æľŁ,日期,0.10744874179363251
+2,learned,input_embedding,1,131924,ĠØ§ÙĦÙħØµ, المص,0.15237224102020264
+2,learned,input_embedding,2,8912,_AL,_AL,0.13739736378192902
+2,learned,input_embedding,3,138393,ĠÐºÐ°Ð¶Ð´Ð¾Ð³Ð¾, каждого,0.13716638088226318
+2,learned,input_embedding,4,116901,è¾ĵç»Ļ,输给,0.13282287120819092
+2,learned,input_embedding,5,81378,Hu,Hu,0.13054019212722778
+2,learned,input_embedding,6,58368,Ġhostage, hostage,0.12950962781906128
+2,learned,input_embedding,7,127902,ĠØ§ÙĦØ´Ø®Øµ, الشخص,0.12872983515262604
+2,learned,input_embedding,8,118329,æĽ´åĥıæĺ¯,更像是,0.12816168367862701
+2,learned,input_embedding,9,131775,ãģ§ãģĻãĤĪãģŃ,ですよね,0.12748166918754578
+2,learned,input_embedding,10,150205,áĢĳ,ထ,0.125959575176239
+2,learned,input_embedding,11,20846,Ġmortgage, mortgage,0.1251443475484848
+2,learned,input_embedding,12,117502,å°±å¦ĤåĲĮ,就如同,0.12481468915939331
+2,learned,input_embedding,13,64374,ĠuserList, userList,0.12403888255357742
+2,learned,input_embedding,14,102246,åĩºçĶŁ,出生,0.12369796633720398
+2,learned,input_embedding,15,110043,ä½łè§īå¾Ĺ,你觉得,0.12346895784139633
+2,learned,input_embedding,16,117610,éĻªä½ł,陪你,0.12331974506378174
+2,learned,input_embedding,17,106861,çĩĥæ°Ķ,燃气,0.12291616946458817
+2,learned,input_embedding,18,18215,/home,/home,0.12291356176137924
+2,learned,input_embedding,19,143499,ĠÐ¼ÑıÑģ, мяс,0.12274393439292908
+2,learned,input_embedding,20,105365,ä½łå°±,你就,0.1220754012465477
+2,update,input_embedding,1,131924,ĠØ§ÙĦÙħØµ, المص,0.155090793967247
+2,update,input_embedding,2,8912,_AL,_AL,0.14624665677547455
+2,update,input_embedding,3,81378,Hu,Hu,0.1354750096797943
+2,update,input_embedding,4,138393,ĠÐºÐ°Ð¶Ð´Ð¾Ð³Ð¾, каждого,0.1352328658103943
+2,update,input_embedding,5,30229,ainted,ainted,0.13322000205516815
+2,update,input_embedding,6,137581,ĠÑģÐ²Ð¾Ð¸Ð¼Ð¸, своими,0.13168251514434814
+2,update,input_embedding,7,150205,áĢĳ,ထ,0.13003918528556824
+2,update,input_embedding,8,131775,ãģ§ãģĻãĤĪãģŃ,ですよね,0.1288699060678482
+2,update,input_embedding,9,127902,ĠØ§ÙĦØ´Ø®Øµ, الشخص,0.12824077904224396
+2,update,input_embedding,10,32965,Ġhu, hu,0.12756255269050598
+2,update,input_embedding,11,58368,Ġhostage, hostage,0.1267079859972
+2,update,input_embedding,12,117610,éĻªä½ł,陪你,0.12608416378498077
+2,update,input_embedding,13,18215,/home,/home,0.1260368973016739
+2,update,input_embedding,14,116901,è¾ĵç»Ļ,输给,0.12576055526733398
+2,update,input_embedding,15,110043,ä½łè§īå¾Ĺ,你觉得,0.12527766823768616
+2,update,input_embedding,16,129998,ĠÐ²Ð°Ñģ, вас,0.12479908019304276
+2,update,input_embedding,17,43959,çĶŁæĪĲ,生成,0.12419185042381287
+2,update,input_embedding,18,19946,Īëĭ¤,�다,0.12382583320140839
+2,update,input_embedding,19,34535,IMP,IMP,0.12380682677030563
+2,update,input_embedding,20,64374,ĠuserList, userList,0.12372876703739166
+3,initial,input_embedding,1,54467,ĠCompile, Compile,0.15519990026950836
+3,initial,input_embedding,2,34861,avelength,avelength,0.15282991528511047
+3,initial,input_embedding,3,65297,(Clone,(Clone,0.14143627882003784
+3,initial,input_embedding,4,17556,thetic,thetic,0.1406134068965912
+3,initial,input_embedding,5,57536,Ġcontinental, continental,0.14053501188755035
+3,initial,input_embedding,6,110633,è¦ģç´§,要紧,0.13982048630714417
+3,initial,input_embedding,7,40902,Ġinstantiate, instantiate,0.138555645942688
+3,initial,input_embedding,8,89617,.Assembly,.Assembly,0.1356925666332245
+3,initial,input_embedding,9,99420,æĬĹ,抗,0.1337248980998993
+3,initial,input_embedding,10,133135,ãĤĤãģ®ãĤĴ,ものを,0.13358499109745026
+3,initial,input_embedding,11,54878,+)/,+)/,0.1325468271970749
+3,initial,input_embedding,12,54220,Ġcompiling, compiling,0.13241368532180786
+3,initial,input_embedding,13,124267,Ø¯Ø©,دة,0.13164135813713074
+3,initial,input_embedding,14,45161,_SD,_SD,0.1313071846961975
+3,initial,input_embedding,15,16860,(sc,(sc,0.13112500309944153
+3,initial,input_embedding,16,113058,æĺ¾ç¤ºå±ı,显示屏,0.13080886006355286
+3,initial,input_embedding,17,6114,]čĊ,"]
+",0.13076484203338623
+3,initial,input_embedding,18,104965,ä½Ĩåľ¨,但在,0.13073338568210602
+3,initial,input_embedding,19,100085,ç¦ģ,禁,0.1284937560558319
+3,initial,input_embedding,20,24371,Members,Members,0.12824955582618713
+3,learned,input_embedding,1,88510,Ġnuestras, nuestras,0.14279599487781525
+3,learned,input_embedding,2,40447,_missing,_missing,0.13721001148223877
+3,learned,input_embedding,3,56913,Ġnuestros, nuestros,0.13060253858566284
+3,learned,input_embedding,4,101943,ä¸Ĭå¸Ĥ,上市,0.1295366883277893
+3,learned,input_embedding,5,7855,ĠBritish, British,0.12107102572917938
+3,learned,input_embedding,6,108145,åı¯æĢľ,可怜,0.12065835297107697
+3,learned,input_embedding,7,51861,British,British,0.11946960538625717
+3,learned,input_embedding,8,56130,ĠGetter, Getter,0.11914120614528656
+3,learned,input_embedding,9,37190,Ġsubclass, subclass,0.11829890310764313
+3,learned,input_embedding,10,138483,ĠÑģÐ¾Ð±Ð¸ÑĢÐ°, собира,0.11820145696401596
+3,learned,input_embedding,11,1523,_h,_h,0.11540411412715912
+3,learned,input_embedding,12,32235,_compare,_compare,0.11528535932302475
+3,learned,input_embedding,13,107372,è§Ĩè§Ĵ,视角,0.11470603942871094
+3,learned,input_embedding,14,117324,åī¥å¤º,剥夺,0.11398740112781525
+3,learned,input_embedding,15,121854,ç½Ħ,罄,0.11390042304992676
+3,learned,input_embedding,16,29140,Ġgaining, gaining,0.11353249847888947
+3,learned,input_embedding,17,23133,ĠHunter, Hunter,0.11322693526744843
+3,learned,input_embedding,18,89309,Ġhaze, haze,0.11285609006881714
+3,learned,input_embedding,19,133294,ĠÐ¼Ñĥ, му,0.11270395666360855
+3,learned,input_embedding,20,2204,_e,_e,0.11217351257801056
+3,update,input_embedding,1,88510,Ġnuestras, nuestras,0.14173027873039246
+3,update,input_embedding,2,40447,_missing,_missing,0.13679516315460205
+3,update,input_embedding,3,56913,Ġnuestros, nuestros,0.12677964568138123
+3,update,input_embedding,4,138483,ĠÑģÐ¾Ð±Ð¸ÑĢÐ°, собира,0.11781076341867447
+3,update,input_embedding,5,101943,ä¸Ĭå¸Ĥ,上市,0.11738748848438263
+3,update,input_embedding,6,107083,è¿Ļæ®µ,这段,0.11691978573799133
+3,update,input_embedding,7,37190,Ġsubclass, subclass,0.11691702902317047
+3,update,input_embedding,8,56130,ĠGetter, Getter,0.11597974598407745
+3,update,input_embedding,9,7855,ĠBritish, British,0.11596192419528961
+3,update,input_embedding,10,99662,é¦Ļ,香,0.11571255326271057
+3,update,input_embedding,11,8823,Ġmeta, meta,0.11492720991373062
+3,update,input_embedding,12,1523,_h,_h,0.11484697461128235
+3,update,input_embedding,13,29366,Ġrevenues, revenues,0.11371220648288727
+3,update,input_embedding,14,108145,åı¯æĢľ,可怜,0.1135694831609726
+3,update,input_embedding,15,16232,Ġtone, tone,0.11342854797840118
+3,update,input_embedding,16,29140,Ġgaining, gaining,0.112644724547863
+3,update,input_embedding,17,89309,Ġhaze, haze,0.11163027584552765
+3,update,input_embedding,18,128167,ĠÑģÑĭ, сы,0.11002088338136673
+3,update,input_embedding,19,2204,_e,_e,0.10994387418031693
+3,update,input_embedding,20,49185,å¢ŀ,增,0.10939928889274597
+4,initial,input_embedding,1,33444,Ġsparse, sparse,0.15168090164661407
+4,initial,input_embedding,2,7990,Ġdepth, depth,0.1383013129234314
+4,initial,input_embedding,3,18405,Ġtiming, timing,0.13732212781906128
+4,initial,input_embedding,4,3404,itive,itive,0.131559818983078
+4,initial,input_embedding,5,144050,Ãĺ,Ø,0.12812423706054688
+4,initial,input_embedding,6,5660,IME,IME,0.12593139708042145
+4,initial,input_embedding,7,24190,Ġgrave, grave,0.1234976053237915
+4,initial,input_embedding,8,132389,ĠÐ¾Ð¿Ñĭ, опы,0.12208673357963562
+4,initial,input_embedding,9,19776,Depth,Depth,0.12105537950992584
+4,initial,input_embedding,10,17531,.child,.child,0.12087665498256683
+4,initial,input_embedding,11,101490,å¯¸,寸,0.12056297063827515
+4,initial,input_embedding,12,1375,Ġcol, col,0.1205260306596756
+4,initial,input_embedding,13,99657,åŃ©åŃĲ,孩子,0.11837665736675262
+4,initial,input_embedding,14,132951,ĠÐ´ÐµÑĤÑģÐº, детск,0.11834968626499176
+4,initial,input_embedding,15,53839,Ìģ,́,0.1178642213344574
+4,initial,input_embedding,16,102908,ä¾¨,侨,0.11723440885543823
+4,initial,input_embedding,17,11771,_temp,_temp,0.11625698953866959
+4,initial,input_embedding,18,59196,_CHILD,_CHILD,0.11625400930643082
+4,initial,input_embedding,19,3327,Width,Width,0.11515247821807861
+4,initial,input_embedding,20,6891,Ġscope, scope,0.11495164036750793
+4,learned,input_embedding,1,70935,Ġspel, spel,0.13297028839588165
+4,learned,input_embedding,2,10383,rio,rio,0.13196106255054474
+4,learned,input_embedding,3,104579,é¥®é£Ł,饮食,0.1308652013540268
+4,learned,input_embedding,4,108572,åĮºåĨħ,区内,0.12724216282367706
+4,learned,input_embedding,5,51185,}=,}=,0.12669241428375244
+4,learned,input_embedding,6,108897,ä½İä»·,低价,0.12605927884578705
+4,learned,input_embedding,7,16232,Ġtone, tone,0.12508505582809448
+4,learned,input_embedding,8,3416,chema,chema,0.12478405982255936
+4,learned,input_embedding,9,100134,åŃ¦ä¹ł,学习,0.12439804524183273
+4,learned,input_embedding,10,111715,æĿĳèĲ½,村落,0.12391068041324615
+4,learned,input_embedding,11,5117,home,home,0.12341136485338211
+4,learned,input_embedding,12,38578,Ġindigenous, indigenous,0.12338826060295105
+4,learned,input_embedding,13,99346,ç»ıæµİ,经济,0.12326481193304062
+4,learned,input_embedding,14,35187,ĠThought, Thought,0.12262653559446335
+4,learned,input_embedding,15,60565,thought,thought,0.12234855443239212
+4,learned,input_embedding,16,2970,ike,ike,0.12230280041694641
+4,learned,input_embedding,17,63823,_HISTORY,_HISTORY,0.12214405089616776
+4,learned,input_embedding,18,82767,_subs,_subs,0.1221037209033966
+4,learned,input_embedding,19,94287,ĠSubstance, Substance,0.12117345631122589
+4,learned,input_embedding,20,12681,-like,-like,0.12115417420864105
+4,update,input_embedding,1,104579,é¥®é£Ł,饮食,0.13549664616584778
+4,update,input_embedding,2,111715,æĿĳèĲ½,村落,0.13494396209716797
+4,update,input_embedding,3,99346,ç»ıæµİ,经济,0.13097399473190308
+4,update,input_embedding,4,20986,.properties,.properties,0.13079288601875305
+4,update,input_embedding,5,35187,ĠThought, Thought,0.1287543773651123
+4,update,input_embedding,6,60565,thought,thought,0.12811550498008728
+4,update,input_embedding,7,3533,Pr,Pr,0.12744347751140594
+4,update,input_embedding,8,2340,ĠPr, Pr,0.1271231323480606
+4,update,input_embedding,9,2977,iversity,iversity,0.12616904079914093
+4,update,input_embedding,10,108572,åĮºåĨħ,区内,0.1260070949792862
+4,update,input_embedding,11,4270,ĠPar, Par,0.12574775516986847
+4,update,input_embedding,12,116584,èĸªèµĦ,薪资,0.1256771981716156
+4,update,input_embedding,13,16232,Ġtone, tone,0.12564405798912048
+4,update,input_embedding,14,10383,rio,rio,0.12487531453371048
+4,update,input_embedding,15,63823,_HISTORY,_HISTORY,0.12449730932712555
+4,update,input_embedding,16,70935,Ġspel, spel,0.12391041964292526
+4,update,input_embedding,17,380,ist,ist,0.12387843430042267
+4,update,input_embedding,18,2970,ike,ike,0.12343300879001617
+4,update,input_embedding,19,38578,Ġindigenous, indigenous,0.12320956587791443
+4,update,input_embedding,20,16580,ĠAnth, Anth,0.122669517993927
+5,initial,input_embedding,1,538,og,og,0.13313452899456024
+5,initial,input_embedding,2,6412,CS,CS,0.12394432723522186
+5,initial,input_embedding,3,15168,ĠParameter, Parameter,0.12366282194852829
+5,initial,input_embedding,4,32187,Ġobstacle, obstacle,0.12251470237970352
+5,initial,input_embedding,5,12756,Ġdot, dot,0.12000840157270432
+5,initial,input_embedding,6,19673,Ġresolved, resolved,0.11743497103452682
+5,initial,input_embedding,7,417,pt,pt,0.11643610149621964
+5,initial,input_embedding,8,43821,ĠImportant, Important,0.11634410917758942
+5,initial,input_embedding,9,99894,èĤī,肉,0.11445190012454987
+5,initial,input_embedding,10,27418,Ġpf, pf,0.11399339139461517
+5,initial,input_embedding,11,66611,ĠStub, Stub,0.11310791969299316
+5,initial,input_embedding,12,35646,OPS,OPS,0.11300048232078552
+5,initial,input_embedding,13,110347,ç®¡çĲĨèĢħ,管理者,0.11282878369092941
+5,initial,input_embedding,14,4971,Parameter,Parameter,0.11229165643453598
+5,initial,input_embedding,15,101153,éģ¿åħį,避免,0.11161448806524277
+5,initial,input_embedding,16,5733,Ġparameter, parameter,0.11140263825654984
+5,initial,input_embedding,17,72437,ĠKazakhstan, Kazakhstan,0.11069005727767944
+5,initial,input_embedding,18,4807,yy,yy,0.11035943776369095
+5,initial,input_embedding,19,22190,Ã²,ò,0.10934800654649734
+5,initial,input_embedding,20,968,ng,ng,0.10921736806631088
+5,learned,input_embedding,1,15587,pic,pic,0.12502753734588623
+5,learned,input_embedding,2,100314,å«Į,嫌,0.12433233857154846
+5,learned,input_embedding,3,32646,aaa,aaa,0.12375245988368988
+5,learned,input_embedding,4,57385,Ġtup, tup,0.11798538267612457
+5,learned,input_embedding,5,107781,ä¸ºä»Ģä¹Īè¦ģ,为什么要,0.1164775937795639
+5,learned,input_embedding,6,39113,chet,chet,0.11483733355998993
+5,learned,input_embedding,7,81667,ĠSpam, Spam,0.1144782155752182
+5,learned,input_embedding,8,143010,Ġhá»§y, hủy,0.11401864886283875
+5,learned,input_embedding,9,8429,ĠWhy, Why,0.11213872581720352
+5,learned,input_embedding,10,100600,è¾ĸ,辖,0.11187772452831268
+5,learned,input_embedding,11,18822,Ġrepeatedly, repeatedly,0.11041587591171265
+5,learned,input_embedding,12,37939,Ġexempl, exempl,0.11011702567338943
+5,learned,input_embedding,13,106272,å¤§åİ¦,大厦,0.11002851277589798
+5,learned,input_embedding,14,30554,ĠHitler, Hitler,0.10944425314664841
+5,learned,input_embedding,15,10234,Why,Why,0.10910079628229141
+5,learned,input_embedding,16,129032,ĠgÃ¼zel, güzel,0.10888293385505676
+5,learned,input_embedding,17,42626,Ġfarther, farther,0.10882063210010529
+5,learned,input_embedding,18,83465,Ġaaa, aaa,0.10790089517831802
+5,learned,input_embedding,19,104975,çļĦçĽ®çļĦ,的目的,0.10780778527259827
+5,learned,input_embedding,20,90944,Ġpriceless, priceless,0.10776220262050629
+5,update,input_embedding,1,100314,å«Į,嫌,0.12727048993110657
+5,update,input_embedding,2,45497,bagai,bagai,0.12275230139493942
+5,update,input_embedding,3,57385,Ġtup, tup,0.11972728371620178
+5,update,input_embedding,4,32646,aaa,aaa,0.11942841857671738
+5,update,input_embedding,5,15587,pic,pic,0.1174774095416069
+5,update,input_embedding,6,39113,chet,chet,0.11732476204633713
+5,update,input_embedding,7,30554,ĠHitler, Hitler,0.11466158926486969
+5,update,input_embedding,8,100600,è¾ĸ,辖,0.11387470364570618
+5,update,input_embedding,9,142855,ĠÑģÐ¾Ð²ÐµÑĢÑĪÐµÐ½, совершен,0.1137271523475647
+5,update,input_embedding,10,58131,gregator,gregator,0.1122492253780365
+5,update,input_embedding,11,143010,Ġhá»§y, hủy,0.11212274432182312
+5,update,input_embedding,12,107781,ä¸ºä»Ģä¹Īè¦ģ,为什么要,0.11114351451396942
+5,update,input_embedding,13,129032,ĠgÃ¼zel, güzel,0.11061031371355057
+5,update,input_embedding,14,106272,å¤§åİ¦,大厦,0.11052234470844269
+5,update,input_embedding,15,115652,èĥ¡åĲĮ,胡同,0.10961221158504486
+5,update,input_embedding,16,41858,ĠMinneapolis, Minneapolis,0.10907571017742157
+5,update,input_embedding,17,42406,_picture,_picture,0.10885117202997208
+5,update,input_embedding,18,87501,Ġhmm, hmm,0.1086374819278717
+5,update,input_embedding,19,37939,Ġexempl, exempl,0.10825181752443314
+5,update,input_embedding,20,114567,å²³éĺ³,岳阳,0.1078123152256012
+all,mean_update,input_embedding,1,27401,ĠIranian, Iranian,0.13813728094100952
+all,mean_update,input_embedding,2,4428,Ġsimilar, similar,0.13004393875598907
+all,mean_update,input_embedding,3,8346,aine,aine,0.12254004925489426
+all,mean_update,input_embedding,4,112689,å°±æĺ¯ä¸ºäºĨ,就是为了,0.11904711276292801
+all,mean_update,input_embedding,5,47251,Ġspicy, spicy,0.1189916729927063
+all,mean_update,input_embedding,6,37706,>equals,>equals,0.11670908331871033
+all,mean_update,input_embedding,7,4936,Ġsimply, simply,0.11621805280447006
+all,mean_update,input_embedding,8,4285,Ġsimple, simple,0.11573384702205658
+all,mean_update,input_embedding,9,100184,åĪ¶éĢł,制造,0.11556711047887802
+all,mean_update,input_embedding,10,91864,Ġverschill, verschill,0.11541306227445602
+all,mean_update,input_embedding,11,30878,Ġcontinuously, continuously,0.11459817737340927
+all,mean_update,input_embedding,12,51021,Ġalumni, alumni,0.1141553446650505
+all,mean_update,input_embedding,13,40780,Ġaument, aument,0.11389949172735214
+all,mean_update,input_embedding,14,81890,Interestingly,Interestingly,0.11374741792678833
+all,mean_update,input_embedding,15,49586,Ġhl, hl,0.11341370642185211
+all,mean_update,input_embedding,16,15148,Ġclosely, closely,0.11337710916996002
+all,mean_update,input_embedding,17,105191,ç²¾å¿ĥ,精心,0.11226554214954376
+all,mean_update,input_embedding,18,26753,Ġbriefly, briefly,0.11196423321962357
+all,mean_update,input_embedding,19,49234,Ġmans, mans,0.11193759739398956
+all,mean_update,input_embedding,20,127166,ĠìĤ´, 살,0.11157409101724625

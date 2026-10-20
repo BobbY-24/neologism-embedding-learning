@@ -1,0 +1,56 @@
+{
+  "seed": 3,
+  "kind": "genuine",
+  "n_examples": 2,
+  "initial_loss": 0.6931471824645996,
+  "final_loss": 0.47323518991470337,
+  "final_mean_preference_margin": 5.173168182373047,
+  "embedding_movement": 0.9334010481834412,
+  "embedding_initial_final_cosine": 0.4248158037662506,
+  "pretrained_checksums_unchanged": true,
+  "max_no_token_logit_difference": 0.0,
+  "shuffle_flips": [
+    false,
+    false
+  ],
+  "initial_state": [
+    {
+      "example_index": 0,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -94.98191833496094,
+      "rejected_log_probability": -42.03765106201172,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 1,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -206.28939819335938,
+      "rejected_log_probability": -69.34488677978516,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    }
+  ],
+  "final_state": [
+    {
+      "example_index": 0,
+      "loss": 0.5555594563484192,
+      "chosen_log_probability": -93.8239974975586,
+      "rejected_log_probability": -43.85145568847656,
+      "r_chosen": 1.1579208374023438,
+      "r_rejected": -1.8138046264648438,
+      "preference_margin": 2.9717254638671875
+    },
+    {
+      "example_index": 1,
+      "loss": 0.39091092348098755,
+      "chosen_log_probability": -200.03091430664062,
+      "rejected_log_probability": -70.46101379394531,
+      "r_chosen": 6.25848388671875,
+      "r_rejected": -1.1161270141601562,
+      "preference_margin": 7.374610900878906
+    }
+  ]
+}

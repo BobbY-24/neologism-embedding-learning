@@ -2,9 +2,7 @@
 
 Experiment 2 asks whether preference fitting becomes reliable held-out control and whether that control survives changes in syntax.
 
-> **FULL MULTI-SEED EXPERIMENT: PREPARED, NOT YET EXECUTED.** The 20-pair training set and 36-prompt held-out set are frozen. Reported behavioral results below are from quick mode only: 5 training pairs, 10 held-out prompts, one genuine seed, and one shuffled seed.
->
-> The full run is implemented and runs on a Colab GPU via `notebooks/colab_runner.ipynb`. It reuses the committed screening outputs, verifies the frozen split, and regenerates the base condition in the same runtime as every other condition. It has not been executed yet.
+> **Status: the full multi-seed run is complete** (Colab CUDA GPU, fp32, 2026-10-20). It used 20 training pairs, 36 held-out prompts, 5 genuine seeds and 3 shuffled-label seeds, and its outputs are in `results/experiment_2/full/`. The earlier quick run (5 pairs, 10 prompts, 1 seed) is kept below for comparison. The full run reused the committed screening outputs and verified the frozen split. It regenerated the base condition in the same runtime as every other condition, and those base outputs matched the CPU screening word for word on all 36 prompts.
 
 ## Design changes
 
@@ -35,6 +33,48 @@ The prompt never defines the token's intended meaning.
 - **Trained:** training syntax with the genuine preference-trained vector.
 - **Explicit English:** an ordinary instruction to expand substantially.
 - **Shuffled:** same pairs, but labels independently flip when `random.Random(991).random() < 0.5`; at least one flip is forced. Quick mode flipped pairs 1 and 3 of 5.
+
+## Full-run results
+
+| Condition | Mean words | Δ vs base | Hit 512-token cap | Repeated-trigram fraction | Lexical diversity |
+|---|---:|---:|---:|---:|---:|
+| Base | 83.7 | — | 0% | 0.054 | 0.609 |
+| Untrained (5 seeds) | 97.1 | +13.4 | 2% | 0.063 | 0.604 |
+| Shuffled (3 seeds) | 125.6 | +41.9 | 3% | 0.100 | 0.538 |
+| Explicit English | 215.6 | +131.9 | 17% | 0.147 | 0.460 |
+| Trained (5 seeds) | 324.6 | +240.9 | 47% | 0.370 | 0.329 |
+
+Per seed, as trained-minus-base words with prompt-bootstrap 95% intervals. Final DPO loss is in brackets; every run started at 0.693.
+
+| Seed | Genuine | Shuffled |
+|---:|---|---|
+| 1 | +349.4 [+335.5, +362.6] (0.029) | +66.5 [+35.1, +103.6] (0.528) |
+| 2 | +315.9 [+287.2, +342.6] (0.030) | +46.7 [+24.0, +72.0] (0.626) |
+| 3 | +114.1 [+84.7, +147.7] (0.139) | +12.7 [+7.3, +18.4] (0.594) |
+| 4 | +192.0 [+148.8, +235.3] (0.089) | — |
+| 5 | +233.1 [+189.3, +276.0] (0.027) | — |
+
+- **Seed robustness.** All 5 genuine seeds lengthened 97–100% of prompts, but effect sizes differ about 3×. The least-fitted seeds (3 and 4) are the weakest. The final vectors are nearly orthogonal (pairwise cosine 0.01–0.12), and all tokens leave token-free logits exactly unchanged (max difference 0).
+- **Degeneration.** Length gains come with heavy repetition. Seed 1 hit the cap on 75% of prompts, with trigram repetition 0.53 and repeated-sentence fraction 0.33. Seed 3 hit the cap on 11%, with 0.13 and 0.03. The 1.83× explicit-effect ratio is therefore not a quality claim.
+- **Learning curve** (3 seeds, mean Δ words): +11.6, +11.0, +33.5, +81.4, +190.0 and +259.8 at N = 0, 1, 2, 5, 10 and 20. It is not monotonic: N = 1 is no better than the untrained vector, and seed 2 dips at N = 1 and 2. Preference margin and behavior correlate at r = 0.95 over the 18 runs, which are dependent points.
+- **Position** (5 seeds × 20 prompts; base 84.5 words on these prompts): Δ +239.7 at the prefix, +108.8 mid-verb, +35.0 in the alternate form and +25.5 as a suffix. Single-prompt compositional probes averaged 88–156 words (base 79).
+
+### LoRA baseline (full mode, 3 seeds per arm)
+
+| Method | Params | Δ words, token template | Δ words, plain prompt | Hit cap | Trigram repetition | Final loss |
+|---|---:|---:|---:|---:|---:|---:|
+| Neologism | 896 | +240.9 | 0 (by construction) | 47% | 0.37 | 0.03–0.14 |
+| `lora_matched` (r1, layer-0 `v_proj`) | 1,024 | +163.2 | +155.6 | 28% | 0.28 | 0.13–0.18 |
+| `lora_r8_qv` (r8, q/v, all layers) | 540,672 | +348.8 | +345.2 | 93% | 0.61 | ≈0.02 |
+
+LoRA's effect on plain prompts is as large as with the token template, so it changes the model's default behavior. The neologism's effect is conditional on the token. Learning rates were fixed, not tuned.
+
+### Interpretability (5 seeds × 36 prompts)
+
+- The trained token lowers the teacher-forced log p(`<|im_end|>`) after the base answer by 11.2 nats on average, against the untrained token, and lowers it on 100% of seed × prompt pairs.
+- **Activation patching** at the token position restores 88% of that effect at layer 0, 49% at layer 2, 16% at layer 5 and ≤3% from layer 8. The information leaves the token position early. The exact layer varies by seed, from ~3 to ~11.
+- **Logit lens** at the stop-decision position: the trained-minus-no-token difference stays near zero until the last layers, then drops to −0.9, −3.6 and −11.3 nats at layers 21, 22 and 23. The mid-layer logit lens is noisy in a model this small.
+- **Neighbours:** the nearest vocabulary rows to E_w and to E_w − E_w⁽⁰⁾ are unrelated multilingual subwords at cosine ≤ 0.16. No length-related words appear.
 
 ## Quick-run results
 
@@ -69,11 +109,12 @@ Compared with base, trained outputs had more paragraphs (`1.7` vs `1.0`), senten
 
 Prefix, suffix, mid-verb, and alternate placements averaged 141.3, 72.3, 330.7, and 94.0 words respectively. Exploratory compositional probes ranged from 89 to 412 words. Some verb-like frames strongly amplified continuation, but effects were unstable and sometimes degenerate. Current evidence supports context-dependent control, not syntax-invariant lexical meaning.
 
-## Claim assessment
+## Claim assessment (full run)
 
-- Preference fitting: **Strong**.
-- Behavioral control: **Moderate**.
-- Held-out topic transfer: **Moderate, preliminary**.
-- Word-like compositional behavior: **Absent / weak**.
-- Seed, scale, family, and richer-concept robustness: **Unknown**.
-
+- Preference fitting: **Strong** (5/5 seeds).
+- Behavioral control: **Strong** in length, with substantial degeneration.
+- Held-out topic transfer: **Strong** (97–100% of held-out prompts per seed).
+- Seed robustness: **Partial**. The direction is robust, the size varies about 3×, and the vectors are near-orthogonal.
+- Token specificity vs LoRA: **Strong**. LoRA leaks to plain prompts.
+- Word-like compositional behavior: **Absent**.
+- Scale, family and richer-concept robustness: **Unknown**.

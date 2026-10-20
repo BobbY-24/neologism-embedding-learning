@@ -1,0 +1,130 @@
+{
+  "experiment_name": "experiment_2_concept_generalization",
+  "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+  "model_path": "../../models/Qwen2.5-0.5B-Instruct",
+  "new_token": "<ENSURE_LONG>",
+  "primary_template": "<ENSURE_LONG> your response to the following request:\n\n{prompt}",
+  "explicit_template": "Expand your response substantially. Give a detailed and thorough explanation rather than a concise one.\n\n{prompt}",
+  "learning_rate": 0.01,
+  "beta": 0.1,
+  "epochs": 3,
+  "batch_size": 1,
+  "split_seed": 20260816,
+  "shuffle_seed": 991,
+  "bootstrap_seed": 31415,
+  "max_new_tokens": 512,
+  "screen_word_limit": 120,
+  "preferred_screen_min_words": 40,
+  "preferred_screen_max_words": 100,
+  "rejected_min_words": 50,
+  "rejected_max_words": 100,
+  "chosen_min_words": 350,
+  "chosen_max_words": 500,
+  "minimum_length_gap": 250,
+  "quick": {
+    "train_count": 5,
+    "heldout_count": 10,
+    "seeds": [
+      1
+    ],
+    "shuffled_seeds": [
+      1
+    ],
+    "learning_curve_sizes": [
+      0,
+      1,
+      2,
+      5
+    ],
+    "learning_curve_seeds": [
+      1
+    ],
+    "position_prompt_count": 3,
+    "bootstrap_samples": 1000
+  },
+  "full": {
+    "train_count": 20,
+    "heldout_count": 36,
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "shuffled_seeds": [
+      1,
+      2,
+      3
+    ],
+    "learning_curve_sizes": [
+      0,
+      1,
+      2,
+      5,
+      10,
+      20
+    ],
+    "learning_curve_seeds": [
+      1,
+      2,
+      3
+    ],
+    "position_prompt_count": 20,
+    "bootstrap_samples": 5000
+  },
+  "smoke": {
+    "train_count": 1,
+    "heldout_count": 2,
+    "seeds": [
+      1
+    ],
+    "shuffled_seeds": [
+      1
+    ],
+    "learning_curve_sizes": [
+      0,
+      1
+    ],
+    "learning_curve_seeds": [
+      1
+    ],
+    "position_prompt_count": 1,
+    "bootstrap_samples": 100,
+    "max_new_tokens": 12,
+    "epochs": 1
+  },
+  "mode": "full",
+  "mode_config": {
+    "train_count": 20,
+    "heldout_count": 36,
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "shuffled_seeds": [
+      1,
+      2,
+      3
+    ],
+    "learning_curve_sizes": [
+      0,
+      1,
+      2,
+      5,
+      10,
+      20
+    ],
+    "learning_curve_seeds": [
+      1,
+      2,
+      3
+    ],
+    "position_prompt_count": 20,
+    "bootstrap_samples": 5000
+  },
+  "resolved_model_path": "/content/models/Qwen2.5-0.5B-Instruct"
+}

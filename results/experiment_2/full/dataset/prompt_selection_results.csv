@@ -1,0 +1,645 @@
+id,domain,topic,prompt,output_text,termination_reason,words,tokens,paragraphs,sentences,lexical_diversity,repeated_bigram_fraction,repeated_trigram_fraction,repeated_sentence_fraction,example_indicators,explanatory_transitions,elaboration_score,passes_limit,preferred_range
+biology_01,biology,photosynthesis,Give a concise explanation of how photosynthesis works.,"Photosynthesis is a process by which plants, algae, and some bacteria convert light energy, usually from the sun, into chemical energy stored in glucose. This process occurs in the chloroplasts of plant cells, where chlorophyll, a green pigment, absorbs light energy. The light energy is used to split water molecules into oxygen and hydrogen, which are released into the atmosphere as oxygen. The oxygen is released into the air, and the hydrogen is used to produce glucose, a type of sugar that plants use for energy and as a source of food. This process is crucial for the survival of most living organisms, as it provides the energy needed for growth, development, and reproduction.",eos_token,114,138,1,5,0.5701754385964912,0.061946902654867256,0.017857142857142856,0.0,0,0,1,True,False
+biology_02,biology,natural_selection,"In a few sentences, explain natural selection.","Natural selection is a fundamental concept in evolutionary biology that describes how species adapt to their environment through the process of natural selection. This process occurs when individuals with traits that are advantageous for their survival and reproduction are more likely to survive and pass on their advantageous traits to their offspring. Over time, this leads to the evolution of new species, as the traits that are most beneficial for survival and reproduction become more common in the population.",eos_token,79,85,1,3,0.6329113924050633,0.07692307692307693,0.025974025974025976,0.0,0,0,1,True,True
+biology_03,biology,antibiotic_resistance,Briefly explain how antibiotic resistance develops.,"Antibiotic resistance is a phenomenon where bacteria become resistant to the antibiotics they are exposed to. This development is a result of several factors, including:
+
+1. Overuse and misuse of antibiotics: The overuse and misuse of antibiotics in human and animal medicine have led to the development of antibiotic-resistant bacteria. This is because antibiotics are often prescribed to treat bacterial infections, but they are not effective against all types of bacteria.
+
+2. Genetic mutations: Bacteria can develop mutations that make them resistant to antibiotics. These mutations can occur spontaneously or be caused by environmental factors such as antibiotics.
+
+3. Selection pressure: Bacteria that are exposed to antibiotics are more likely to develop resistance to them. This selection pressure can be caused by the presence of antibiotics in the environment or by the presence of other antibiotics.
+
+4. Evolution of antibiotic resistance genes: Bacteria can evolve new antibiotic resistance genes through a process called horizontal gene transfer. This can occur through the transfer of genetic material between bacteria, or through the transfer of genetic material between bacteria and other organisms.
+
+5. Human factors: The development of antibiotic resistance is also influenced by human factors, such as the use of antibiotics inappropriately or the lack of proper disposal of used antibiotics.
+
+6. Environmental factors: The development of antibiotic resistance is also influenced by environmental factors, such as the presence of antibiotics in the environment or the presence of other antibiotics.
+
+7. Natural selection: Over time, the bacteria that are exposed to antibiotics will become more resistant to them, and those that are not will be eliminated. This process of natural selection can lead to the development of antibiotic resistance.
+
+8. Drug resistance: Some antibiotics are not effective against all types of bacteria, and the development of resistance to these antibiotics can lead to the development of drug resistance.
+
+9. Genetic drift: Bacteria can also develop resistance to antibiotics through a process called genetic drift, which is a random change in the frequency of certain genetic traits in a population.
+
+10. Evolution of antibiotic resistance genes: Bacteria can evolve new antibiotic resistance genes through a process called horizontal gene transfer, which can occur through the transfer of genetic material between bacteria, or through the transfer of genetic material between bacteria and other organisms.",eos_token,381,442,11,26,0.30183727034120733,0.3973684210526316,0.2638522427440633,0.0,3,1,15,False,False
+biology_04,biology,dna_role,"In 2–3 sentences, explain what DNA does in a cell.","DNA, or deoxyribonucleic acid, is the genetic material that carries the instructions for the growth, development, and function of all living organisms. It is a double-stranded molecule composed of four different types of nucleotides: adenine (A), thymine (T), guanine (G), and cytosine (C). The sequence of these nucleotides in a DNA molecule determines the specific sequence of genes that code for the production of proteins. DNA replication is the process by which the genetic information in DNA is copied and passed on to the next generation of cells. This process is crucial for the survival and reproduction of organisms.",eos_token,100,134,1,5,0.62,0.050505050505050504,0.0,0.0,0,0,1,True,True
+biology_05,biology,pollination,Give a short explanation of how pollination helps flowering plants reproduce.,"Pollination is a crucial process in the reproduction of flowering plants. It involves the transfer of pollen from the male reproductive organs of one plant to the female reproductive organs of another plant. This process is essential for the successful reproduction of plants, as it ensures the transfer of genetic material from one parent to the next.
+
+Here's how pollination helps flowering plants reproduce:
+
+1. **Genetic Diversity**: Pollination allows for the exchange of genetic material between different plant species. This genetic diversity is crucial for the survival and adaptability of plants to their environment. By allowing different plants to reproduce, flowering plants can adapt to various habitats and environmental conditions.
+
+2. **Species Diversity**: Pollination helps maintain the genetic diversity of plant species. When different plants reproduce, they can produce offspring with traits that are not present in either parent, which increases the genetic diversity of the species.
+
+3. **Pollination of the Same Plant**: Pollination can also help maintain the genetic diversity within a single plant. If a plant reproduces by self-pollination, it can produce offspring with the same genetic makeup as the parent plant, which can be advantageous for the plant's survival.
+
+4. **Pollination of Different Plants**: Pollination can also help maintain the genetic diversity of plants that are not self-pollinating. For example, if a plant is pollinated by a different plant, the offspring may not have the same genetic makeup as the parent plant, which can be advantageous for the plant's survival.
+
+5. **Genetic Stability**: Pollination helps maintain the genetic stability of plant species. By allowing different plants to reproduce, flowering plants can ensure that their genetic makeup remains consistent over generations, which is essential for the survival and adaptation of plant species.
+
+In summary, pollination is a vital process in the reproduction of flowering plants. It helps maintain genetic diversity, ensures the transfer of genetic material between different plant species, and contributes to the overall genetic stability of plant species.",eos_token,324,393,8,21,0.32098765432098764,0.34674922600619196,0.20496894409937888,0.0,1,0,9,False,False
+biology_06,biology,immune_memory,Briefly explain why vaccines can create immune memory.,"Vaccines create immune memory through a process called antigen presentation and immune activation. When a person is exposed to a pathogen (such as a virus or bacteria), the immune system recognizes the pathogen as foreign and mounts an immune response. This response involves the activation of immune cells, such as T cells and B cells, which are capable of recognizing and destroying the pathogen.
+
+The immune system then presents the pathogen to the T and B cells, which recognize the antigen and begin to produce antibodies. These antibodies are specific to the pathogen and can neutralize it, preventing it from causing disease. The memory cells, which are produced in response to previous exposures to the pathogen, are particularly important because they can rapidly respond to a second exposure to the same pathogen.
+
+The memory cells are activated by the antigen presented by the T and B cells, and they can then rapidly respond to the same pathogen in the future. This is why vaccines are so effective in preventing disease: they stimulate the immune system to produce memory cells that can quickly respond to a second exposure to the same pathogen. This is why it is important to receive a vaccine as soon as possible after exposure to a pathogen, as the memory cells are most effective when they are young and still developing.",eos_token,224,258,3,9,0.39285714285714285,0.23766816143497757,0.10810810810810811,0.0,2,1,6,False,False
+biology_07,biology,cellular_respiration,"In a few sentences, explain cellular respiration.",Cellular respiration is the process by which cells convert nutrients into energy in the form of ATP (adenosine triphosphate). This process occurs in the mitochondria of eukaryotic cells and involves the breakdown of glucose and other organic molecules to produce energy in the form of ATP. The process also involves the production of water and carbon dioxide as byproducts. This process is crucial for the survival of most living organisms and is essential for the growth and development of plants and other organisms.,eos_token,83,100,1,4,0.5783132530120482,0.13414634146341464,0.04938271604938271,0.0,0,0,1,True,True
+biology_08,biology,hibernation,Give a concise explanation of how hibernation helps animals survive.,"Hibernation is a survival strategy used by many animals to conserve energy and prepare for the winter months. The primary purpose of hibernation is to conserve energy and reduce the animal's metabolic rate, which can help them survive the harsh winter conditions. During hibernation, animals lower their body temperature, reduce their heart rate, and decrease their breathing rate. This allows them to conserve energy and survive the cold and dark months. Additionally, hibernation can help animals to store fat reserves, which can be used during the winter months when food is scarce. Overall, hibernation is a highly effective survival strategy that helps animals to cope with the challenges of the winter months.",eos_token,112,137,1,6,0.5357142857142857,0.17117117117117117,0.06363636363636363,0.0,0,0,1,True,False
+biology_09,biology,food_webs,Briefly explain the difference between a food chain and a food web.,"A food chain is a linear sequence of organisms that are directly or indirectly dependent on each other for food. In a food chain, the organisms at each level of the chain are directly or indirectly dependent on the organisms at the next level. For example, in a grassland ecosystem, the grass is the primary food source for herbivores like cows and sheep, and the herbivores are the primary food source for carnivores like lions and tigers.
+
+A food web, on the other hand, is a more complex and dynamic system that represents the interactions between multiple food chains. In a food web, the organisms at each level of the chain are not directly dependent on each other, but rather are interconnected through the food chains that form the web. For example, in a forest ecosystem, the trees are the primary food source for herbivores like deer and rabbits, and the herbivores are the primary food source for carnivores like wolves and foxes.
+
+In summary, a food chain is a linear sequence of organisms that are directly or indirectly dependent on each other, while a food web is a more complex system that represents the interactions between multiple food chains.",eos_token,200,234,3,7,0.31,0.41708542713567837,0.3181818181818182,0.0,2,0,5,False,False
+computing_01,computing,binary,"In 2–3 sentences, explain why computers use binary.","Computers use binary because it is the fundamental language of digital information. Binary is the base-2 number system used in computing, where each digit in a binary number can only be either 0 or 1. This simplicity allows computers to process and store information in a compact and efficient manner, making it ideal for tasks such as data processing, encryption, and machine learning.",eos_token,64,76,1,3,0.796875,0.031746031746031744,0.0,0.0,1,1,3,True,True
+computing_02,computing,internet_routing,Give a concise explanation of how internet routers move data.,"Internet routers move data through a series of steps to ensure that data is transmitted efficiently and reliably across the internet. Here's a concise explanation of how this process works:
+
+1. **Data Transmission**: The data is first transmitted over the physical network, such as a telephone line or a wireless network.
+
+2. **Routing**: The router uses a routing table to determine the best path for the data to take. This table includes information about the network's topology, including the location of routers and switches.
+
+3. **Packet Forwarding**: Once the data reaches the router, it is forwarded to the appropriate interface. The router then forwards the data to the next hop router, which is typically a router or switch.
+
+4. **IP Address Assignment**: The router assigns an IP address to the data packet. This IP address is then used to route the data to the destination network.
+
+5. **Data Delivery**: The router then delivers the data to the destination network, which may be a local network or a remote network.
+
+6. **Data Storage**: The router stores the data in its memory or on a hard drive, depending on the type of router.
+
+7. **Data Retransmission**: If the data packet fails to reach its destination, the router may attempt to retransmit it. This process is called retransmission.
+
+8. **Data Filtering**: The router may filter the data to ensure that only necessary information is transmitted. This can include filtering out unnecessary data or content.
+
+9. **Data Compression**: The router may compress the data to reduce its size and speed up transmission.
+
+10. **Data Encryption**: The router may encrypt the data to ensure that it is transmitted securely.
+
+11. **Data Quality Control**: The router may monitor the quality of the data to ensure that it is transmitted reliably and efficiently.
+
+12. **Data Quality Control**: The router may monitor the quality of the data to ensure that it is transmitted reliably and efficiently.
+
+13. **Data Quality Control**: The router may monitor the quality of the data to ensure that it is transmitted reliably and efficiently.
+
+14. **Data Quality Control**: The router may monitor the quality of the data to ensure that it is transmitted reliably and efficiently.
+
+15. **Data Quality Control**: The router may monitor the quality of the data to ensure that it is transmitted reliably and efficiently.
+
+16. **Data Quality Control**: The router may monitor the quality of the data to ensure that it is transmitted reliably and efficiently.
+
+17. **Data Quality Control**: The router may monitor",max_new_tokens,414,512,18,40,0.3333333333333333,0.39709443099273606,0.30339805825242716,0.125,1,0,19,False,False
+computing_03,computing,encryption,Briefly explain what encryption does.,"Encryption is a process of converting data into a code that can only be read by those who have the correct key or decryption method. This process is used to protect sensitive information from unauthorized access, such as passwords, credit card numbers, or personal data. Encryption can be done in various forms, including symmetric encryption (where the same key is used for both encryption and decryption) and asymmetric encryption (where two keys, one for encryption and one for decryption, are used). The purpose of encryption is to ensure that the data remains confidential and cannot be easily accessed by unauthorized individuals.",eos_token,101,115,1,4,0.6336633663366337,0.05,0.0,0.0,1,0,2,True,False
+computing_04,computing,cache,"In a few sentences, explain why computers use caches.","Computers use caches to improve their performance by storing frequently accessed data in memory, reducing the need to access the data from disk, which can be slower. This allows the computer to quickly retrieve the data, which can be crucial for applications that require quick access to data, such as web browsing, file management, and database queries. Additionally, caches can help to reduce the amount of disk space required, which can be beneficial for systems with limited storage capacity.",eos_token,79,92,1,3,0.7215189873417721,0.0641025641025641,0.025974025974025976,0.0,1,0,2,True,True
+computing_05,computing,database_index,Give a short explanation of how a database index helps queries.,"A database index is a data structure that helps improve the performance of database queries by providing a fast way to locate the rows that match the criteria of the query. Here's how it works:
+
+1. **Index Creation**: When a database table is created, it is often indexed. This means that the table has a special data structure that allows the database to quickly find the rows that match the criteria of a query.
+
+2. **Query Execution**: When a query is executed, the database engine uses the index to quickly locate the rows that match the criteria. The index allows the database engine to skip unnecessary data retrieval and only retrieve the rows that are actually needed.
+
+3. **Query Performance**: By using an index, the database engine can quickly find the rows that match the criteria of the query, which can lead to faster query execution times. This is particularly useful when the data is frequently updated or when the query is complex and requires multiple joins or subqueries.
+
+4. **Query Optimization**: Indexes can also help optimize the query execution by reducing the amount of data that needs to be scanned and processed. This can lead to better performance and faster response times for users.
+
+In summary, a database index helps improve the performance of database queries by providing a fast way to locate the rows that match the criteria of a query, which can lead to faster query execution times and better overall performance.",eos_token,245,278,6,14,0.37551020408163266,0.3155737704918033,0.2222222222222222,0.0,0,0,6,False,False
+computing_06,computing,machine_learning,Briefly explain what machine learning is.,"Machine learning is a subset of artificial intelligence that involves the development of algorithms and statistical models that enable a computer system to learn from and make predictions or decisions without being explicitly programmed. In other words, machine learning is a type of artificial intelligence that allows computers to improve their performance on a specific task by analyzing data and identifying patterns. This process is typically done through a process called ""training,"" where the computer is given a set of data to learn from and then uses this data to make predictions or decisions. Machine learning is used in a wide range of applications, including image and speech recognition, natural language processing, and predictive analytics.",eos_token,115,126,1,4,0.6260869565217392,0.13157894736842105,0.07964601769911504,0.0,0,0,1,True,False
+computing_07,computing,dns,"In 2–3 sentences, explain what the Domain Name System does.","The Domain Name System (DNS) is a network protocol that translates human-readable domain names into IP addresses, allowing users to access websites and other online resources. It works by converting domain names into IP addresses, which are then used to resolve domain names to their corresponding IP addresses. DNS is essential for the internet to function, enabling users to access websites and other online resources by providing a way to map domain names to IP addresses.",eos_token,77,86,1,3,0.5844155844155844,0.2236842105263158,0.13333333333333333,0.0,0,0,1,True,True
+computing_08,computing,version_control,Give a concise explanation of why software teams use version control.,"Software teams use version control for several key reasons:
+
+1. **Collaboration and Communication**: Version control allows multiple developers to work on the same codebase simultaneously, ensuring that changes are tracked and can be easily reviewed and merged. This collaborative approach helps in maintaining a clear and consistent history of changes, which is crucial for maintaining project integrity and ensuring that changes are made in a controlled manner.
+
+2. **Version Control Systems**: There are various version control systems available, such as Git, Mercurial, and SVN. Each has its own strengths and is suitable for different types of projects. Git is particularly popular for its simplicity, flexibility, and ability to handle large codebases. It is widely used in open-source projects and is also used in commercial software development.
+
+3. **Version Control for Code Reviews**: Version control systems can be used to track changes made by different team members during code reviews. This helps in ensuring that changes are consistent and that the code meets the requirements and standards of the project.
+
+4. **Version Control for Bug Tracking**: Version control systems can be used to track changes made to the codebase and identify any bugs or issues. This helps in quickly identifying and fixing problems, which is essential for maintaining the quality of the software.
+
+5. **Version Control for Documentation**: Version control systems can be used to track changes made to documentation, ensuring that the documentation is up-to-date and accurate. This helps in maintaining a consistent and reliable source of information for the team.
+
+6. **Version Control for Source Code Management**: Version control systems can be used to manage the source code repository, ensuring that changes are tracked and can be easily reviewed and merged. This helps in maintaining a clear and consistent history of changes, which is crucial for maintaining project integrity and ensuring that changes are made in a controlled manner.
+
+7. **Version Control for Version Control**: Version control systems can be used to manage the version control of the entire project, including the codebase, documentation, and source code. This helps in maintaining a comprehensive and organized view of the project, which is essential for managing the project effectively.
+
+Overall, version control is a crucial tool for software teams to manage their projects effectively, ensuring that changes are made in a controlled and consistent manner, and maintaining the quality of the software.",eos_token,394,460,9,24,0.3401015228426396,0.3638676844783715,0.24744897959183673,0.0,1,0,10,False,False
+economics_01,economics,inflation,"In 2–3 sentences, explain what inflation is.","Inflation is the rapid increase in the general price level of goods and services in an economy over a period of time. It is often measured by the Consumer Price Index (CPI), which measures the average change in prices over time for a basket of goods and services purchased by consumers. Inflation can have a significant impact on the purchasing power of consumers, leading to higher prices for goods and services, reduced disposable income, and ultimately, a decrease in the purchasing power of money.",eos_token,84,97,1,3,0.6071428571428571,0.10843373493975904,0.06097560975609756,0.0,0,0,1,True,True
+economics_02,economics,interest_rates,Briefly explain how higher interest rates can reduce spending.,"Higher interest rates can reduce spending in several ways:
+
+1. Increased borrowing costs: When interest rates rise, borrowing costs for consumers and businesses increase. This makes it more expensive to borrow money, which can lead to reduced spending on goods and services.
+
+2. Reduced consumer confidence: Higher interest rates can make it more difficult for consumers to borrow money, which can lead to reduced spending on goods and services. This is because consumers may be less willing to spend money on non-essential items or on luxury goods.
+
+3. Reduced investment: Higher interest rates can also reduce investment in the economy. When interest rates rise, it becomes more expensive to borrow money, which can lead to reduced investment in businesses and other economic activities.
+
+4. Reduced consumer spending on durable goods: Durable goods, such as cars, homes, and appliances, are often more expensive to purchase than non-durable goods. Higher interest rates can make it more difficult for consumers to afford these goods, which can lead to reduced spending on durable goods.
+
+5. Reduced consumer spending on services: Services, such as healthcare, education, and entertainment, are often more expensive to provide than goods. Higher interest rates can make it more difficult for consumers to afford these services, which can lead to reduced spending on services.
+
+Overall, higher interest rates can reduce spending by making borrowing more expensive, reducing consumer confidence, reducing investment, reducing consumer spending on durable goods and services, and reducing consumer spending on services.",eos_token,246,292,7,16,0.3333333333333333,0.4326530612244898,0.3114754098360656,0.0,2,1,10,False,False
+economics_03,economics,supply_demand,Give a concise explanation of supply and demand.,"Supply and demand are two fundamental economic concepts that describe the relationship between the quantity of a good or service that producers are willing and able to sell at different prices. 
+
+Supply refers to the quantity of a good or service that producers are willing and able to produce and sell at a given price. It is determined by factors such as the cost of production, the availability of raw materials and labor, and the demand for the good or service. 
+
+Demand, on the other hand, refers to the quantity of a good or service that consumers are willing and able to purchase at different prices. It is influenced by factors such as the price of the good or service, the consumer's income, and the prices of related goods or services. 
+
+In a market economy, supply and demand determine the price of a good or service. When the price of a good or service is set, it is determined by the interaction of supply and demand. If the price is set too high, producers may not be able to produce the quantity of goods or services they need to sell, leading to a shortage. If the price is set too low, consumers may not be able to afford the good or service, leading to a surplus. 
+
+Understanding the relationship between supply and demand is crucial for businesses and policymakers to make informed decisions about production, pricing, and market equilibrium.",eos_token,239,269,5,10,0.3598326359832636,0.36134453781512604,0.24472573839662448,0.0,2,0,7,False,False
+economics_04,economics,comparative_advantage,"In a few sentences, explain comparative advantage.","Comparative advantage refers to the ability of a country or individual to produce a particular good or service at a lower opportunity cost than another country or individual. This means that a country or individual has a comparative advantage in producing a good or service if they can produce it more efficiently or at a lower cost than another country or individual. By focusing on their comparative advantage, a country or individual can maximize their output and benefit from trade and investment.",eos_token,82,88,1,3,0.5365853658536586,0.2345679012345679,0.1375,0.0,0,0,1,True,True
+economics_05,economics,unemployment_rate,Briefly explain what the unemployment rate measures.,"The unemployment rate is a measure of the percentage of the labor force that is unemployed but actively seeking employment. It is calculated by dividing the number of unemployed individuals by the total labor force, which is the sum of employed and unemployed individuals. The unemployment rate can be expressed as a percentage, which is the unemployment rate expressed as a fraction of the total labor force. This measure is important for understanding the state of the labor market and the effectiveness of job creation and job retention efforts.",eos_token,89,96,1,4,0.48314606741573035,0.19318181818181818,0.08045977011494253,0.0,0,0,1,True,True
+economics_06,economics,compound_interest,Give a short explanation of compound interest.,"Compound interest is a financial concept that involves the accumulation of interest on an initial amount of money, which is then reinvested with interest added to the principal. This process of interest accumulation and reinvestment is repeated over time, leading to exponential growth of the initial amount of money.
+
+The formula for calculating compound interest is:
+
+A = P(1 + r/n)^(nt)
+
+Where:
+A = the future value of the investment/loan, including interest
+P = the principal amount (the initial amount of money)
+r = the annual interest rate (decimal)
+n = the number of times that interest is compounded per year
+t = the number of years the money is invested or borrowed for
+
+For example, if you invest $1,000 at an annual interest rate of 5% compounded monthly for 10 years, the future value of the investment would be:
+
+A = $1,000(1 + 0.05/12)^(12*10)
+
+This calculation would give you the future value of the investment, which would be approximately $1,738.99. Over the course of 10 years, the investment would grow to approximately $1,738.99.
+
+Compound interest is a powerful tool for saving and investing, as it allows you to earn interest on your money over time, which can grow your savings exponentially. However, it's important to note that compound interest can also lead to high fees and penalties for early withdrawal, so it's crucial to understand the terms of any investment or loan you're considering.",eos_token,241,327,8,6,0.4605809128630705,0.18333333333333332,0.09623430962343096,0.0,1,1,10,False,False
+economics_07,economics,public_goods,"In 2–3 sentences, explain what economists mean by a public good.","Public goods are goods that are non-excludable and non-rivalrous in consumption. They are provided by the government or other public entities to the public in exchange for private goods. Examples of public goods include national defense, public parks, and national education. Public goods are often considered to be a public good because they are not provided by individuals or businesses, but rather by the government or other public entities.",eos_token,71,83,1,4,0.5633802816901409,0.15714285714285714,0.08695652173913043,0.0,0,1,2,True,True
+economics_08,economics,exchange_rates,Briefly explain why currency exchange rates change.,"Currency exchange rates change for several reasons, primarily due to the following factors:
+
+1. Economic Factors: The exchange rate is influenced by the value of the currency in the foreign market. When one country's currency appreciates, it means that the value of that currency is higher in the foreign market. Conversely, when the currency depreciates, the value of that currency is lower.
+
+2. Political Factors: Exchange rates can also be affected by political factors, such as changes in government policies, trade agreements, or currency devaluation. For example, if a country's government decides to devalue its currency, it can make its currency more attractive to foreign investors, which can lead to an increase in demand for that currency.
+
+3. Economic Conditions: Exchange rates can also be influenced by economic conditions, such as inflation, unemployment, and economic growth. When there is a decrease in the demand for a currency, its value can fall, and vice versa.
+
+4. International Trade: Exchange rates are also influenced by international trade. When one country's currency appreciates, it means that its exports become more expensive, which can lead to a decrease in demand for that currency. Conversely, when the currency depreciates, it means that its exports become cheaper, which can lead to an increase in demand for that currency.
+
+5. Central Bank Policies: Central banks around the world have a significant impact on currency exchange rates. They can influence the value of their currency by buying or selling foreign currencies, which can affect the exchange rate of their own currency.
+
+6. Economic Policies: Central banks around the world also have policies that can affect currency exchange rates. For example, if a country's central bank decides to increase its money supply, it can make its currency more attractive to foreign investors, which can lead to an increase in demand for that currency.
+
+7. International Monetary Fund (IMF) and World Bank: The IMF and World Bank also have a significant impact on currency exchange rates. They can influence the value of their currencies by buying or selling foreign currencies, which can affect the exchange rate of their own currencies.
+
+In summary, currency exchange rates change due to a combination of economic, political, and international factors. Central banks, governments, and international organizations all have a significant impact on currency exchange rates.",eos_token,381,458,9,25,0.29658792650918636,0.39473684210526316,0.27440633245382584,0.0,4,0,13,False,False
+engineering_01,engineering,bridge_truss,Give a concise explanation of why trusses strengthen bridges.,"Trusses are a crucial component in bridge construction, and they play a significant role in strengthening bridges by providing structural support and stability. Here are several reasons why trusses are essential for bridge construction:
+
+1. **Structural Support**: Trusses provide a strong, rigid framework that supports the entire bridge structure. They distribute the weight of the bridge evenly across its length, ensuring that the bridge remains stable and safe.
+
+2. **Load Distribution**: Trusses distribute the weight of the bridge evenly across its length, reducing the stress on individual components. This is particularly important for bridges with large spans or for bridges that are subjected to significant loads.
+
+3. **Stability**: Trusses help maintain the bridge's stability by providing a stable foundation. They prevent the bridge from tilting or swaying, which could lead to structural failure.
+
+4. **Load Distribution**: Trusses distribute the weight of the bridge evenly across its length, reducing the stress on individual components. This is particularly important for bridges with large spans or for bridges that are subjected to significant loads.
+
+5. **Flexibility**: Trusses allow for greater flexibility in the bridge's design and construction. They can be modified to accommodate different types of loads and conditions, making the bridge more adaptable to various applications.
+
+6. **Safety**: Trusses are essential for ensuring the safety of the bridge. They provide a reliable and stable structure that can withstand the forces of wind, earthquakes, and other natural disasters.
+
+7. **Cost Efficiency**: In some cases, trusses can be more cost-effective than other bridge construction methods, such as using steel or concrete, due to their structural integrity and load distribution.
+
+In summary, trusses are a critical component in bridge construction because they provide structural support, distribute load evenly, maintain stability, and allow for greater flexibility and safety.",eos_token,293,364,9,22,0.4300341296928328,0.25,0.17525773195876287,0.09090909090909091,1,1,11,False,False
+engineering_02,engineering,feedback_control,Briefly explain what feedback control does in an engineered system.,"Feedback control in an engineered system is a method used to adjust the system's behavior in response to changes in its environment or inputs. It involves the system's ability to receive and process information from its environment, compare it with its current state, and then adjust its behavior accordingly. This process is repeated over time to optimize the system's performance and achieve its desired goals.
+
+In a feedback control system, the system's state is continuously monitored and compared with its current state. If the system's state deviates from its desired state, the system adjusts its behavior to correct the deviation. This adjustment is based on the feedback loop, which is a loop that connects the system's output to its input and compares the output with the desired output.
+
+Feedback control systems are widely used in various engineering applications, such as robotics, aerospace, automotive, and manufacturing. They are particularly useful in systems where precise control over the system's behavior is required, such as in industrial processes, autonomous vehicles, and medical devices. Feedback control systems can also be used to optimize the performance of complex systems, such as power grids, communication networks, and transportation systems.",eos_token,193,226,3,9,0.49740932642487046,0.13020833333333334,0.031413612565445025,0.0,3,0,6,False,False
+engineering_03,engineering,heat_pump,"In 2–3 sentences, explain how a heat pump warms a building.","A heat pump warms a building by extracting heat from the environment and transferring it to the building's interior through a refrigerant, typically a refrigerant such as R22 or R134a. This process cools the building's interior, reducing the need for heating systems and lowering energy consumption. The heat pump can also be used to heat water, which is then used for domestic heating or industrial purposes.",eos_token,66,85,1,3,0.696969696969697,0.06153846153846154,0.015625,0.0,1,0,2,True,True
+engineering_04,engineering,battery,Give a short explanation of how a rechargeable battery stores energy.,"A rechargeable battery stores energy by converting chemical energy into electrical energy. When a battery is first charged, it is in a state of chemical reaction where it is made up of a chemical compound called a battery electrolyte. The battery electrolyte is composed of a solid material called a cathode, which is made of a metal such as zinc or copper, and a solid material called an anode, which is made of a metal such as iron or aluminum. When the battery is first charged, the cathode and anode are separated by a thin layer of liquid electrolyte, which allows the chemical reaction to occur between the two materials. As the battery is discharged, the chemical reaction between the cathode and anode is reversed, and the battery is able to store energy until it is recharged. When the battery is recharged, the chemical reaction between the cathode and anode is reversed again, and the battery is able to store energy again until it is recharged. This process of storing and releasing energy is called the chemical reaction of a battery.",eos_token,181,214,1,7,0.35359116022099446,0.3333333333333333,0.18994413407821228,0.0,2,0,3,False,False
+engineering_05,engineering,water_treatment,Briefly explain the main purpose of municipal water treatment.,"Municipal water treatment is a crucial process that involves several key steps to purify and improve the quality of drinking water. The main purpose of municipal water treatment is to remove contaminants, such as bacteria, viruses, and heavy metals, from the water supply. This process is essential for ensuring the safety and health of the public, as well as for maintaining the quality of the water supply for various industries and households.
+
+The treatment process typically includes several stages, including:
+
+1. Filtration: This stage involves the use of filters, such as sand filters, activated carbon filters, and reverse osmosis membranes, to remove large particles and debris from the water.
+
+2. Sedimentation: This stage involves the use of sedimentation tanks to remove suspended particles and other debris from the water.
+
+3. Disinfection: This stage involves the use of chemicals, such as chlorine or chloramine, to kill bacteria and other pathogens.
+
+4. Filtration: This stage involves the use of additional filters, such as activated carbon filters, to remove even smaller particles and contaminants.
+
+5. Disinfection: This stage involves the use of chlorine or other disinfectants to kill any remaining pathogens.
+
+6. Filtration: This stage involves the use of additional filters, such as activated carbon filters, to remove even smaller particles and contaminants.
+
+7. Disinfection: This stage involves the use of chlorine or other disinfectants to kill any remaining pathogens.
+
+8. Filtration: This stage involves the use of additional filters, such as activated carbon filters, to remove even smaller particles and contaminants.
+
+9. Disinfection: This stage involves the use of chlorine or other disinfectants to kill any remaining pathogens.
+
+10. Filtration: This stage involves the use of additional filters, such as activated carbon filters, to remove even smaller particles and contaminants.
+
+11. Disinfection: This stage involves the use of chlorine or other disinfectants to kill any remaining pathogens.
+
+12. Filtration: This stage involves the use of additional filters, such as activated carbon filters, to remove even smaller particles and contaminants.
+
+13. Disinfection: This stage involves the use of chlorine or other disinfectants to kill any remaining pathogens.
+
+14. Filtration: This stage involves the use of additional filters, such as activated carbon filters, to remove even smaller particles and contaminants.
+
+15. Disinfection: This stage involves the use of chlorine or other disinfectants to kill any remaining pathogens.
+
+1",max_new_tokens,384,512,18,34,0.2421875,0.5848563968668408,0.5026178010471204,0.29411764705882354,9,0,27,False,False
+engineering_06,engineering,shock_absorber,"In a few sentences, explain how a car's shock absorbers work.","A car's shock absorbers are designed to absorb and distribute shocks and vibrations between the car's suspension system and the road surface. They work by compressing and expanding rubber or metal springs in the suspension system, which then return to their original position when the car stops. This helps to reduce the impact of shocks and vibrations on the car's suspension system, improving the car's handling and stability. The shock absorbers also help to reduce the wear and tear on the suspension system, extending its lifespan and improving the car's performance.",eos_token,91,107,1,4,0.5934065934065934,0.16666666666666666,0.06741573033707865,0.0,0,0,1,True,True
+engineering_07,engineering,semiconductor,Give a concise explanation of what makes semiconductors useful.,"Semiconductors are incredibly useful because they are the foundation of almost all modern electronic devices, from smartphones and computers to solar panels and LED lights. Here are some key reasons why semiconductors are so important:
+
+1. **Energy Efficiency**: Semiconductors allow for efficient energy conversion, enabling devices to convert electrical energy into usable forms of energy such as light, heat, or mechanical energy. This is crucial for powering various electronic devices, from small devices like smartphones to large-scale power generation.
+
+2. **High Efficiency**: Semiconductors are highly efficient at converting electrical energy into usable forms of energy. This means that they can operate at higher voltages and currents than traditional electrical components, which is essential for powering devices that require high power or high efficiency.
+
+3. **Wide Bandgap**: Semiconductors have a wide bandgap, which means they can operate at temperatures much higher than those of traditional materials. This allows them to operate at higher temperatures, which is important for devices that require high temperatures or for devices that can operate at room temperature but need to be cooled.
+
+4. **High Power Density**: Semiconductors can be made to have high power density, meaning they can be used to generate large amounts of power. This is particularly important for devices that require a lot of power, such as solar panels and LED lights.
+
+5. **Versatility**: Semiconductors can be used in a wide range of applications, from simple electronic devices like resistors and capacitors to complex electronic systems like microprocessors and integrated circuits. This versatility makes semiconductors a key component in the development of modern technology.
+
+6. **Low Cost**: Semiconductors are generally cheaper than traditional materials, making them a cost-effective choice for many applications. This is particularly important for devices that require a lot of power or for devices that can operate at lower temperatures.
+
+7. **High Reliability**: Semiconductors are generally more reliable than traditional materials, which means that they can be used in a wide range of applications, from simple electronic devices to complex electronic systems. This reliability is important for devices that require a lot of power or for devices that can operate at lower temperatures.
+
+8. **Low Maintenance**: Semiconductors are generally less prone to failure than traditional materials, which means that they can be used in a wide range of applications, from simple electronic devices to complex electronic systems. This low maintenance is important for devices that require a lot of power or for devices that can operate at lower temperatures.
+
+In summary",max_new_tokens,413,512,10,26,0.3414043583535109,0.38349514563106796,0.2749391727493917,0.0,2,1,13,False,False
+engineering_08,engineering,wind_turbine,Briefly explain how a wind turbine produces electricity.,"A wind turbine is a device that converts the kinetic energy of wind into electrical energy. Here's a brief explanation of how it works:
+
+1. Wind energy: Wind turbines are designed to capture the kinetic energy of wind, which is the energy of motion. This energy is captured by the blades of the turbine, which are attached to a shaft.
+
+2. Wind turbine blades: The blades of the turbine are designed to rotate at high speeds, typically around 100-200 revolutions per minute. This rotation is captured by a generator, which is a device that converts the kinetic energy of the wind into electrical energy.
+
+3. Generator: The generator is a mechanical device that converts the rotational motion of the blades into electrical energy. It consists of a rotor and a stator, which are connected by a shaft.
+
+4. Electrical output: The electrical output of the generator is used to power a transformer, which is a device that increases the voltage of the electrical output. The transformer is connected to a load, such as a household electrical system, which converts the electrical energy back into mechanical energy.
+
+5. Load: The load is connected to the transformer, which converts the electrical energy back into mechanical energy. This mechanical energy is then used to drive a generator, which produces electricity.
+
+6. Continuous operation: The wind turbine is designed to operate continuously, with the blades rotating at high speeds and generating electricity continuously.
+
+7. Maintenance: The wind turbine is designed to be easily maintained, with regular inspections and repairs to ensure that it continues to produce electricity.
+
+In summary, a wind turbine captures the kinetic energy of wind, converts it into electrical energy, and then uses that energy to power a transformer and drive a generator, which produces electricity.",eos_token,296,350,9,21,0.32432432432432434,0.33559322033898303,0.17687074829931973,0.0,1,0,10,False,False
+geography_01,geography,seasons,Briefly explain why Earth has seasons.,"Earth's seasons are caused by the tilt of its rotational axis relative to its orbit around the Sun. This tilt is approximately 23.5 degrees, which means that during the same period of time, the Sun appears to move across the sky from east to west. This movement of the Sun's position causes different parts of the Earth to receive varying amounts of sunlight, leading to the formation of seasons.
+
+The Earth's axial tilt also affects the amount of solar radiation received by different parts of the planet. During the summer, the Sun is higher in the sky, which means that more solar radiation reaches the Earth's surface. This results in warmer temperatures and longer days. Conversely, during the winter, the Sun is lower in the sky, which means that less solar radiation reaches the Earth's surface. This results in cooler temperatures and shorter days.
+
+The tilt of the Earth's axis also causes the seasons to be different lengths. In the Northern Hemisphere, the summer solstice occurs around June 21st, while the winter solstice occurs around December 21st. In the Southern Hemisphere, the summer solstice occurs around December 21st, while the winter solstice occurs around June 21st.
+
+These seasonal changes are caused by the Earth's axial tilt and its orbit around the Sun, and they are not caused by any external factors such as the movement of the Moon or the Sun.",eos_token,232,284,4,12,0.4224137931034483,0.2943722943722944,0.16521739130434782,0.0,1,0,5,False,False
+geography_02,geography,river_deltas,Give a short explanation of how river deltas form.,"River deltas are formed by the accumulation of sediments from rivers as they flow over a landscape. The process of river delta formation is driven by the gravitational pull of the Earth's gravity, which pulls sediments from the riverbed and deposits them at the mouth of the river. This process can be accelerated by the presence of water, which can carry sediments to the mouth of the river and deposit them there.
+
+The process of river delta formation is influenced by a variety of factors, including the type of river, the amount of sediment carried by the river, and the amount of water available to carry the sediment. The amount of water available to carry the sediment can be influenced by factors such as the size of the river, the depth of the riverbed, and the slope of the riverbank.
+
+The process of river delta formation can be divided into several stages, including the initial deposition of sediments, the consolidation of the sediments, and the eventual erosion of the riverbed. The sediment deposited in the river delta is typically composed of clay, silt, and other organic materials, as well as smaller particles of rock and soil. The sediment is then deposited at the mouth of the river, where it can be deposited in a variety of locations, including on the riverbank, in the riverbed, and in the river itself.
+
+River deltas can be large, with areas that can be several kilometers across, and can be very deep, with depths that can range from a few meters to several kilometers. River deltas can also be shaped by the erosion of the riverbed, which can create a variety of landforms, including deltas, lakes, and other landforms.",eos_token,284,335,4,10,0.36619718309859156,0.303886925795053,0.12411347517730496,0.0,1,0,5,False,False
+geography_03,geography,desert_climate,"In 2–3 sentences, explain why many deserts are dry.","Deserts are often dry due to several factors, including the lack of precipitation, the high altitude, and the presence of large amounts of sand and rock. These conditions make it difficult for water to penetrate the soil and evaporate, leading to a lack of moisture in the air and a dry climate. Additionally, the high temperatures and low humidity in deserts can also contribute to the drying of the soil.",eos_token,70,82,1,3,0.6428571428571429,0.043478260869565216,0.0,0.0,0,0,1,True,True
+geography_04,geography,time_zones,Briefly explain why the world uses time zones.,"Time zones are used to account for the different lengths of the day and night in different parts of the world. This is important because different regions have different climates, seasons, and daylight hours, which can affect the timing of events and activities. By using time zones, countries and regions can coordinate their clocks and daylight saving time, which helps to ensure that people in different parts of the world have the same amount of daylight and can plan their activities accordingly. This is especially important for countries that have different seasons or that are located in different parts of the world, as it helps to ensure that people have enough daylight to work and rest. Additionally, time zones help to maintain consistency in the timing of events and activities, which can be important for businesses and organizations that rely on accurate timekeeping.",eos_token,143,158,1,5,0.46853146853146854,0.19014084507042253,0.10638297872340426,0.0,0,1,2,False,False
+geography_05,geography,plate_tectonics,Give a concise explanation of plate tectonics.,"Plate tectonics is a theory that describes the movement and distribution of the Earth's tectonic plates. These plates are the fundamental building blocks of the Earth's crust, which are constantly moving and shifting due to the forces of tectonic plate movement. The theory suggests that these plates are constantly moving and shifting, and that this movement is driven by the forces of plate tectonics, such as the movement of the Earth's mantle and the movement of the Earth's crust. The theory also suggests that these plates are constantly interacting with each other, with some moving towards each other and others moving away from each other. This interaction is driven by the forces of plate tectonics, such as the movement of the Earth's mantle and the movement of the Earth's crust.",eos_token,130,160,1,5,0.35384615384615387,0.3798449612403101,0.28125,0.0,2,0,3,False,False
+geography_06,geography,ocean_currents,"In a few sentences, explain what drives major ocean currents.","Ocean currents are driven by the temperature, salinity, and density of the water in the ocean. The warm, salty water from the equator moves towards the poles, while the cold, salty water from the poles moves towards the equator. This movement of water creates the currents that we see around the world. Additionally, the movement of the Earth's rotation also plays a role in driving ocean currents, as the Earth's rotation causes the water to move in a clockwise direction around the globe.",eos_token,83,100,1,4,0.5421686746987951,0.17073170731707318,0.04938271604938271,0.0,0,0,1,True,True
+geography_07,geography,monsoons,Briefly explain how monsoons develop.,"Monsoons, also known as tropical cyclones, are powerful atmospheric systems that bring heavy rainfall and strong winds to the Earth's surface. They are caused by the interaction between the Earth's atmosphere and the Earth's rotating axis. Here's a brief explanation of how monsoons develop:
+
+1. Formation of the Monsoon System:
+   - The Earth's rotation causes the Earth's axis to tilt, creating a seasonal change in the Earth's tilt.
+   - This tilt causes the Earth's axis to point towards the sun during the summer months and away from the sun during the winter months.
+   - As a result, the Earth's surface experiences different seasons, with the northern hemisphere experiencing summer and the southern hemisphere experiencing winter.
+
+2. The Coriolis Effect:
+   - The Coriolis effect is a force that causes the path of moving objects to curve in the direction of the Earth's rotation.
+   - This effect is stronger in the Northern Hemisphere and weaker in the Southern Hemisphere.
+   - In the Northern Hemisphere, the Coriolis effect causes the wind to move in a clockwise direction.
+   - In the Southern Hemisphere, the Coriolis effect causes the wind to move in an anti-clockwise direction.
+
+3. The Coriolis Effect and the Earth's Rotation:
+   - The Coriolis effect is a result of the Earth's rotation.
+   - As the Earth rotates, the Coriolis effect causes the wind to move in a clockwise direction in the Northern Hemisphere and an anti-clockwise direction in the Southern Hemisphere.
+   - This causes the wind to move in a clockwise direction in the Northern Hemisphere and an anti-clockwise direction in the Southern Hemisphere.
+
+4. The Interaction of the Earth's Rotation and the Coriolis Effect:
+   - The Earth's rotation causes the wind to move in a clockwise direction in the Northern Hemisphere and an anti-clockwise direction in the Southern Hemisphere.
+   - This causes the wind to move in a clockwise direction in the Northern Hemisphere and an anti-clockwise direction in the Southern Hemisphere.
+   - This causes the wind to move in a clockwise direction in the Northern Hemisphere and an anti-clockwise direction in the Southern Hemisphere.
+
+5. The Interaction of the Earth's Rotation and the Coriolis Effect:
+   - The Earth's rotation causes the wind to move in a clockwise direction in the Northern Hemisphere and an anti-clockwise direction in the Southern Hemisphere.
+   - This causes the wind to move in a clockwise direction in the Northern Hemisphere and an anti-clockwise direction in the Southern Hemisphere.
+   -",max_new_tokens,396,512,6,23,0.2222222222222222,0.610126582278481,0.5101522842639594,0.17391304347826086,0,1,7,False,False
+geography_08,geography,volcano_locations,Give a short explanation of why many volcanoes occur near plate boundaries.,"Many volcanoes occur near plate boundaries because the movement of tectonic plates is a key factor in the formation of these geological features. When two tectonic plates collide, they push against each other and create a large amount of heat and pressure. This heat and pressure can cause the crust of the Earth to expand and contract, which can lead to the formation of new magma chambers and the creation of new volcanoes. Additionally, the movement of tectonic plates can also cause the formation of new oceanic crust, which can also lead to the formation of new volcanoes. The movement of tectonic plates also plays a role in the formation of mountain ranges and the creation of new landforms.",eos_token,119,142,1,5,0.4789915966386555,0.2796610169491525,0.17094017094017094,0.0,0,1,2,True,False
+health_01,health,cardiovascular_exercise,Briefly explain how exercise supports cardiovascular health.,"Exercise is a powerful tool for maintaining cardiovascular health. It helps to strengthen the heart and lungs, improves blood flow, and reduces the risk of heart disease and stroke. Regular exercise can also help to maintain a healthy weight, which is important for overall cardiovascular health. Additionally, exercise can help to improve the body's ability to regulate blood pressure and cholesterol levels, which are important factors in the development of cardiovascular disease. Overall, exercise is a key component of a healthy lifestyle that supports cardiovascular health.",eos_token,86,99,1,5,0.6046511627906976,0.08235294117647059,0.011904761904761904,0.0,0,0,1,True,True
+health_02,health,hydration,Give a short explanation of why hydration matters.,"Hydration is crucial for maintaining overall health and well-being. It is essential for the proper functioning of the body's systems, including the digestive, circulatory, and nervous systems. Without adequate hydration, the body's systems can become overloaded, leading to various health problems such as dehydration, kidney stones, and weakened immune systems. Additionally, dehydration can cause fatigue, headaches, and other symptoms that can affect a person's daily activities and quality of life. Therefore, it is important to stay hydrated by drinking plenty of water throughout the day, especially during physical activity or when engaging in outdoor activities.",eos_token,96,119,1,5,0.7395833333333334,0.031578947368421054,0.010638297872340425,0.0,1,1,3,True,True
+health_03,health,fiber_digestion,"In 2–3 sentences, explain why dietary fiber is useful.","Dietary fiber is useful because it helps to regulate bowel movements, prevent constipation, and promote healthy digestion. Fiber is also important for maintaining a healthy weight, as it can help to reduce the sensation of hunger and increase feelings of fullness. Additionally, fiber can help to lower cholesterol levels and improve blood sugar control, making it a beneficial addition to a healthy diet.",eos_token,63,76,1,3,0.7301587301587301,0.06451612903225806,0.01639344262295082,0.0,0,1,2,True,True
+health_04,health,sleep_health,Briefly explain why regular sleep is important for health.,"Regular sleep is important for health for several reasons:
+
+1. Improved cognitive function: Sleep is essential for the brain to consolidate memories, process information, and maintain cognitive function. Lack of sleep can lead to memory problems, decreased concentration, and difficulty with decision-making.
+
+2. Better physical health: Sleep helps the body repair and regenerate tissues, including muscles, bones, and organs. It also helps the body regulate hormones and maintain a healthy metabolism.
+
+3. Reduced stress: Sleep is a natural stress reliever. It helps to reduce anxiety, depression, and other stress-related symptoms.
+
+4. Better mood: Sleep is crucial for maintaining a healthy mood. It helps to regulate hormones, including the production of serotonin, which is associated with feelings of happiness and well-being.
+
+5. Improved immune function: Sleep helps the body fight off infections and diseases. It also helps to maintain a healthy immune system.
+
+6. Better sleep quality: Regular sleep helps to improve sleep quality, which is important for overall health and well-being.
+
+7. Reduced risk of chronic diseases: Lack of sleep has been linked to an increased risk of chronic diseases such as heart disease, diabetes, and obesity.
+
+In summary, regular sleep is essential for maintaining good health and preventing a range of health problems. It helps to support cognitive function, physical health, mood, immune function, and overall well-being.",eos_token,223,273,9,21,0.4798206278026906,0.2072072072072072,0.06787330316742081,0.0,1,0,10,False,False
+health_05,health,blood_pressure,Give a concise explanation of what blood pressure measures.,"Blood pressure, also known as systolic and diastolic blood pressure, is a measure of the force exerted by the blood on the walls of the arteries. It is calculated by adding the systolic pressure (the highest pressure in the arteries) to the diastolic pressure (the lowest pressure in the arteries). The higher the blood pressure, the more force the blood exerts on the walls of the arteries, which can lead to a variety of health problems, including heart disease, stroke, and kidney disease.",eos_token,83,105,1,3,0.4819277108433735,0.1951219512195122,0.07407407407407407,0.0,0,0,1,True,True
+health_06,health,muscle_growth,"In a few sentences, explain how resistance training promotes muscle growth.","Resistance training, also known as weightlifting, is a form of exercise that involves using weights or resistance to build muscle and enhance overall physical fitness. By increasing muscle mass, resistance training promotes muscle growth by stimulating the production of new muscle fibers and the strengthening of existing ones. This process is known as hypertrophy, and it leads to increased muscle size and strength. Additionally, resistance training can improve overall body composition, increase bone density, and enhance cardiovascular health. By consistently engaging in resistance training, individuals can see noticeable improvements in their muscle mass and overall fitness.",eos_token,96,112,1,5,0.65625,0.06315789473684211,0.0,0.0,0,0,1,True,True
+health_07,health,fever,Briefly explain why the body may develop a fever during infection.,"When a body is infected, it typically experiences a series of physiological responses to fight off the invading pathogen. One of the primary mechanisms by which the body responds to infection is through the production of heat. This is because the body's temperature regulation system is activated to maintain a stable internal environment. During an infection, the body's temperature rises due to the increased metabolic activity and the production of heat by the cells. This elevated temperature helps to kill the invading pathogens and initiate the immune response.",eos_token,88,99,1,5,0.625,0.06896551724137931,0.03488372093023256,0.0,0,1,2,True,True
+health_08,health,balanced_diet,Give a short explanation of what makes a diet balanced.,"A balanced diet is a nutritious and well-balanced combination of foods that provides the body with the necessary nutrients and energy it needs to function optimally. Here are some key factors that contribute to a balanced diet:
+
+1. **Protein**: Essential for muscle growth, repair, and maintenance, protein is crucial for building and maintaining body tissues.
+
+2. **Carbohydrates**: Provide energy, especially for physical activity and daily activities. Complex carbohydrates like whole grains, fruits, and vegetables are better for energy than simple sugars.
+
+3. **Fats**: Essential for cell repair, hormone production, and maintaining skin and hair health. Healthy fats from sources like avocados, nuts, and seeds are important for brain function and mood.
+
+4. **Vitamins and Minerals**: Essential for various bodily functions. Vitamins like vitamin C, vitamin D, and B vitamins are important for immune function and energy production. Minerals like calcium, iron, and zinc are crucial for bone health and overall well-being.
+
+5. **Water**: Essential for hydration and maintaining bodily functions. Dehydration can lead to fatigue, headaches, and other health issues.
+
+6. **Saturated and Trans Fats**: These are unhealthy fats that can contribute to heart disease and other health problems. Opt for unsaturated fats from sources like avocados, nuts, and olive oil.
+
+7. **Protein Sources**: Include a variety of protein sources such as lean meats, fish, poultry, eggs, legumes, and plant-based proteins like tofu, tempeh, and seitan.
+
+8. **Carbohydrate Sources**: Choose whole grains, fruits, vegetables, and legumes for their fiber content and other health benefits.
+
+9. **Fruit and Vegetable Sources**: Include a variety of fruits and vegetables to get a range of vitamins, minerals, and antioxidants.
+
+10. **Limiting Additives and Processed Foods**: These can be high in calories, added sugars, and unhealthy fats, which can lead to weight gain and other health problems.
+
+A balanced diet is not just about choosing the right foods but also about portion control, avoiding excessive intake of unhealthy fats and sugars, and ensuring that all nutrients are obtained from a variety of sources.",eos_token,331,446,12,28,0.5196374622356495,0.1393939393939394,0.060790273556231005,0.0,1,0,13,False,False
+history_01,history,printing_press,Give a concise explanation of why the printing press was historically important.,"The printing press was historically important because it revolutionized the way information was disseminated and shared. Prior to the printing press, books were handwritten and expensive, and the dissemination of knowledge was slow and limited. The printing press allowed for the mass production of books, which made books more affordable and accessible to a wider audience. This led to a significant increase in the number of books published and the spread of knowledge, which in turn had a profound impact on society. The printing press also played a crucial role in the development of the Enlightenment, as it facilitated the spread of ideas and the rise of new intellectual movements. Overall, the printing press was a transformative force that had a lasting impact on the history of knowledge and culture.",eos_token,130,145,1,6,0.5461538461538461,0.15503875968992248,0.046875,0.0,0,1,2,False,False
+history_02,history,industrial_revolution,Briefly explain what drove the Industrial Revolution.,"The Industrial Revolution was a period of significant technological and economic change that occurred in the late 18th and early 19th centuries. It was driven by a combination of factors, including:
+
+1. Industrialization: The shift from agrarian to industrial societies, where factories and machines replaced manual labor.
+
+2. Advances in technology: Improvements in machinery, steam power, and electricity, which allowed for more efficient production and transportation.
+
+3. Urbanization: The growth of cities as centers of industry and commerce, leading to increased population density and urbanization.
+
+4. Political and economic changes: The rise of capitalism, with the growth of the industrial class and the expansion of the market.
+
+5. Technological innovation: The development of new technologies, such as the steam engine, the telegraph, and the railroad, which facilitated faster and more efficient transportation.
+
+6. Social and cultural changes: The spread of ideas about industrialization and the importance of progress, which influenced public opinion and policy.
+
+7. Natural disasters: The impact of natural disasters, such as famines and wars, on the economy and society.
+
+8. Technological stagnation: The lack of new inventions and improvements in technology that could compete with the rapid pace of industrialization.
+
+9. Political instability: The rise of political instability and the need for new forms of governance to address the challenges of industrialization.
+
+10. Technological competition: The competition between different countries and industries to develop and adopt new technologies.
+
+These factors combined to create a period of rapid industrialization and technological advancement that transformed the world as we know it today.",eos_token,253,323,12,22,0.549407114624506,0.09523809523809523,0.01195219123505976,0.0,2,0,14,False,False
+history_03,history,silk_road,"In 2–3 sentences, explain the importance of the Silk Road.","The Silk Road was a network of trade routes that connected the East and West, facilitating the exchange of goods, ideas, and cultures between China, the Middle East, Europe, and Asia. It played a crucial role in the development of the world economy, trade, and cultural exchange, and helped to spread Chinese civilization and technology to the Far East. The Silk Road also had a significant impact on the development of the world's religions, including Buddhism, Taoism, and Islam, and helped to shape the world's political and economic landscape.",eos_token,89,109,1,3,0.6179775280898876,0.09090909090909091,0.04597701149425287,0.0,0,0,1,True,True
+history_04,history,roman_republic,Give a short explanation of how the Roman Republic differed from the Roman Empire.,"The Roman Republic and the Roman Empire were two distinct political entities that existed in ancient Rome, the capital city of the Roman Empire. Here are some key differences between the two:
+
+1. **Form of Government**: The Roman Republic was a form of government where the power was held by a single ruler, the Consul, who was elected by the Senate. The Senate was the highest authority in the Republic, and it was the Senate that had the power to veto legislation passed by the people.
+
+2. **Elections**: The Senate had the power to elect the Consul, but the Consul was not elected by the people. The Consul was chosen by the Senate, and the Senate had the power to remove the Consul from office if they found him incompetent or corrupt.
+
+3. **Legislative Power**: The Senate had the power to pass laws, but the people had the power to pass laws. The people had the power to veto laws passed by the Senate, and the Senate had the power to remove the people from office if they found them incompetent or corrupt.
+
+4. **Military Power**: The Senate had the power to appoint military commanders, but the people had the power to appoint military commanders. The Senate had the power to remove military commanders from office if they found them incompetent or corrupt.
+
+5. **Civic Power**: The Senate had the power to levy taxes, but the people had the power to levy taxes. The people had the power to veto taxes passed by the Senate, and the Senate had the power to remove the people from office if they found them incompetent or corrupt.
+
+6. **Economic Power**: The Senate had the power to regulate the economy, but the people had the power to regulate the economy. The people had the power to veto economic regulations passed by the Senate, and the Senate had the power to remove the people from office if they found them incompetent or corrupt.
+
+7. **Judicial Power**: The Senate had the power to declare war, but the people had the power to declare war. The people had the power to veto war declarations passed by the Senate, and the Senate had the power to remove the people from office if they found them incompetent or corrupt.
+
+8. **Cultural and Religious Power**: The Senate had the power to regulate the culture and religion, but the people had the power to regulate the culture and religion. The people had the power to veto cultural and religious regulations passed by the Senate, and the Senate had the power to remove the people from office if they found them incompetent or corrupt",max_new_tokens,442,512,9,25,0.2081447963800905,0.6281179138321995,0.5136363636363637,0.0,0,0,9,False,False
+history_05,history,magna_carta,Briefly explain why Magna Carta is remembered.,"The Magna Carta, also known as the Great Charter, is a document that was signed in 1215 by King John of England. It is considered one of the most important documents in English history and is remembered for several reasons:
+
+1. It established the principle of limited monarchy: The Magna Carta established that the king could not levy taxes without the consent of the people, and that the king could not imprison anyone without a legal warrant. This principle is still in place today, and it has been a source of inspiration for many political leaders.
+
+2. It protected the rights of the nobility: The Magna Carta also protected the rights of the nobility, which were not protected by the feudal system of the time. This was a significant step towards the modern concept of the nobility as a class of people with certain rights and privileges.
+
+3. It helped to establish the rule of law: The Magna Carta helped to establish the rule of law in England, which is still a fundamental principle of modern democracy. It established that everyone has the right to a fair trial and that the law should be applied equally to all citizens.
+
+4. It helped to establish the concept of the separation of powers: The Magna Carta also helped to establish the concept of the separation of powers, which is a fundamental principle of modern democracy. It established that the executive, legislative, and judicial branches of government should be separate and that each branch should have the power to make decisions on its own.
+
+5. It helped to establish the concept of the rule of law: The Magna Carta helped to establish the concept of the rule of law, which is a fundamental principle of modern democracy. It established that everyone has the right to a fair trial and that the law should be applied equally to all citizens.
+
+Overall, the Magna Carta is remembered for its contributions to the development of democracy and the rule of law, and for its role in establishing the principles of limited monarchy, protection of the rights of the nobility, and the establishment of the separation of powers.",eos_token,361,421,7,17,0.34349030470914127,0.37777777777777777,0.2785515320334262,0.058823529411764705,0,0,7,False,False
+history_06,history,renaissance,"In a few sentences, explain what the Renaissance was.","The Renaissance was a period of significant cultural, intellectual, and artistic development that occurred in Europe from the 14th to the 17th century. It was characterized by a renewed interest in classical learning, a revival of classical Greek and Roman culture, and a renewed emphasis on humanism, which emphasized the importance of human potential and the individual's role in society. The Renaissance also saw the rise of new artistic movements, such as the Humanist movement, which emphasized the importance of humanism and individualism. The Renaissance had a profound impact on European culture and society, and continues to be an important period in the history of Western civilization.",eos_token,107,131,1,4,0.5981308411214953,0.07547169811320754,0.02857142857142857,0.0,1,0,2,True,False
+history_07,history,cold_war,Give a concise explanation of why the Cold War was called cold.,"The Cold War was called ""cold"" because it was characterized by a period of relative peace and stability between the superpowers of the United States and the Soviet Union. Unlike the earlier Cold War era, which was marked by intense military conflict and the use of nuclear weapons, the Cold War was characterized by a more measured and diplomatic approach. The United States and the Soviet Union maintained a relatively low level of military engagement and focused on economic and political cooperation rather than direct confrontation. This approach was seen as more peaceful and less likely to lead to a nuclear war, which was the primary concern of the Cold War.",eos_token,111,122,1,4,0.5495495495495496,0.16363636363636364,0.09174311926605505,0.0,0,1,2,True,False
+history_08,history,agriculture_origins,Briefly explain how agriculture changed early human societies.,"Agriculture significantly transformed early human societies by providing a reliable food source, enabling the development of complex societies, and fostering economic growth. Here's a brief overview of how agriculture changed early human societies:
+
+1. **Food Security**: Before agriculture, humans relied on hunting and gathering, which often led to periods of scarcity and food shortages. With the development of agriculture, humans could produce enough food to sustain themselves and their communities.
+
+2. **Economic Growth**: Agriculture allowed for the creation of economies based on the exchange of goods and services. This led to the development of trade networks, which facilitated the exchange of goods and the spread of knowledge across different regions.
+
+3. **Social Structure**: The rise of agriculture led to the formation of more complex social structures. Communities began to develop more organized economies, with the emergence of classes and roles within society. This led to the development of political systems and the emergence of states.
+
+4. **Technological Advancements**: The development of agriculture spurred technological advancements. For example, the invention of the plow, which allowed for more efficient farming, and the development of irrigation systems, which improved water management and crop yields.
+
+5. **Cultural and Religious Changes**: The introduction of agriculture led to changes in cultural and religious practices. For instance, the development of agriculture often coincided with the rise of religious practices, such as the worship of gods and the establishment of religious institutions.
+
+6. **Environmental Changes**: The shift from hunting and gathering to agriculture led to changes in the environment. This included the development of new ecosystems and the impact on the natural world, which in turn influenced human societies.
+
+7. **Technological Innovations**: The development of agriculture spurred technological innovations. For example, the invention of the wheel, which allowed for more efficient transportation of goods, and the development of the printing press, which facilitated the spread of knowledge.
+
+8. **Social Mobility**: The rise of agriculture often led to the development of social mobility. As people became more productive and wealthy, they were able to move up the social ladder, leading to the formation of new social classes and roles.
+
+In summary, agriculture was a transformative force that significantly changed early human societies by providing a reliable food source, fostering economic growth, and leading to the development of complex social structures, technological advancements, and cultural and religious changes.",eos_token,388,469,10,27,0.3917525773195876,0.3178294573643411,0.18134715025906736,0.0,4,0,14,False,False
+knowledge_01,general_knowledge,democracy,"In 2–3 sentences, explain the basic idea of democracy.","Democracy is a system of government in which power is held by the people, who elect representatives to make decisions on their behalf. It is characterized by the idea that all citizens have the right to participate in the decision-making process and to have their voices heard. In a democracy, the government is accountable to the people and is responsible for ensuring that their rights and interests are protected.",eos_token,70,77,1,3,0.6428571428571429,0.028985507246376812,0.0,0.0,0,0,1,True,True
+knowledge_02,general_knowledge,peer_review,Briefly explain why scientific peer review is used.,"Scientific peer review is a process used by scientists to evaluate the quality and validity of research papers submitted to scientific journals. The purpose of this process is to ensure that the research is credible, accurate, and relevant to the field of study. Peer review involves multiple experts in the field reviewing the research paper, and they provide feedback on the research's methodology, data, and conclusions. This feedback helps to identify any potential biases or errors in the research, and it also helps to ensure that the research is well-researched and well-supported by evidence. The process of scientific peer review is important because it helps to maintain the integrity and credibility of scientific research, and it also helps to ensure that the research is relevant and useful to the field of study.",eos_token,134,151,1,5,0.4626865671641791,0.22556390977443608,0.13636363636363635,0.0,0,1,2,False,False
+knowledge_03,general_knowledge,copyright,Give a concise explanation of what copyright protects.,"Copyright protects original works of authorship, such as literary, artistic, dramatic, musical, and cinematographic works. These works include but are not limited to:
+
+1. Original literary works, including but not limited to books, articles, and other written works.
+2. Original artistic works, including but not limited to paintings, sculptures, photographs, and other visual arts.
+3. Original dramatic works, including but not limited to plays, films, and other theatrical productions.
+4. Original musical works, including but not limited to songs, symphonies, and other musical compositions.
+5. Original cinematographic works, including but not limited to films, television programs, and other cinematic productions.
+
+Copyright protects these original works for a limited period of time, typically 70 years from the date of the author's death or 95 years from the date of the author's death if the author is unknown. This period is known as the ""patent term."" After this period, the copyright is automatically transferred to the entity that owns the copyright, unless the copyright is renewed or extended.",eos_token,166,219,3,13,0.463855421686747,0.24242424242424243,0.14634146341463414,0.0,1,0,4,False,False
+knowledge_04,general_knowledge,maps_scale,"In a few sentences, explain what a map scale means.","A map scale is a ratio that indicates the relative size of the map compared to the actual distance. It is used to measure the distance between two points on a map and to determine the scale of the map. The scale is expressed as a ratio, such as 1:100,000, which means that 1 unit on the map represents 100,000 units in reality. This allows users to understand the size of the map relative to the actual distance and to compare distances between different locations.",eos_token,88,109,1,4,0.5113636363636364,0.1724137931034483,0.05813953488372093,0.0,1,0,2,True,True
+knowledge_05,general_knowledge,recycling,Briefly explain why recycling can conserve resources.,"Recycling conserves resources in several ways:
+
+1. Reduces the need for new raw materials: When we recycle, we are essentially reusing materials that would otherwise be discarded. This reduces the demand for new raw materials, which can be more expensive and resource-intensive to produce.
+
+2. Minimizes waste: Recycling reduces the amount of waste that ends up in landfills or incinerators. This helps to reduce the overall amount of waste that needs to be disposed of, which can have a positive impact on the environment.
+
+3. Saves energy: Recycling requires less energy than producing new materials from raw materials. This can help to reduce greenhouse gas emissions and conserve energy resources.
+
+4. Reduces pollution: Recycling helps to reduce the amount of pollution that is released into the environment. By reusing materials, we are reducing the amount of waste that ends up in landfills or oceans, which can have negative impacts on the environment.
+
+5. Saves money: Recycling can be a cost-effective way to conserve resources. By reducing the amount of waste that needs to be disposed of, we can save money on waste management and disposal costs.
+
+Overall, recycling is a sustainable and environmentally friendly way to conserve resources, and it can help to reduce the demand for new raw materials and minimize waste.",eos_token,215,258,7,16,0.4372093023255814,0.2570093457943925,0.1643192488262911,0.0,0,0,7,False,False
+knowledge_06,general_knowledge,scientific_theory,Give a short explanation of what a scientific theory is.,"A scientific theory is a well-substantiated explanation of a natural phenomenon or a set of related phenomena. It is a hypothesis that has been repeatedly tested and supported by evidence, and it is considered to be the most accurate and reliable explanation of a particular natural phenomenon or set of related phenomena. Scientific theories are based on empirical evidence and are designed to explain and predict natural phenomena, such as the behavior of atoms, the structure of the universe, and the laws of physics.",eos_token,85,95,1,3,0.5764705882352941,0.11904761904761904,0.04819277108433735,0.0,1,0,2,True,True
+knowledge_07,general_knowledge,jury,"In 2–3 sentences, explain the role of a jury in a trial.","A jury plays a crucial role in a trial by evaluating the credibility and evidence presented by the prosecution and defense. They are responsible for determining the truth of the case and deciding whether the accused is guilty or not. The jury's role is to ensure that the legal system is fair and impartial, and to provide a fair and just outcome for the accused.",eos_token,65,71,1,3,0.6461538461538462,0.03125,0.0,0.0,0,0,1,True,True
+knowledge_08,general_knowledge,latitude_longitude,Briefly explain how latitude and longitude locate places.,"Latitude and longitude are two important geographical coordinates that are used to locate places on Earth. Here's how they work:
+
+1. Latitude: Latitude is a measure of how far a place is from the equator. It is measured in degrees and is typically expressed as a positive number. For example, a latitude of 45 degrees is 45 degrees north of the equator.
+
+2. Longitude: Longitude is a measure of how far a place is from the prime meridian. It is measured in degrees and is typically expressed as a positive number. For example, a longitude of 120 degrees is 120 degrees east of the prime meridian.
+
+These two coordinates are used to pinpoint a location on the Earth's surface. For example, if you were to draw a line from the North Pole to the South Pole, you would use the latitude and longitude of the North Pole and South Pole to determine the exact location of the pole. Similarly, if you were to draw a line from the equator to the prime meridian, you would use the latitude and longitude of the equator and prime meridian to determine the exact location of the equator.",eos_token,194,237,4,12,0.32989690721649484,0.38341968911917096,0.2604166666666667,0.08333333333333333,3,0,7,False,False
+math_01,mathematics,prime_numbers,"In 2–3 sentences, explain what a prime number is.","A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself. In other words, a prime number is a number that is only divisible by 1 and itself. For example, 2, 3, 5, 7, 11, and 13 are all prime numbers.",eos_token,50,73,1,3,0.64,0.14285714285714285,0.08333333333333333,0.0,1,0,2,True,True
+math_02,mathematics,pythagorean_theorem,Give a concise explanation of the Pythagorean theorem.,"The Pythagorean theorem is a fundamental principle in Euclidean geometry that states that in a right-angled triangle, the square of the length of the hypotenuse (the side opposite the right angle) is equal to the sum of the squares of the lengths of the other two sides. This theorem is named after the ancient Greek mathematician Pythagoras, who first introduced it in the 6th century BCE. The theorem has numerous applications in various fields, including physics, engineering, and computer science, and it is a cornerstone of trigonometry and calculus.",eos_token,90,115,1,3,0.6444444444444445,0.06741573033707865,0.0,0.0,0,0,1,True,True
+math_03,mathematics,probability,Briefly explain what probability measures.,"Probability measures are mathematical tools used to quantify uncertainty or likelihood. They are fundamental in statistics, probability theory, and various fields of science and engineering. Here's a brief explanation of probability measures:
+
+1. Definition: Probability measures are functions that assign probabilities to events in a sample space. The sample space is the set of all possible outcomes of a random experiment.
+
+2. Properties:
+   - Non-negativity: The probability of any event is always non-negative.
+   - Sum to 1: The sum of the probabilities of all possible outcomes must equal 1.
+   - Non-singularity: Probability measures are non-negative and can be applied to any measurable space.
+
+3. Applications:
+   - Statistics: Used to describe and analyze data.
+   - Probability theory: Used to model and analyze uncertain events.
+   - Machine learning: Used to make predictions based on data.
+   - Finance: Used to model and analyze financial markets.
+   - Physics: Used to model and analyze physical systems.
+
+4. Types of probability measures:
+   - Probability measures on a sample space: These are the standard probability measures.
+   - Probability measures on a probability space: These are the probability measures that are induced by a probability measure on the sample space.
+
+5. Examples:
+   - The probability of rolling a 6 on a fair six-sided die is 1/6.
+   - The probability of getting heads on a fair coin toss is 1/2.
+   - The probability of a randomly chosen person being a member of a specific club is 1/10.
+
+Probability measures are crucial in many fields of science and engineering, as they allow us to quantify uncertainty and make predictions based on data.",eos_token,257,341,7,23,0.4280155642023346,0.2578125,0.12156862745098039,0.0,0,0,7,False,False
+math_04,mathematics,derivative,"In a few sentences, explain what a derivative represents.","A derivative is a financial instrument that represents an underlying asset or index, such as a stock, bond, or currency, and whose value is determined by the price of the underlying asset or index. Derivatives are used to hedge against risks associated with the underlying asset or index, to speculate on changes in the value of the underlying asset or index, or to generate income from the underlying asset or index. Derivatives are a key part of the financial market and play a significant role in the global economy.",eos_token,89,103,1,3,0.550561797752809,0.22727272727272727,0.16091954022988506,0.0,1,0,2,True,True
+math_05,mathematics,negative_numbers,Give a short explanation of why negative numbers are useful.,"Negative numbers are useful in various fields due to their unique properties and applications. Here are some key reasons why negative numbers are important:
+
+1. **Mathematical Operations**: Negative numbers can be used in mathematical operations to represent quantities that are below zero. For example, in physics, negative numbers can represent positions below the zero point on a number line. In economics, negative numbers can represent debts or losses.
+
+2. **Finance and Economics**: In finance, negative numbers are used to represent debts, losses, and deficits. For instance, a negative balance in a bank account represents a deficit, which is a loss. In economics, negative numbers can represent negative income or expenses.
+
+3. **Engineering and Physics**: In engineering and physics, negative numbers are used to represent quantities that are below a certain threshold. For example, in electrical circuits, negative voltage can represent a current that is below the reference voltage.
+
+4. **Computer Science and Information Technology**: In computer science, negative numbers are used in various algorithms and data structures. For example, in sorting algorithms, negative numbers can be used to represent the order of elements in a list.
+
+5. **Geography and Geography**: In geography, negative numbers are used to represent areas below sea level. For example, in the United States, the Great Lakes are located below sea level, and their elevation is negative.
+
+6. **Mathematics and Mathematics Education**: Negative numbers are fundamental in mathematics and are used in various mathematical concepts and problems. They are also used in teaching and learning mathematics, as they help students understand the concept of negative values and their applications.
+
+7. **Real-World Applications**: Negative numbers are used in real-world applications such as in financial markets, where negative numbers represent losses or debts, and in engineering, where negative numbers represent areas below the reference level.
+
+In summary, negative numbers are useful in various fields because they provide a way to represent and understand quantities that are below a certain threshold, which is crucial in many areas of science, technology, and everyday life.",eos_token,336,408,9,24,0.36607142857142855,0.2835820895522388,0.16167664670658682,0.0,6,1,16,False,False
+math_06,mathematics,standard_deviation,Briefly explain what standard deviation tells us.,"Standard deviation is a statistical measure that quantifies the amount of variation or dispersion in a set of values. It tells us how spread out the values are from the mean (average) of the set. A low standard deviation indicates that the values tend to be close to the mean, while a high standard deviation indicates that the values are spread out over a wider range. In other words, standard deviation is a measure of the average distance of each value from the mean.",eos_token,84,94,1,4,0.5119047619047619,0.1927710843373494,0.0975609756097561,0.0,0,0,1,True,True
+math_07,mathematics,symmetry,"In 2–3 sentences, explain mathematical symmetry.","Mathematical symmetry refers to the property of an object or a mathematical structure that allows it to be rotated or reflected in a way that leaves it unchanged. This concept is fundamental in various fields, including geometry, algebra, and number theory, and it forms the basis for many theorems and proofs in these areas. The study of symmetry is crucial for understanding the underlying structures and properties of mathematical objects and systems.",eos_token,72,84,1,3,0.6944444444444444,0.0,0.0,0.0,0,0,1,True,True
+math_08,mathematics,logarithms,Give a concise explanation of what logarithms do.,"Logarithms are a fundamental concept in mathematics that are used to solve problems involving exponentiation. Specifically, logarithms are used to determine the power to which a base number must be raised to produce a given number. For example, if you have the equation \(2^3 = 8\), you can use the logarithm to find out that \(3 = \log_2 8\). This means that the base 2 raised to the power of 3 equals 8.
+
+Logarithms are particularly useful in various fields, including physics, engineering, and computer science, where they are used to solve problems involving rates of change, logarithmic functions, and other mathematical relationships. They are also used in the study of logarithmic scales, which are used to represent data on a logarithmic scale, where the values are powers of a base number.
+
+In summary, logarithms are a mathematical tool that allows us to solve problems involving exponentiation and to understand relationships between different quantities.",eos_token,154,200,3,7,0.525974025974026,0.1437908496732026,0.07236842105263158,0.0,1,1,5,False,False
+physics_01,physics,airplane_lift,Give a short explanation of how airplane wings generate lift.,"Airplane wings generate lift through a process called lift generation. The wing's surface is designed to create a pressure difference between the inside and outside of the wing. When an airplane flies, the air moving over the wing creates a high-pressure area on the inside of the wing and a low-pressure area on the outside. This pressure difference creates a force that acts perpendicular to the wing's surface, which is the lift force. The lift force is what propels the airplane forward and keeps it in the air.",eos_token,90,102,1,5,0.5222222222222223,0.15730337078651685,0.056818181818181816,0.0,0,0,1,True,True
+physics_02,physics,gravity_orbits,Briefly explain why satellites stay in orbit.,"Satellites stay in orbit for several key reasons:
+
+1. **Navigation and Communication**: Satellites are used for navigation and communication. They provide precise positions and directions for aircraft, ships, and other vehicles. This is crucial for safety and efficiency in transportation and military operations.
+
+2. **Weather Monitoring**: Satellites are used for weather monitoring. They can provide real-time data on temperature, humidity, wind speed, and other meteorological factors, which helps in predicting and preparing for weather events.
+
+3. **Satellite Communication**: Satellites are essential for satellite communication. They provide high-speed data transmission over long distances, which is crucial for various applications such as internet access, video conferencing, and remote monitoring.
+
+4. **Navigation and Mapping**: Satellites are used for navigation and mapping. They provide precise positions and directions for aircraft, ships, and other vehicles, which is essential for navigation and mapping.
+
+5. **Scientific Research**: Satellites are used for scientific research. They provide high-resolution images and data, which are crucial for scientific studies and research.
+
+6. **Emergency Services**: Satellites are used for emergency services. They can provide real-time information and assistance in disaster relief and other emergencies.
+
+7. **Navigation and Mapping**: Satellites are used for navigation and mapping. They provide precise positions and directions for aircraft, ships, and other vehicles, which is essential for navigation and mapping.
+
+8. **Satellite Communication**: Satellites are essential for satellite communication. They provide high-speed data transmission over long distances, which is crucial for various applications such as internet access, video conferencing, and remote monitoring.
+
+9. **Navigation and Mapping**: Satellites are used for navigation and mapping. They provide precise positions and directions for aircraft, ships, and other vehicles, which is essential for navigation and mapping.
+
+10. **Satellite Communication**: Satellites are essential for satellite communication. They provide high-speed data transmission over long distances, which is crucial for various applications such as internet access, video conferencing, and remote monitoring.
+
+In summary, satellites stay in orbit for their primary purpose of providing navigation, communication, weather monitoring, satellite communication, navigation, mapping, scientific research, emergency services, navigation, and mapping.",eos_token,339,448,12,32,0.2743362831858407,0.5414201183431953,0.4421364985163205,0.25,3,0,15,False,False
+physics_03,physics,electric_current,"In 2–3 sentences, explain what electric current is.","Electric current is a flow of electric charge through a conductor, such as a wire or a circuit. It is measured in units such as amperes (A) or volts (V). Electric current is essential for the functioning of electrical devices and systems, including lighting, appliances, and electronic devices.",eos_token,48,61,1,3,0.6875,0.06382978723404255,0.021739130434782608,0.0,2,0,3,True,True
+physics_04,physics,sound_pitch,Give a concise explanation of what determines a sound's pitch.,"The pitch of a sound is determined by the frequency of the sound wave. Sound waves are produced by the vibration of air molecules, and the frequency of these vibrations determines the pitch of the sound. Higher frequencies correspond to higher pitches, while lower frequencies correspond to lower pitches. The pitch of a sound is also affected by the speed of the sound wave and the distance between the source of the sound and the listener.",eos_token,76,83,1,4,0.4473684210526316,0.29333333333333333,0.14864864864864866,0.0,0,0,1,True,True
+physics_05,physics,friction_heat,Briefly explain why friction produces heat.,"Friction is the resistance that occurs when two surfaces come into contact with each other. When two surfaces are in contact, they can move relative to each other, and friction is the force that opposes this movement. Friction is a fundamental force that exists in all materials, and it is responsible for the heat generation in many mechanical systems.
+
+When two surfaces come into contact, they can move relative to each other, and friction is the force that opposes this movement. This force is generated by the frictional forces between the surfaces, which are caused by the relative motion between them. As the surfaces move, they exert a force on each other, and this force is transmitted through the contact surface and into the material of the surfaces.
+
+The heat generated by friction is a result of the frictional forces acting on the surfaces. When the surfaces move relative to each other, they exert a force on each other, and this force is transmitted through the contact surface and into the material of the surfaces. As the surfaces move, they exert a force on each other, and this force is transmitted through the contact surface and into the material of the surfaces. This force is transmitted through the contact surface and into the material of the surfaces, and this force is transmitted through the contact surface and into the material of the surfaces.
+
+The heat generated by friction is a result of the frictional forces acting on the surfaces. When the surfaces move relative to each other, they exert a force on each other, and this force is transmitted through the contact surface and into the material of the surfaces. As the surfaces move, they exert a force on each other, and this force is transmitted through the contact surface and into the material of the surfaces. This force is transmitted through the contact surface and into the material of the surfaces, and this force is transmitted through the contact surface and into the material of the surfaces.
+
+The heat generated by friction is a result of the frictional forces acting on the surfaces. When the surfaces move relative to each other, they exert a force on each other, and this force is transmitted through the contact surface and into the material of the surfaces. As the surfaces move, they exert a force on each other, and this force is transmitted through the contact surface and into the material of the surfaces. This force is transmitted through the contact surface and into the material of the surfaces, and this force is transmitted through the contact surface and into the material of the surfaces.
+
+The heat generated by friction is a result of the frictional forces acting on the surfaces. When the surfaces move",max_new_tokens,463,512,6,20,0.12742980561555076,0.7705627705627706,0.720173535791757,0.5,0,0,6,False,False
+physics_06,physics,magnet_attraction,"In a few sentences, explain why magnets attract some metals.","Magnets attract certain metals because they have a magnetic field that interacts with the atoms and molecules of the metals. When a magnet is placed near a metal object, the magnetic field of the magnet induces an electric current in the metal, which can then be detected by a magnetometer. This process is known as the ""magnetic induction"" or ""magnetic attraction."" The strength of the magnetic field of a magnet is proportional to the number of magnetic poles it has, and the strength of the magnetic field of a metal is proportional to the number of magnetic atoms in the metal. Therefore, magnets attract certain metals because they have a magnetic field that interacts with the atoms and molecules of the metals, causing them to become magnetized and attract the magnet.",eos_token,131,150,1,4,0.42748091603053434,0.34615384615384615,0.2558139534883721,0.0,0,3,4,False,False
+physics_07,physics,momentum,Give a short explanation of momentum.,"Momentum is a concept in physics that describes the tendency of an object to continue moving forward or in a certain direction even when no external force is acting on it. It is a fundamental property of objects that can be observed in everyday situations, such as a car accelerating or a ball rolling down a hill.
+
+Momentum is calculated using the formula:
+
+\[ \text{Momentum} = \text{mass} \times \text{velocity} \]
+
+Where:
+- Mass is the amount of matter in an object.
+- Velocity is the speed and direction of an object.
+
+The direction of momentum is the same as the direction of the object's motion. For example, if an object is moving to the right, its momentum is in the same direction as the object's motion.
+
+Momentum is a crucial concept in physics because it helps us understand how objects move and interact with each other. It is also used in various fields, including engineering, physics, and everyday life, such as in sports, physics experiments, and everyday activities like driving a car.",eos_token,170,212,6,8,0.5117647058823529,0.14792899408284024,0.02976190476190476,0.0,3,1,10,False,False
+physics_08,physics,refraction,Briefly explain why a straw looks bent in water.,"When a straw is placed in water, it bends because the water exerts a force on the straw, causing it to deform. The force is due to the pressure difference between the inside of the straw and the outside of the water. The straw bends because the water pushes against the inside of the straw, causing it to deform. The bent shape of the straw is a result of the water's pressure acting on it.",eos_token,75,85,1,4,0.4266666666666667,0.2702702702702703,0.1506849315068493,0.0,0,2,3,True,True
+physics_09,physics,solar_panels,"In 2–3 sentences, explain how solar panels generate electricity.","Solar panels generate electricity through a process called photovoltaic (PV) cells. These cells are made up of semiconductor materials that can convert sunlight into electricity. When sunlight hits the cells, it causes electrons to be excited and move through a circuit, which then generates electricity. This process is called photovoltaic effect, and it is the fundamental principle behind solar power generation. Solar panels are commonly used in homes, businesses, and other buildings to convert sunlight into usable electricity.",eos_token,78,95,1,5,0.6923076923076923,0.06493506493506493,0.013157894736842105,0.0,0,0,1,True,True
+psychology_01,psychology,working_memory,"In 2–3 sentences, explain what working memory is.","Working memory is a crucial component of cognitive functions such as attention, processing information, and short-term storage of information. It allows us to hold and manipulate information in our minds for a limited amount of time, typically around 10 to 15 seconds, which is essential for many tasks, including reading, writing, and performing mental calculations.",eos_token,56,70,1,2,0.8214285714285714,0.0,0.0,0.0,1,0,2,True,True
+psychology_02,psychology,confirmation_bias,Briefly explain confirmation bias.,"Confirmation bias is a cognitive bias where individuals tend to seek out information that confirms their pre-existing beliefs or hypotheses, even if it means ignoring or dismissing information that contradicts them. This tendency can lead to a skewed interpretation of information and can result in the misinterpretation of facts and the formation of false beliefs.",eos_token,56,63,1,2,0.7678571428571429,0.01818181818181818,0.0,0.0,0,0,1,True,True
+psychology_03,psychology,classical_conditioning,Give a concise explanation of classical conditioning.,"Classical conditioning is a type of learning where an initially neutral stimulus becomes associated with a new, neutral stimulus. This process involves the brain learning to associate a previously neutral stimulus with a new, neutral stimulus, which can then become associated with the original neutral stimulus. This process is often used in behavior modification and can be applied to various scenarios, such as teaching a new behavior to a dog or teaching a new skill to a person.",eos_token,78,87,1,3,0.5897435897435898,0.18181818181818182,0.07894736842105263,0.0,1,0,2,True,True
+psychology_04,psychology,sleep_memory,"In a few sentences, explain how sleep supports memory.","Sleep plays a crucial role in memory consolidation and retrieval. During sleep, the brain processes and consolidates information from the previous day, including new memories and learned skills. This process is facilitated by the brain's ability to store and retrieve information in a structured and organized manner. Sleep also helps to clear the brain of any distractions and interruptions that may interfere with memory formation. Therefore, adequate sleep is essential for maintaining and enhancing memory.",eos_token,75,86,1,5,0.7333333333333333,0.013513513513513514,0.0,0.0,0,1,2,True,True
+psychology_05,psychology,placebo_effect,Briefly explain the placebo effect.,"The placebo effect is a phenomenon where a person experiences a positive effect on their health or behavior due to the belief that a treatment or intervention is effective. This effect can be observed in various contexts, such as in the treatment of mental health conditions, physical health conditions, and even in the placebo effect in medicine. The placebo effect is often associated with the use of a ""dummy"" or ""mock"" treatment, which is not actually effective but is believed to have a positive effect on the patient's condition. The placebo effect can be influenced by a variety of factors, including the patient's expectations, the quality of the treatment, and the patient's personal beliefs and attitudes towards the treatment.",eos_token,119,138,1,4,0.5294117647058824,0.15254237288135594,0.05982905982905983,0.0,1,0,2,True,False
+psychology_06,psychology,cognitive_dissonance,Give a short explanation of cognitive dissonance.,"Cognitive dissonance is a psychological phenomenon where an individual's beliefs, attitudes, or behaviors are inconsistent with their beliefs, attitudes, or behaviors. This inconsistency can lead to discomfort and conflict, and it can cause individuals to seek out information that contradicts their beliefs or to change their beliefs or attitudes in order to reduce the discomfort.
+
+For example, if someone believes that smoking is bad for their health, but they also believe that it is necessary for their survival, they may experience cognitive dissonance. They may feel conflicted between their beliefs about smoking and their beliefs about the importance of survival. To reduce this discomfort, they may seek out information that contradicts their beliefs about smoking, such as research that shows that smoking can actually be beneficial for health.
+
+Cognitive dissonance can also occur in other areas of life, such as relationships, work, or personal beliefs. It can lead to feelings of discomfort and conflict, and it can be a source of motivation to change one's beliefs or attitudes.",eos_token,168,203,3,7,0.4642857142857143,0.2155688622754491,0.10240963855421686,0.0,3,0,6,False,False
+psychology_07,psychology,stress_response,"In 2–3 sentences, explain the fight-or-flight response.","The fight-or-flight response is a physiological response that occurs when an individual is confronted with a perceived threat. This response is triggered by a range of stimuli, including physical danger, emotional stress, or a perceived threat to one's safety. The fight-or-flight response is designed to help individuals quickly assess the situation, assess their options, and make a decision that maximizes their chances of survival.",eos_token,68,79,1,3,0.6617647058823529,0.11940298507462686,0.07575757575757576,0.0,0,0,1,True,True
+psychology_08,psychology,habit_formation,Briefly explain how habits form.,"Habits form through a combination of environmental factors, internal motivations, and the repetition of actions. The formation of habits is influenced by a variety of factors, including:
+
+1. Environmental factors: These include the availability of resources, the presence of others, and the social norms and expectations of others. The environment can either encourage or discourage the formation of habits, and it can also provide opportunities for the development of new habits.
+
+2. Internal motivations: Habits are formed by internal motivations, such as the desire to avoid negative consequences, the desire to improve oneself, or the desire to maintain a certain level of performance. These motivations can be strong or weak, and they can be influenced by external factors, such as the availability of rewards or punishments.
+
+3. Repetition: Habits are formed through repetition, which means that the same actions or behaviors are performed repeatedly. This can be influenced by the frequency of the actions, the difficulty of the actions, and the availability of resources.
+
+4. Learning: Habits can also be formed through learning, which involves the acquisition of new knowledge and skills. This can be influenced by the availability of resources, the difficulty of the actions, and the availability of feedback.
+
+5. Social norms: Habits are also formed through social norms, which are the expectations and behaviors that are expected of others. These norms can be influenced by the availability of others, the availability of resources, and the availability of feedback.
+
+6. Motivation: Finally, habits are formed through the motivation of the individual, which can be influenced by the availability of rewards or punishments, the availability of resources, and the availability of feedback.
+
+In summary, habits form through a combination of environmental factors, internal motivations, repetition, learning, social norms, and motivation. The formation of habits is influenced by a variety of factors, and it can be influenced by external factors as well.",eos_token,312,380,8,20,0.2980769230769231,0.38263665594855306,0.24838709677419354,0.0,2,0,10,False,False
+science_01,everyday_science,autumn_leaf_color,Give a concise explanation of why leaves change color in autumn.,"Leaves change color in autumn for several reasons:
+
+1. Seasonal change: As the days get shorter and the nights get colder, the leaves on trees start to change color. This is a natural process that occurs in response to the changing seasons.
+
+2. Photosynthesis: Trees produce glucose and other organic compounds through a process called photosynthesis. During this process, they use sunlight to convert carbon dioxide and water into glucose and oxygen. As the leaves turn yellow and brown, they are no longer producing enough glucose to sustain their growth and photosynthesis.
+
+3. Nutrient depletion: As the leaves turn yellow and brown, they are no longer producing enough glucose to support the growth of the tree. This can lead to nutrient depletion, which can cause the leaves to turn yellow and brown.
+
+4. Environmental factors: The color of leaves can also be influenced by environmental factors such as temperature, humidity, and wind. For example, if the leaves are exposed to too much sunlight, they may turn yellow and brown.
+
+Overall, the color change of leaves in autumn is a natural process that occurs in response to the changing seasons and environmental factors.",eos_token,192,228,6,14,0.46875,0.225130890052356,0.14210526315789473,0.0,2,0,8,False,False
+science_02,everyday_science,blue_sky,Briefly explain why the sky appears blue.,"The sky appears blue because of the scattering of sunlight by tiny particles in the Earth's atmosphere. When sunlight enters the atmosphere, it is scattered in all directions by these particles, which are mostly water droplets and tiny ice crystals. The blue light is scattered more than the other colors of light, so it appears to be blue. This phenomenon is called Rayleigh scattering. The blue light is scattered more than the other colors of light because it has a shorter wavelength, which is why it is scattered more than the longer wavelengths of light.",eos_token,95,108,1,5,0.5157894736842106,0.19148936170212766,0.15053763440860216,0.0,0,2,3,True,True
+science_03,everyday_science,rainbow_formation,"In 2–3 sentences, explain how rainbows form.","Rainbows are formed when sunlight passes through water droplets in the atmosphere, causing the light to bend and refract. The colors of the rainbow are the result of the different wavelengths of light being scattered and refracted by the water droplets. The colors of the rainbow are also caused by the angle at which the light strikes the water droplets and the distance between them.",eos_token,65,76,1,3,0.5692307692307692,0.171875,0.07936507936507936,0.0,0,0,1,True,True
+science_04,everyday_science,ice_floating,Give a short explanation of why ice floats on water.,"Ice floats on water because it is less dense than water. Density is a measure of the mass of an object per unit volume. Water has a higher density than ice, which means that ice is less dense than water. When ice melts, it turns into water, which has a lower density than water. This means that ice floats on water because it is less dense than water.",eos_token,68,77,1,5,0.47058823529411764,0.2835820895522388,0.19696969696969696,0.0,0,2,3,True,True
+science_05,everyday_science,metal_rust,Briefly explain why iron rusts.,"Iron rusts because it is exposed to oxygen and moisture. When iron is exposed to air, it can react with oxygen and moisture to form iron oxide, which is the rust that we see on the surface of iron objects. This process is called oxidation and is a natural process that occurs in nature. The rust on iron objects is not harmful to the iron itself, but it can be a problem if it is not removed properly.",eos_token,78,87,1,4,0.5769230769230769,0.11688311688311688,0.02631578947368421,0.0,0,1,2,True,True
+science_06,everyday_science,soap_cleaning,"In a few sentences, explain how soap removes grease.","Soap is a cleaning agent that works by dissolving grease and other oils into the water it comes into contact with. When soap comes into contact with grease, it forms a film on the surface of the grease, which is then washed away by the water. This process of removing grease is called emulsification, and it is a common and effective method for cleaning grease from surfaces.",eos_token,67,77,1,3,0.6119402985074627,0.07575757575757576,0.03076923076923077,0.0,0,0,1,True,True
+science_07,everyday_science,thunder_delay,Give a concise explanation of why thunder is heard after lightning is seen.,"Thunder is heard after lightning is seen because lightning is a flash of light that occurs when an electric charge is released from a thundercloud. When this charge is released, it creates a loud noise that we perceive as lightning. The sound of lightning is a result of the rapid movement of electrons in the cloud, which causes the air to vibrate and create a loud noise. This sound is often heard as thunder, which is a result of the vibration of the air and the movement of the lightning.",eos_token,90,100,1,4,0.5,0.16853932584269662,0.06818181818181818,0.0,0,1,2,True,True
+science_08,everyday_science,dew_formation,Briefly explain how dew forms on grass.,"Dew forms on grass primarily due to the process of condensation. When the temperature of the air near the ground is lower than the temperature of the ground itself, water vapor in the air condenses into liquid droplets. This process is called condensation. As the droplets grow larger, they form a layer on the grass surface. This layer of liquid droplets is called dew. The dew layer on grass is typically very thin and disappears quickly once the temperature rises above the dew point.",eos_token,84,100,1,6,0.5595238095238095,0.13253012048192772,0.024390243902439025,0.0,0,0,1,True,True
+science_09,everyday_science,pressure_cooking,"In 2–3 sentences, explain why pressure cookers cook food faster.","Pressure cookers cook food faster than traditional stovetop methods because they use a high-pressure process that forces water and ingredients to cook at a much higher temperature, which significantly reduces cooking time. This process also allows for more precise control over the cooking time and temperature, which can be crucial for certain recipes that require precise cooking times or for cooking in a variety of different cooking situations. Additionally, pressure cookers can be more energy-efficient than stovetop methods, as they use less fuel and have a lower heat output, which can help to save energy and reduce costs.",eos_token,100,117,1,3,0.66,0.0707070707070707,0.0,0.0,0,1,2,True,True
+science_10,everyday_science,evaporation_cooling,Briefly explain why evaporation can cool a surface.,"Evaporation is the process by which a liquid changes directly into a gas without passing through the liquid phase. This process is a key mechanism for cooling surfaces, as it allows heat to be transferred from the surface to the surrounding air. Here's a brief explanation of why evaporation can cool a surface:
+
+1. **Heat Transfer**: Evaporation is a heat transfer process where a liquid changes directly into a gas. This process involves the absorption of heat energy from the liquid and the release of heat energy into the surrounding air. This heat transfer occurs at the surface of the liquid, where it can be transferred to the air.
+
+2. **Cooling Effect**: As the liquid evaporates, it cools down. The liquid itself is not directly cooled, but rather the heat energy from the liquid is transferred to the surrounding air. This transfer of heat is a direct cooling effect, as the air is cooled by the liquid.
+
+3. **Temperature Drop**: The temperature of the liquid decreases as it evaporates. This temperature drop is a significant cooling effect, as it allows the liquid to cool down to a temperature that is comfortable for the surface material.
+
+4. **Surface Area**: Evaporation is a process that occurs on the surface of the liquid. The surface area of the liquid is larger than the surface area of the air, which means that the liquid can cool down more quickly and efficiently on the surface compared to the air.
+
+5. **Heat Transfer Efficiency**: The heat transfer efficiency of evaporation is higher than that of conduction or convection. This is because the liquid is able to transfer heat more effectively to the air, allowing for a faster cooling effect.
+
+In summary, evaporation is a key mechanism for cooling surfaces because it allows heat to be transferred from the surface to the surrounding air, leading to a cooling effect. This process is efficient and effective, making it a common and effective cooling method for various surfaces.",eos_token,329,386,7,21,0.3009118541033435,0.32621951219512196,0.1559633027522936,0.0,0,2,9,False,False

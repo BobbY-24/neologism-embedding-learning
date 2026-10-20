@@ -5,7 +5,7 @@
 
 > Instead of fine-tuning an entire language model, can we add one new token and optimize only its embedding from preference pairs—and when does that embedding begin to behave like a reusable word rather than a soft control vector?
 
-> **Status / Scope: work in progress.** Experiment 1 and Experiment 2 **quick mode** are complete on `Qwen/Qwen2.5-0.5B-Instruct`, which serves as a development and mechanistic testbed. Full multi-seed Experiment 2, the LoRA baseline and the interpretability analyses are **implemented and CPU-tested but not yet run**. They run on a Colab GPU through [`notebooks/colab_runner.ipynb`](notebooks/colab_runner.ipynb). A within-family scale replication (Qwen2.5-1.5B and 3B) is also implemented and CPU-tested but not run. Cross-family replication has not started. Current results establish within-model behavior only and should not be generalized to language models broadly.
+> **Status / Scope: work in progress.** Experiment 1, Experiment 2 (quick and **full multi-seed**), the LoRA baseline and the interpretability analyses are complete on `Qwen/Qwen2.5-0.5B-Instruct`, which serves as a development and mechanistic testbed. The full runs ran on a Colab GPU through [`notebooks/colab_runner.ipynb`](notebooks/colab_runner.ipynb). A within-family scale replication (Qwen2.5-1.5B and 3B) is implemented and CPU-tested but not run. Cross-family replication has not started. All results are within one 0.5B model and should not be generalized to language models broadly.
 
 ## Done vs pending
 
@@ -13,15 +13,15 @@
 |---|---|---|
 | Experiment 1: 3-pair pilot | ✅ | ✅ `results/experiment_1/` |
 | Experiment 2 quick mode (1 seed, 5 pairs, 10 prompts) | ✅ | ✅ `results/experiment_2/quick/` |
-| Experiment 2 full mode (5 genuine + 3 shuffled seeds, 20 pairs, 36 prompts, learning curves) | ✅ | ⏳ not run; pending a Colab run |
-| LoRA baseline (matched 1,024-param arm + rank-8 arm, 3 seeds each) | ✅ | ⏳ not run |
-| Interpretability: vocabulary neighbours, logit lens, activation patching | ✅ | ⏳ not run |
+| Experiment 2 full mode (5 genuine + 3 shuffled seeds, 20 pairs, 36 prompts, learning curves) | ✅ | ✅ `results/experiment_2/full/` |
+| LoRA baseline (matched 1,024-param arm + rank-8 arm, 3 seeds each) | ✅ | ✅ `results/experiment_2/full/lora_baseline/` |
+| Interpretability: vocabulary neighbours, logit lens, activation patching | ✅ | ✅ `results/experiment_2/full/interp/` |
 | Colab driver notebook | ✅ | n/a |
 | CPU tests (tiny random Qwen2; no download) | ✅ in CI | n/a |
-| Experiment 3: within-family scale (1.5B in fp32, 3B in bf16; frozen 0.5B data; full protocol) | ✅ | ⏳ not run; needs the 0.5B full run first |
+| Experiment 3: within-family scale (1.5B in fp32, 3B in bf16; frozen 0.5B data; full protocol) | ✅ | ⏳ not run; the 0.5B reference it compares against is now complete |
 | Cross-family replication | ❌ | ❌ |
 
-Everything below the "Current result" heading comes from completed runs. Sections marked *pending* describe methods only and report no numbers.
+Every number below comes from a completed run. Experiment 3 is described in [docs/experiment_3.md](docs/experiment_3.md) and reports no numbers yet.
 
 This repository is a controlled framework for studying the progression
 
@@ -62,73 +62,109 @@ L=-\log \sigma\left(\beta\left[(\log p_{E_w}(y_c|x)-\log p_{E_w^{(0)}}(y_c|x))-(
 
 with response-token log probabilities only. Optimization updates `E_w`; model parameters `θ_Qwen` are checksum-verified as unchanged.
 
-## Current result: measurable control, not a learned word
+## Current result: strong, token-specific control that degrades quality and is not word-like
 
-Experiment 2 first screened 100 prompts with base Qwen, retained 56 concise/EOS-terminated prompts, and froze a disjoint 20-train/36-held-out split. Its completed **quick run** used 5 exact-prefix preference pairs, 10 held-out prompts, one genuine initialization seed, and one shuffled-label seed.
+Experiment 2 screened 100 prompts with base Qwen, kept 56 that it answered concisely, and froze a topic-disjoint 20-train / 36-held-out split. The **full run** trained the embedding on all 20 contrast-purified pairs, with **5 genuine initialization seeds** and **3 shuffled-label seeds**. It evaluated every condition on all 36 held-out prompts with greedy decoding and a 512-token cap, on a Colab CUDA GPU in fp32 (2026-10-20). The base outputs regenerated on the GPU matched the original CPU screening word for word on all 36 prompts.
 
-| Condition | Mean held-out words |
-|---|---:|
-| Base | 86.0 |
-| Untrained token | 94.9 |
-| Shuffled token | 93.1 |
-| **Trained token** | **159.2** |
-| Explicit English | 160.4 |
+| Condition | Mean held-out words | Δ vs base | Hit the 512-token cap |
+|---|---:|---:|---:|
+| Base | 83.7 | — | 0% |
+| Untrained token | 97.1 | +13.4 | 2% |
+| Shuffled-label token (3 seeds) | 125.6 | +41.9 | 3% |
+| Explicit English instruction | 215.6 | +131.9 | 17% |
+| **Trained token (5 seeds)** | **324.6** | **+240.9** | **47%** |
 
-The genuinely trained embedding increased output length by an average of **+73.2 words relative to base** and **+64.3 relative to the untrained token**. Eight of ten held-out prompts had a positive trained-minus-base difference; the prompt-bootstrap 95% interval was `[+35.5, +117.8]` words. Its mean effect was 0.984 of the explicit-English instruction effect, but that ratio is based on one small run and is not a general equivalence claim.
+![Condition word counts](results/experiment_2/full/figures/condition_word_counts.png)
 
-![Condition word counts](results/experiment_2/quick/figures/condition_word_counts.png)
+**Every seed works, but by different amounts.** All five genuine seeds lengthened 97–100% of held-out prompts. Their mean effects ranged about 3× (prompt-bootstrap 95% intervals):
 
-The controls matter. Genuine preferences reduced DPO loss from `0.693` to `0.124`; shuffled preferences reduced it only to `0.522`. The shuffled token averaged just **+7.1 words over base**. Optimization success and intended held-out behavioral meaning are distinct phenomena.
+| Seed | Final DPO loss | Δ words vs base | 95% CI |
+|---:|---:|---:|---|
+| 1 | 0.029 | +349.4 | [+335.5, +362.6] |
+| 2 | 0.030 | +315.9 | [+287.2, +342.6] |
+| 3 | 0.139 | +114.1 | [+84.7, +147.7] |
+| 4 | 0.089 | +192.0 | [+148.8, +235.3] |
+| 5 | 0.027 | +233.1 | [+189.3, +276.0] |
+
+The weakest seeds are also the least-fitted (highest final loss). Over the 18 learning-curve runs (3 seeds × N = 0–20), preference margin and held-out effect correlate at r = 0.95; those points are not independent. The mean effect grows with data: +11.6, +11.0, +33.5, +81.4, +190.0 and +259.8 words at N = 0, 1, 2, 5, 10 and 20. The five learned vectors are nearly orthogonal (pairwise cosine 0.01–0.12), so many different directions produce the same behavior.
+
+**Shuffled labels are a weaker but not null control.** Shuffled seeds reached a DPO loss of only 0.53–0.63, against 0.03–0.14 for genuine seeds, and lengthened outputs by +12.7 to +66.5 words. Part of the length effect therefore does not depend on correct preference labels.
+
+### Caveat: much of the extra length is degenerate
+
+The trained token beats the explicit English instruction on length (1.83× its effect), but this is not a quality win. 47% of trained outputs ran into the 512-token cap, and their text is far more repetitive:
+
+| Condition | Repeated-trigram fraction | Repeated-sentence fraction | Lexical diversity |
+|---|---:|---:|---:|
+| Base | 0.054 | 0.000 | 0.609 |
+| Explicit English | 0.147 | 0.018 | 0.460 |
+| Trained token | 0.370 | 0.216 | 0.329 |
+
+Degeneration tracks effect size. Seed 3 (+114 words) stays fairly clean (11% at the cap, trigram repetition 0.13), while seed 1 (+349) hits the cap 75% of the time with trigram repetition 0.53. Word count is therefore an upper bound on useful elaboration. The cap also truncates the largest effects.
 
 ## Main negative result: syntax dominates
 
-The same trained vector behaved very differently when moved without retraining:
+The same trained vectors behaved very differently when moved without retraining (5 seeds × 20 prompts per placement):
 
 | Placement | Mean words |
 |---|---:|
-| Prefix (training syntax) | 141.3 |
-| Suffix | 72.3 |
-| Mid-verb | 330.7 |
-| Alternate form | 94.0 |
+| Prefix (training syntax) | 324.2 |
+| Mid-verb (`Please <ENSURE_LONG> your response…`) | 193.4 |
+| Suffix | 110.1 |
+| Alternate form (`I want you to <ENSURE_LONG> the answer.`) | 119.6 |
 
-![Position generalization](results/experiment_2/quick/figures/position_generalization.png)
+![Position generalization](results/experiment_2/full/figures/position_generalization.png)
 
-Some long generations were also repetitive: trained outputs had repeated-bigram fraction `0.207` versus `0.122` for base and `0.144` for explicit English; lexical diversity fell from `0.618` (base) to `0.505` (trained). The vector appears to encode a context-dependent tendency to continue or add material more strongly than a stable, high-quality lexical concept.
+Relative to the same prompts' base outputs (84.5 words), the effect is +239.7 words at the prefix, +108.8 mid-verb, +35.0 in the alternate form and +25.5 as a suffix. Exploratory grammatical probes on a single prompt (`Could you <ENSURE_LONG> your answer?`, adjective use, and so on) averaged 88–156 words, against a base of 79. The vector acts as a position-bound control signal rather than a reusable word.
+
+## LoRA baseline: comparable control, but it leaks everywhere
+
+Same 20 pairs, DPO objective, template and 36 held-out prompts. The token stays at its untrained random vector and only low-rank adapters learn. The LoRA helpers are adapted from [qwen-lora-finetuning](https://github.com/BobbY-24/qwen-lora-finetuning). Learning rates are fixed (`experiments/experiment_2/configs/lora_baseline.json`) and were not tuned on held-out data.
+
+| Method | Trainable params | Seeds | Δ words, token template | Δ words, plain prompt | Hit the cap | Trigram repetition |
+|---|---:|---:|---:|---:|---:|---:|
+| **Neologism** | **896** | 5 | **+240.9** (seeds +114 to +349) | **0** (by construction) | 47% | 0.37 |
+| `lora_matched`: rank 1, layer-0 `v_proj` | 1,024 | 3 | +163.2 (+145 to +174) | +155.6 | 28% | 0.28 |
+| `lora_r8_qv`: rank 8, q/v, all 24 layers | 540,672 | 3 | +348.8 (+343 to +360) | +345.2 | 93% | 0.61 |
+
+![Neologism vs LoRA](results/experiment_2/full/figures/lora_vs_neologism.png)
+
+- **Specificity is the neologism's distinctive property.** Both LoRA arms change behavior just as much on plain prompts without the token, so they rewrite the model's default behavior. The neologism changes nothing unless the token is present: logits on token-free prompts were bit-identical before and after training (max difference 0).
+- **At a matched budget**, the 1,024-parameter LoRA fit the preferences less well (final loss 0.13–0.18, against 0.03–0.14 for the neologism) and produced a smaller, more uniform effect.
+- **At 600× the budget**, rank-8 LoRA fit best (loss ≈ 0.02) but degenerated most: 93% of outputs hit the cap.
+
+## Interpretability: where the learned token acts
+
+Metric: the teacher-forced log p(`<|im_end|>`) right after the base model's own concise answer, which measures whether the model would stop where base Qwen stopped. The trained token lowered it on 100% of seed × prompt pairs, by a mean of **−11.2 nats** relative to the untrained token.
+
+**Activation patching at the token position.** Starting from the untrained run, one layer's residual-stream output at the token position was restored from the trained run. Restoring the input vector brings back 100% of the effect by construction. Restoring layer outputs brings back 88% at layer 0, 49% at layer 2, 16% at layer 5 and ≤3% from layer 8 on (pooled over 5 seeds × 36 prompts). By about layer 10, later positions have read everything they need from the token position through attention. When this happens varies by seed, from layer ~3 (seed 1) to ~11 (seed 5).
+
+![Activation patching](results/experiment_2/full/figures/interp_patching.png)
+
+**Logit lens at the stop decision.** Decoding each layer at the stop-decision position shows that the "don't stop" signal appears late. The trained-minus-no-token difference in stop log-prob stays within about ±1 nat through layer 14, is noisy in the middle layers, and drops to −0.9, −3.6 and −11.3 nats at layers 21, 22 and 23. The untrained token stays within ±0.5 nat throughout. The logit lens is only a rough readout of intermediate layers in a model this small, so the mid-layer values should not be over-read.
+
+![Logit lens](results/experiment_2/full/figures/interp_logit_lens_stop.png)
+
+Together these suggest a two-stage picture. Information is read out of the token position early, in layers 0–8, and the change in the model's stopping behavior appears only in the last 2–3 layers. This is correlational at the stop position; only the token-position step was tested causally.
+
+**Vocabulary neighbours.** The learned vectors are not near any length-related word. For every seed, the nearest input-embedding rows (tied with the unembedding in this model) are unrelated multilingual subwords at cosine ≤ 0.16, both for E_w itself and for the update E_w − E_w⁽⁰⁾. Their averaged update direction is not interpretable either. Together with the near-orthogonal seeds, this indicates that E_w works as an off-manifold control vector, not as a position in the model's lexical space.
 
 ## Evidence ladder
 
 | Claim | Current evidence | Scope |
 |---|---|---|
-| Preference fitting | **Strong** | Qwen2.5-0.5B testbed |
-| Behavioral control | **Moderate** | One quick genuine seed |
-| Held-out topic transfer | **Moderate, preliminary** | 10 prompts in the same model |
-| Word-like compositional behavior | **Absent / weak** | Strong position dependence |
-| Seed robustness | **Unknown** | Full multi-seed run implemented, not yet executed |
-| Advantage over a LoRA of similar size | **Unknown** | LoRA baseline implemented, not yet executed |
-| Where in the network the token acts | **Unknown** | Logit lens / patching implemented, not yet executed |
+| Preference fitting | **Strong** | 5/5 seeds, loss 0.693 → 0.03–0.14 |
+| Behavioral control | **Strong** in length; quality degrades | 5 seeds × 36 held-out prompts |
+| Held-out topic transfer | **Strong** | Topic-disjoint split, 97–100% of prompts per seed |
+| Seed robustness | **Partial** | Direction robust; size varies 3×; vectors near-orthogonal |
+| Token specificity vs LoRA | **Strong** | LoRA leaks fully to plain prompts; neologism cannot |
+| Word-like compositional behavior | **Absent** | Effect collapses away from the training position |
+| Where the token acts | **Preliminary** | Read out of the token position by ~layer 8; stop effect emerges in the final layers |
 | Scale generalization | **Unknown** | 1.5B / 3B replication implemented, not yet executed |
 | Cross-family generalization | **Unknown** | Qwen only |
 | Richer concepts | **Unknown** | Length/elaboration only |
 
-## Pending analyses (implemented, not yet run)
-
-**LoRA baseline** (`src/neologism_embedding/lora_baseline.py`). This arm uses the same 20 pairs, DPO objective, prompt template and 36 held-out prompts. The token stays at its untrained random vector, and only low-rank adapters learn. The LoRA helpers are adapted from [qwen-lora-finetuning](https://github.com/BobbY-24/qwen-lora-finetuning).
-
-| Arm | Adapted modules | Trainable parameters |
-|---|---|---:|
-| Neologism | one input vector | 896 |
-| `lora_matched` | rank 1, `v_proj` of layer 0 | 1,024 (closest standard LoRA) |
-| `lora_r8_qv` | rank 8, `q_proj` + `v_proj`, all 24 layers | 540,672 (reported, not matched) |
-
-Each arm is evaluated with the token template and on plain prompts. LoRA is always on, so the plain-prompt condition measures leakage onto ordinary requests. The neologism cannot leak by construction. Learning rates are fixed in `experiments/experiment_2/configs/lora_baseline.json` and were not tuned on held-out data.
-
-**Interpretability of E_w** (`src/neologism_embedding/interp.py`). For each genuine seed:
-
-1. *Vocabulary neighbours.* The nearest input-embedding (and, if untied, unembedding) rows to E_w, to its initialization, and to the update E_w − E_w⁽⁰⁾. The update matters because E_w starts as a random vector.
-2. *Logit lens.* Each layer's residual stream is decoded through the final norm and unembedding at the token position. It is also decoded at the position that decides whether to stop after the base model's own concise answer, which gives the layer-wise trajectory of log p(`<|im_end|>`) for the trained, untrained and no-token conditions.
-3. *Activation patching at the token position.* Starting from the untrained run, one layer's residual output at the token position is restored from the trained run, and the fraction of the trained effect on the stop log-prob that returns is measured. Patching the input vector restores everything by construction. Patching late layers at that position can restore nothing, because those layers only feed that position's own logits. The curve between the two shows when the information leaves the token position.
-
-Figures are written to `OUTPUT_ROOT/experiment_2/figures/` (`interp_logit_lens_stop.png`, `interp_patching.png`, `interp_residual_change.png`, `lora_vs_neologism.png`) alongside Experiment 2's own figures.
+The earlier quick run (1 seed, 5 pairs, 10 prompts; `results/experiment_2/quick/`) pointed the same way at a smaller scale: +73.2 words, with strong position dependence.
 
 Read [Experiment 1](docs/experiment_1.md), [Experiment 2](docs/experiment_2.md), [Experiment 3 (scale)](docs/experiment_3.md), [limitations](docs/limitations.md), and the [research roadmap](docs/research_roadmap.md) for the complete progression.
 
