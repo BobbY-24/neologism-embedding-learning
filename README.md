@@ -1,5 +1,8 @@
 # Learning Behavioral Concepts as Single Token Embeddings in Frozen Language Models
 
+[![tests](https://github.com/BobbY-24/neologism-embedding-learning/actions/workflows/tests.yml/badge.svg)](https://github.com/BobbY-24/neologism-embedding-learning/actions/workflows/tests.yml) ![python](https://img.shields.io/badge/python-3.10%2B-blue) ![license](https://img.shields.io/badge/license-MIT-green)
+
+
 > Instead of fine-tuning an entire language model, can we add one new token and optimize only its embedding from preference pairs—and when does that embedding begin to behave like a reusable word rather than a soft control vector?
 
 > **Status / Scope — Work in progress.** Experiment 1 and Experiment 2 **quick mode** are complete on `Qwen/Qwen2.5-0.5B-Instruct`, used as a development and mechanistic testbed. Full multi-seed Experiment 2 and larger-model replications have **not** been completed. Current results establish within-model behavior only and should not be generalized to language models broadly.
