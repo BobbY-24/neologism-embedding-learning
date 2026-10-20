@@ -59,6 +59,10 @@ Per seed, as trained-minus-base words with prompt-bootstrap 95% intervals. Final
 - **Learning curve** (3 seeds, mean Δ words): +11.6, +11.0, +33.5, +81.4, +190.0 and +259.8 at N = 0, 1, 2, 5, 10 and 20. It is not monotonic: N = 1 is no better than the untrained vector, and seed 2 dips at N = 1 and 2. Preference margin and behavior correlate at r = 0.95 over the 18 runs, which are dependent points.
 - **Position** (5 seeds × 20 prompts; base 84.5 words on these prompts): Δ +239.7 at the prefix, +108.8 mid-verb, +35.0 in the alternate form and +25.5 as a suffix. Single-prompt compositional probes averaged 88–156 words (base 79).
 
+### Quality-adjusted length (`scripts/analyze_quality.py`, outputs in `quality/`)
+
+Effective words = distinct word trigrams + 2. Clean = ended with EOS and repeated-trigram fraction ≤ 0.171, the most repetitive base answer. Effective Δ vs base: untrained +6.0, shuffled +27.8, explicit English +91.4, neologism +94.9 (seeds +117.8, +112.4, +80.5, +73.2, +90.8). Clean answers: 96%, 81%, 69% and 37% respectively (per seed 14%, 14%, 75%, 47%, 36%). LoRA 1,024 gives +65.0 effective (55% clean), and LoRA r8 gives +79.5 (3% clean); the plain-prompt numbers are about the same. On effective length, the neologism matches the explicit instruction (1.04×) but with roughly half the clean-answer rate. The metric measures non-repetition, not accuracy.
+
 ### LoRA baseline (full mode, 3 seeds per arm)
 
 | Method | Params | Δ words, token template | Δ words, plain prompt | Hit cap | Trigram repetition | Final loss |
@@ -112,7 +116,7 @@ Prefix, suffix, mid-verb, and alternate placements averaged 141.3, 72.3, 330.7, 
 ## Claim assessment (full run)
 
 - Preference fitting: **Strong** (5/5 seeds).
-- Behavioral control: **Strong** in length, with substantial degeneration.
+- Behavioral control: **Strong** in raw length. After removing repeats it matches the explicit English instruction (+94.9 vs +91.4 effective words), with fewer clean answers (37% vs 69%).
 - Held-out topic transfer: **Strong** (97–100% of held-out prompts per seed).
 - Seed robustness: **Partial**. The direction is robust, the size varies about 3×, and the vectors are near-orthogonal.
 - Token specificity vs LoRA: **Strong**. LoRA leaks to plain prompts.

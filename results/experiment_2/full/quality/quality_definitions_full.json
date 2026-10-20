@@ -1,0 +1,5 @@
+{
+  "clean_rule": "EOS-terminated and repeated-trigram fraction <= max over base outputs",
+  "repeated_trigram_threshold": 0.1709401709401709,
+  "effective_length": "distinct word trigrams + 2"
+}

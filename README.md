@@ -102,6 +102,26 @@ The trained token beats the explicit English instruction on length (1.83× its e
 
 Degeneration tracks effect size. Seed 3 (+114 words) stays fairly clean (11% at the cap, trigram repetition 0.13), while seed 1 (+349) hits the cap 75% of the time with trigram repetition 0.53. Word count is therefore an upper bound on useful elaboration. The cap also truncates the largest effects.
 
+### Quality-adjusted length: on par with plain English
+
+`scripts/analyze_quality.py` re-scores the saved outputs without loading a model, using two stricter measures:
+
+- **Effective words.** The number of distinct word trigrams + 2, i.e. what an answer would keep if every repeated three-word span were deleted. For text without repeats it equals the word count.
+- **Clean answer.** One that ended with EOS rather than at the token cap, and is no more repetitive than the most repetitive base answer (repeated-trigram fraction ≤ 0.171). The threshold comes from the base condition, not from trained outputs.
+
+| Condition | Raw Δ words | **Effective Δ words** | Clean answers | Effective ÷ explicit-English effect |
+|---|---:|---:|---:|---:|
+| Untrained token | +13.5 | +6.0 | 96% | 0.07 |
+| Shuffled token | +42.0 | +27.8 | 81% | 0.30 |
+| Explicit English | +131.9 | +91.4 | 69% | 1.00 |
+| **Neologism (5 seeds)** | +240.9 | **+94.9** (seeds +73 to +118) | 37% | 1.04 |
+| LoRA 1,024, token / plain | +163.2 / +155.6 | +65.0 / +67.9 | 55% / 56% | 0.71 / 0.74 |
+| LoRA r8, token / plain | +348.8 / +345.2 | +79.5 / +82.1 | 3% / 4% | 0.87 / 0.90 |
+
+![Raw vs quality-adjusted length](results/experiment_2/full/figures/quality_adjusted_length.png)
+
+Once repeats are removed, the 896-parameter token adds about as much non-repeated text as the explicit instruction (1.04×, not the 1.83× in raw words). It does this less cleanly: 37% of its answers are clean, against 69%. Per seed, the trade-off is visible. Seeds 1 and 2 have the largest raw effects but only 14% clean answers. Seed 3 is 75% clean and still adds +80.5 effective words. Neither LoRA arm beats the neologism on effective length, and both still leak to plain prompts. Effective length measures non-repetition only, not accuracy or relevance: some long, non-repeating outputs are fluent fabrications.
+
 ## Main negative result: syntax dominates
 
 The same trained vectors behaved very differently when moved without retraining (5 seeds × 20 prompts per placement):
@@ -154,7 +174,7 @@ Together these suggest a two-stage picture. Information is read out of the token
 | Claim | Current evidence | Scope |
 |---|---|---|
 | Preference fitting | **Strong** | 5/5 seeds, loss 0.693 → 0.03–0.14 |
-| Behavioral control | **Strong** in length; quality degrades | 5 seeds × 36 held-out prompts |
+| Behavioral control | **Strong** in raw length; **matches explicit English** after removing repeats (+94.9 vs +91.4 effective words), with fewer clean answers (37% vs 69%) | 5 seeds × 36 held-out prompts |
 | Held-out topic transfer | **Strong** | Topic-disjoint split, 97–100% of prompts per seed |
 | Seed robustness | **Partial** | Direction robust; size varies 3×; vectors near-orthogonal |
 | Token specificity vs LoRA | **Strong** | LoRA leaks fully to plain prompts; neologism cannot |
@@ -233,6 +253,7 @@ src/neologism_embedding/       frozen-model wrapper and experiment pipelines
   lora_baseline.py             LoRA arm with the same pairs and DPO objective
   interp.py                    neighbours, logit lens, activation patching
   figures.py                   interpretability and LoRA figures
+  quality.py                   repetition-adjusted re-analysis of saved outputs (no model)
   scale.py                     Experiment 3 cross-size comparison
 notebooks/colab_runner.ipynb   Colab GPU driver for the full runs
 experiments/experiment_1/      3-pair pilot data and configuration
