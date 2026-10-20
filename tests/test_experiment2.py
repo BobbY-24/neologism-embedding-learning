@@ -79,3 +79,27 @@ def test_new_token_is_exactly_one_token_when_checkpoint_is_available():
     old, new, token_id = add_exactly_one_token(tokenizer)
     assert new == old + 1
     assert tokenizer.encode("<ENSURE_LONG>", add_special_tokens=False) == [token_id]
+
+
+def test_committed_screening_reproduces_the_frozen_split():
+    from neologism_embedding import experiment2 as e
+
+    config = e.load_config("full")
+    candidates = json.loads((DATA / "candidate_prompts.json").read_text())
+    screening = e.load_frozen_screening(candidates)
+    assert isinstance(screening[0]["words"], int) and isinstance(screening[0]["passes_limit"], bool)
+    train, heldout = e.frozen_split(config, screening)
+    overrides = json.loads((DATA / "train_pool_overrides.json").read_text())
+    train, heldout = e.apply_overrides(train, heldout, {row["id"]: row for row in screening}, overrides)
+    e.check_frozen_split(train, heldout)
+    committed = json.loads((DATA / "heldout_prompts.json").read_text())
+    assert [row["id"] for row in heldout] == [row["id"] for row in committed]
+    assert config["mode_config"]["heldout_count"] == len(committed) == 36
+
+
+def test_smoke_mode_overrides_decoding_and_epochs_only():
+    from neologism_embedding.experiment2 import load_config
+
+    smoke, full = load_config("smoke"), load_config("full")
+    assert smoke["max_new_tokens"] < full["max_new_tokens"] and smoke["epochs"] == 1
+    assert full["max_new_tokens"] == 512 and full["epochs"] == 3

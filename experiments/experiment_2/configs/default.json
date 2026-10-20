@@ -33,12 +33,24 @@
   },
   "full": {
     "train_count": 20,
-    "heldout_count": 50,
+    "heldout_count": 36,
     "seeds": [1, 2, 3, 4, 5],
     "shuffled_seeds": [1, 2, 3],
     "learning_curve_sizes": [0, 1, 2, 5, 10, 20],
     "learning_curve_seeds": [1, 2, 3],
     "position_prompt_count": 20,
     "bootstrap_samples": 5000
+  },
+  "smoke": {
+    "train_count": 1,
+    "heldout_count": 2,
+    "seeds": [1],
+    "shuffled_seeds": [1],
+    "learning_curve_sizes": [0, 1],
+    "learning_curve_seeds": [1],
+    "position_prompt_count": 1,
+    "bootstrap_samples": 100,
+    "max_new_tokens": 12,
+    "epochs": 1
   }
 }

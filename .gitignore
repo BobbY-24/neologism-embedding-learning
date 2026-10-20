@@ -17,4 +17,5 @@ outputs/
 *.zip
 wandb/
 .huggingface/
-
+.ipynb_checkpoints/
+*.egg-info/

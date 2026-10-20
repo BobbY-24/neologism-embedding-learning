@@ -53,7 +53,13 @@ from .experiment1 import (  # noqa: E402
 
 CONFIG_PATH = EXP_DIR / "configs" / "default.json"
 DATA_DIR = EXP_DIR / "data"
-OUTPUT_ROOT = PROJECT_ROOT / "outputs" / "experiment_2"
+# NEOLOGISM_OUTPUT_ROOT lets Colab write caches and results straight to Drive,
+# which also makes every stage resumable across disconnects.
+OUTPUT_ROOT = Path(os.environ.get("NEOLOGISM_OUTPUT_ROOT", PROJECT_ROOT / "outputs")).expanduser() / "experiment_2"
+FROZEN_MANIFEST = PROJECT_ROOT / "results" / "experiment_2" / "prepared_full_dataset" / "dataset_manifest.json"
+SCREEN_INT_FIELDS = ("words", "tokens", "paragraphs", "sentences", "example_indicators", "explanatory_transitions", "elaboration_score")
+SCREEN_FLOAT_FIELDS = ("lexical_diversity", "repeated_bigram_fraction", "repeated_trigram_fraction", "repeated_sentence_fraction")
+SCREEN_BOOL_FIELDS = ("passes_limit", "preferred_range")
 FIGURE_DIR = OUTPUT_ROOT / "figures"
 
 
@@ -61,6 +67,10 @@ def load_config(mode: str) -> dict[str, Any]:
     config = json.loads(CONFIG_PATH.read_text())
     config["mode"] = mode
     config["mode_config"] = config[mode]
+    # Smoke mode shrinks decoding and training to check the pipeline end to end.
+    for key in ("max_new_tokens", "epochs"):
+        if key in config["mode_config"]:
+            config[key] = config["mode_config"][key]
     model_override = os.environ.get("QWEN_MODEL_PATH")
     model_path = Path(model_override or config["model_path"])
     config["resolved_model_path"] = str(model_path.expanduser().resolve() if model_override else (EXP_DIR / model_path).resolve())
@@ -142,7 +152,7 @@ def runtime(config: dict[str, Any], seed: int = 1):
     tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True, use_fast=True)
     old_vocab, new_vocab, neo_id = add_exactly_one_token(tokenizer)
     assert tokenizer.encode(NEW_TOKEN, add_special_tokens=False) == [neo_id]
-    model, device, fallback = load_model(model_path, "auto")
+    model, device, fallback = load_model(model_path, os.environ.get("NEOLOGISM_DEVICE", "auto"))
     initial = random_initial_embedding(model.get_input_embeddings().weight, seed)
     wrapper = FrozenLMWithNeologism(model, neo_id, initial)
     hidden = int(model.config.hidden_size)
@@ -234,6 +244,29 @@ def screen_signature(config, candidates):
     }
 
 
+def load_frozen_screening(candidates):
+    """Read the committed screening outputs that fixed the train/held-out split.
+
+    Re-screening on different hardware can change greedy outputs and therefore
+    the split, so later runs reuse the committed screen unless NEOLOGISM_RESCREEN=1.
+    """
+    path = DATA_DIR / "prompt_selection_results.csv"
+    if not path.exists():
+        return None
+    with path.open(newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    for row in rows:
+        for key in SCREEN_INT_FIELDS:
+            row[key] = int(row[key])
+        for key in SCREEN_FLOAT_FIELDS:
+            row[key] = float(row[key])
+        for key in SCREEN_BOOL_FIELDS:
+            row[key] = row[key] == "True"
+    if sorted(row["id"] for row in rows) != sorted(item["id"] for item in candidates):
+        raise RuntimeError("Committed screening results do not cover the candidate prompts")
+    return rows
+
+
 def stage_screen(config):
     candidates = json.loads((DATA_DIR / "candidate_prompts.json").read_text())
     if len(candidates) != 100:
@@ -241,6 +274,12 @@ def stage_screen(config):
     signature = screen_signature(config, candidates)
     path = OUTPUT_ROOT / "baseline" / "candidate_outputs.json"
     cached = load_compatible_cache(path, signature)
+    if cached is None and os.environ.get("NEOLOGISM_RESCREEN") != "1":
+        frozen = load_frozen_screening(candidates)
+        if frozen is not None:
+            save_cache(path, signature, frozen)
+            print(f"Using committed screening results ({len(frozen)} prompts); set NEOLOGISM_RESCREEN=1 to regenerate")
+            return frozen
     results = cached or []
     done = {row["id"] for row in results}
     if len(done) < len(candidates):
@@ -279,6 +318,26 @@ def frozen_split(config, screening):
     if len(train) < 20 or len(heldout) < 30:
         raise RuntimeError(f"Insufficient screened pool: train={len(train)}, heldout={len(heldout)}")
     return train, heldout
+
+
+def apply_overrides(train_pool, heldout, screening_by_id, overrides):
+    for invalid_id, replacement_id in overrides.items():
+        train_pool = [screening_by_id[replacement_id] if row["id"] == invalid_id else row for row in train_pool]
+        # Keep the established held-out order stable; exchange only membership.
+        heldout = [row for row in heldout if row["id"] != replacement_id]
+        if invalid_id not in {row["id"] for row in heldout}:
+            heldout.append(screening_by_id[invalid_id])
+    return train_pool, heldout
+
+
+def check_frozen_split(train_pool, heldout):
+    """Refuse to continue if a run reproduced a split other than the committed one."""
+    if not FROZEN_MANIFEST.exists() or os.environ.get("NEOLOGISM_RESCREEN") == "1":
+        return
+    manifest = json.loads(FROZEN_MANIFEST.read_text())
+    observed = ([row["id"] for row in train_pool], [row["id"] for row in heldout])
+    if observed != (manifest["train_ids_full"], manifest["heldout_ids_full"]):
+        raise RuntimeError(f"Reproduced split differs from the frozen manifest at {FROZEN_MANIFEST}")
 
 
 def extend_rejected(wrapper, tokenizer, item, config, device):
@@ -380,12 +439,8 @@ def stage_dataset(config):
     screening_by_id = {row["id"]: row for row in screening}
     overrides_path = DATA_DIR / "train_pool_overrides.json"
     overrides = json.loads(overrides_path.read_text()) if overrides_path.exists() else {}
-    for invalid_id, replacement_id in overrides.items():
-        train_pool = [screening_by_id[replacement_id] if row["id"] == invalid_id else row for row in train_pool]
-        # Keep the established held-out order stable; exchange only membership.
-        heldout = [row for row in heldout if row["id"] != replacement_id]
-        if invalid_id not in {row["id"] for row in heldout}:
-            heldout.append(screening_by_id[invalid_id])
+    train_pool, heldout = apply_overrides(train_pool, heldout, screening_by_id, overrides)
+    check_frozen_split(train_pool, heldout)
     json_dump(DATA_DIR / "heldout_prompts.json", [
         {key: row[key] for key in ("id", "domain", "topic", "prompt", "words")}
         for row in heldout
@@ -584,6 +639,7 @@ def generation_cache_signature(config, heldout):
         "do_sample": False,
         "primary_template": config["primary_template"],
         "explicit_template": config["explicit_template"],
+        "base_source": "regenerated_in_evaluation_runtime",
     }
 
 
@@ -593,6 +649,8 @@ def stage_evaluate(config):
     screening = stage_screen(config)
     screen_by_id = {row["id"]: row for row in screening}
     tokenizer, model, wrapper, device, neo_id, old_vocab = runtime(config)
+    # Older caches copied base outputs from the screening pass; the signature's
+    # base_source field makes them incompatible instead of silently mixed.
     signature = generation_cache_signature(config, heldout)
     path = OUTPUT_ROOT / "controls" / f"generation_cache_{config['mode']}.json"
     cached = load_compatible_cache(path, signature)
@@ -603,19 +661,13 @@ def stage_evaluate(config):
         key = (seed, condition, item["id"])
         if key in keys:
             return
-        if condition == "base":
-            source = screen_by_id[item["id"]]
-            result = {k: source[k] for k in (
-                "output_text", "termination_reason", "words", "tokens", "paragraphs", "sentences",
-                "lexical_diversity", "repeated_bigram_fraction", "repeated_trigram_fraction",
-                "repeated_sentence_fraction", "example_indicators", "explanatory_transitions", "elaboration_score"
-            )}
-        else:
-            result = generate(wrapper, tokenizer, prompt, vector, config["max_new_tokens"], device)
+        # Base is regenerated here so every condition shares one device and dtype;
+        # screen_words keeps the screening-pass length for comparison.
+        result = generate(wrapper, tokenizer, prompt, vector, config["max_new_tokens"], device)
         row = {
             "seed": seed, "condition": condition, "prompt_id": item["id"],
             "domain": item["domain"], "topic": item["topic"], "prompt": prompt,
-            "artifact_hash": artifact_hash, **result,
+            "artifact_hash": artifact_hash, "screen_words": screen_by_id[item["id"]]["words"], **result,
         }
         rows.append(row)
         keys.add(key)
@@ -654,7 +706,26 @@ def stage_positions(config):
     _, heldout = stage_dataset(config)
     subset = heldout[: config["mode_config"]["position_prompt_count"]]
     tokenizer, model, wrapper, device, _, _ = runtime(config)
-    rows = []
+    cache_path = OUTPUT_ROOT / "position_tests" / f"generation_cache_{config['mode']}.json"
+    signature = {
+        "stage": "positions", "mode": config["mode"], "model_id": config["model_id"],
+        "prompt_ids": [item["id"] for item in subset], "seeds": config["mode_config"]["seeds"],
+        "max_new_tokens": config["max_new_tokens"], "do_sample": False,
+    }
+    rows = load_compatible_cache(cache_path, signature) or []
+    done = {(row["seed"], row["position"], row["prompt_id"]) for row in rows}
+
+    def add(seed, position, prompt_id, prompt, vector):
+        if (seed, position, prompt_id) in done:
+            return
+        rows.append({
+            "seed": seed, "position": position, "prompt_id": prompt_id, "prompt": prompt,
+            **generate(wrapper, tokenizer, prompt, vector, config["max_new_tokens"], device),
+        })
+        done.add((seed, position, prompt_id))
+        save_cache(cache_path, signature, rows)
+        print(f"position seed={seed} {position} {prompt_id}: {rows[-1]['words']} words", flush=True)
+
     templates = {
         "prefix": "<ENSURE_LONG> your response to the following request:\n\n{prompt}",
         "suffix": "{prompt} <ENSURE_LONG>",
@@ -668,11 +739,7 @@ def stage_positions(config):
         )
         for item in subset:
             for position, template in templates.items():
-                prompt = template.format(prompt=item["prompt"])
-                rows.append({
-                    "seed": seed, "position": position, "prompt_id": item["id"], "prompt": prompt,
-                    **generate(wrapper, tokenizer, prompt, artifact["learned_embedding"], config["max_new_tokens"], device),
-                })
+                add(seed, position, item["id"], template.format(prompt=item["prompt"]), artifact["learned_embedding"])
         probe_task = heldout[0]["prompt"]
         probes = {
             "verb_direct": f"Please {NEW_TOKEN} this explanation.\n\n{probe_task}",
@@ -681,10 +748,7 @@ def stage_positions(config):
             "imperative_pronoun": f"The previous answer was too short. {NEW_TOKEN} it.\n\n{probe_task}",
         }
         for name, prompt in probes.items():
-            rows.append({
-                "seed": seed, "position": f"compositional_{name}", "prompt_id": heldout[0]["id"], "prompt": prompt,
-                **generate(wrapper, tokenizer, prompt, artifact["learned_embedding"], config["max_new_tokens"], device),
-            })
+            add(seed, f"compositional_{name}", heldout[0]["id"], prompt, artifact["learned_embedding"])
     json_dump(result_path, rows)
     write_csv(OUTPUT_ROOT / "position_tests" / f"position_results_{config['mode']}.csv", rows)
     return rows
@@ -697,6 +761,16 @@ def stage_learning_curve(config):
     stage_evaluate(config)
     preferences, heldout = stage_dataset(config)
     tokenizer, model, wrapper, device, neo_id, old_vocab = runtime(config)
+    behavior = json.loads((OUTPUT_ROOT / "controls" / f"behavior_results_{config['mode']}.json").read_text())
+    base_by_id = {r["prompt_id"]: r["words"] for r in behavior if r["condition"] == "base"}
+    cache_path = OUTPUT_ROOT / "learning_curve" / f"generation_cache_{config['mode']}.json"
+    signature = {
+        "stage": "learning_curve", "mode": config["mode"], "model_id": config["model_id"],
+        "heldout_ids": [item["id"] for item in heldout], "sizes": config["mode_config"]["learning_curve_sizes"],
+        "max_new_tokens": config["max_new_tokens"], "do_sample": False,
+    }
+    generations = load_compatible_cache(cache_path, signature) or []
+    words_by_key = {(g["seed"], g["training_examples"], g["prompt_id"]): g["words"] for g in generations}
     rows = []
     for seed in config["mode_config"]["learning_curve_seeds"]:
         main_artifact = torch.load(
@@ -720,15 +794,18 @@ def stage_learning_curve(config):
                 vector = artifact["learned_embedding"]
                 margin = json.loads((out / "training_summary.json").read_text())["final_mean_preference_margin"]
             effects, counts = [], []
-            behavior = json.loads((OUTPUT_ROOT / "controls" / f"behavior_results_{config['mode']}.json").read_text())
-            base_by_id = {r["prompt_id"]: r["words"] for r in behavior if r["condition"] == "base"}
             for item in heldout:
-                result = generate(
-                    wrapper, tokenizer, config["primary_template"].format(prompt=item["prompt"]),
-                    vector, config["max_new_tokens"], device,
-                )
-                counts.append(result["words"])
-                effects.append(result["words"] - base_by_id[item["id"]])
+                key = (seed, size, item["id"])
+                if key not in words_by_key:
+                    result = generate(
+                        wrapper, tokenizer, config["primary_template"].format(prompt=item["prompt"]),
+                        vector, config["max_new_tokens"], device,
+                    )
+                    generations.append({"seed": seed, "training_examples": size, "prompt_id": item["id"], **result})
+                    words_by_key[key] = result["words"]
+                    save_cache(cache_path, signature, generations)
+                counts.append(words_by_key[key])
+                effects.append(words_by_key[key] - base_by_id[item["id"]])
             rows.append({
                 "seed": seed, "training_examples": size,
                 "mean_heldout_words": statistics.mean(counts),
@@ -969,7 +1046,7 @@ def write_summary(config, behavior, aggregates, training_summaries, cosine_rows)
 
 ## Position/compositional means
 
-""" + "\n".join(f"- {name}: {value:.2f} words" for name, value in position_means.items()) + """
+""" + "\n".join(f"- {name}: {value:.2f} words" for name, value in position_means.items()) + f"""
 
 ## Caution
 
@@ -977,10 +1054,9 @@ Prompt observations are not IID draws from a formally defined population. Bootst
 
 ## Execution scope
 
-Quick mode was completed end-to-end. Full screening and 20-pair dataset
-construction were completed, but full multi-seed training/evaluation was not
-run because measured CPU throughput implies multiple hours. No full-mode
-behavioral metrics are claimed by this summary.
+Generated by the `{config['mode']}`-mode pipeline. Device, library versions and
+timestamp are in `reproducibility/{config['mode']}/environment.json`. Numbers
+above come only from this run's output files.
 """
     (OUTPUT_ROOT / "experiment_summary.md").write_text(summary)
 
@@ -999,7 +1075,7 @@ STAGES = {
 def main(default_stage: str | None = None):
     parser = argparse.ArgumentParser()
     parser.add_argument("--stage", choices=[*STAGES, "all"], default=default_stage or "all")
-    parser.add_argument("--mode", choices=["quick", "full"], default="quick")
+    parser.add_argument("--mode", choices=["quick", "full", "smoke"], default="quick")
     args = parser.parse_args()
     config = load_config(args.mode)
     OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)

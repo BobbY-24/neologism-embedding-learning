@@ -18,13 +18,19 @@ NEW_TOKEN = "<ENSURE_LONG>"
 def seed_everything(seed: int) -> None:
     random.seed(seed)
     torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
     if torch.backends.mps.is_available():
         torch.mps.manual_seed(seed)
 
 
 def resolve_device(requested: str) -> torch.device:
     if requested == "auto":
+        if torch.cuda.is_available():
+            return torch.device("cuda")
         return torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+    if requested == "cuda" and not torch.cuda.is_available():
+        raise RuntimeError("DEVICE='cuda' was requested, but torch.cuda.is_available() is false")
     if requested == "mps" and not torch.backends.mps.is_available():
         raise RuntimeError("DEVICE='mps' was requested, but torch.backends.mps.is_available() is false")
     return torch.device(requested)

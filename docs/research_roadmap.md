@@ -56,7 +56,7 @@ Candidate criteria include held-out topic transfer, syntax and position invarian
 
 ## Planned sequence
 
-1. Complete Experiment 2 multi-seed runs on the 0.5B testbed.
+1. Complete Experiment 2 multi-seed runs on the 0.5B testbed, together with the LoRA baseline and the logit-lens / activation-patching analyses. All three are implemented and run on Colab via `notebooks/colab_runner.ipynb`.
 2. Replicate within the Qwen family at approximately 1.5B and 3B.
 3. Replicate across model families under matched data and decoding.
 4. Move beyond length to richer concepts with purpose-built behavioral metrics.

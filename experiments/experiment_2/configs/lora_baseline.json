@@ -1,0 +1,26 @@
+{
+  "description": "LoRA baseline arms trained with the same DPO objective, pairs and held-out prompts as the single-embedding neologism. The <ENSURE_LONG> token stays at its untrained random initial vector; only the adapters learn.",
+  "learning_rate_note": "Learning rates are fixed, not tuned on held-out data.",
+  "seeds": [1, 2, 3],
+  "smoke_seeds": [1],
+  "arms": {
+    "lora_matched": {
+      "rank": 1,
+      "alpha": 2,
+      "dropout": 0.0,
+      "target_modules": ["v_proj"],
+      "layers": [0],
+      "learning_rate": 0.001,
+      "budget_note": "Closest standard LoRA to 896 parameters: rank 1 on one 896->128 projection = 1,024 parameters."
+    },
+    "lora_r8_qv": {
+      "rank": 8,
+      "alpha": 16,
+      "dropout": 0.0,
+      "target_modules": ["q_proj", "v_proj"],
+      "layers": null,
+      "learning_rate": 0.0001,
+      "budget_note": "Typical LoRA setting (rank 8, alpha 16, lr 1e-4 as in qwen-lora-finetuning), q_proj and v_proj in every layer. Parameter count is reported, not matched."
+    }
+  }
+}

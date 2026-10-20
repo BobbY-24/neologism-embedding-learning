@@ -3,4 +3,4 @@ transformers>=4.46,<6
 accelerate>=0.34,<2
 pytest>=8,<10
 matplotlib>=3.9,<4
-
+peft>=0.13,<1

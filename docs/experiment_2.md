@@ -3,6 +3,8 @@
 Experiment 2 asks whether preference fitting becomes reliable held-out control and whether that control survives changes in syntax.
 
 > **FULL MULTI-SEED EXPERIMENT: PREPARED, NOT YET EXECUTED.** The 20-pair training set and 36-prompt held-out set are frozen. Reported behavioral results below are from quick mode only: 5 training pairs, 10 held-out prompts, one genuine seed, and one shuffled seed.
+>
+> The full run is implemented and runs on a Colab GPU via `notebooks/colab_runner.ipynb`. It reuses the committed screening outputs, verifies the frozen split, and regenerates the base condition in the same runtime as every other condition. It has not been executed yet.
 
 ## Design changes
 
