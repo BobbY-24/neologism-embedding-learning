@@ -1,6 +1,34 @@
 # Experiment 3: within-family scale replication (RQ6)
 
-**Status: implemented and CPU-tested, not run.** No results exist yet. The runs need a GPU and are launched from Phase 5 of [`notebooks/colab_runner.ipynb`](../notebooks/colab_runner.ipynb).
+**Status: 1.5B complete (Colab CUDA GPU, float32, 2026-10-20); 3B not run.** Outputs are in `results/experiment_3/full/`. The 0.5B reference is the full Experiment 2 run.
+
+## 1.5B results
+
+Same frozen 20 pairs and 36 held-out prompts, the same hyperparameters (lr 0.01, β 0.1, 3 epochs) and the same 5 genuine + 3 shuffled seeds. The trainable vector has 1,536 dimensions. Peak CUDA memory during training was 10.1 GB. Base 1.5B answers are shorter (70.0 words against 83.7), and 92% of them would still pass the 0.5B screen (≤ 120 words, ended by EOS), so the reused data are close to the model's own behavior.
+
+| | 0.5B | 1.5B |
+|---|---:|---:|
+| Trained Δ words vs base (mean of 5 seeds) | +240.9 | +117.7 |
+| Seed range | +114 to +349 | +1.8 to +212 |
+| Prompts lengthened | 99% | 85% |
+| Shuffled-label Δ | +41.9 | −5.0 |
+| Explicit English Δ | +131.9 | +180.4 |
+| Effective Δ words, trained (repeats removed) | +94.9 | +39.4 |
+| Effective Δ words, explicit English | +91.4 | +155.7 |
+| Trained answers at the 512-token cap | 47% | 16% |
+| Stop log-prob effect (trained − untrained) | −11.2 nats | −11.2 nats |
+
+**Two of five seeds barely trained.** Seeds 1, 2 and 5 reached a final DPO loss of 0.007–0.039 (margin 36–51) and lengthened answers by +167, +185 and +212 words. Seeds 3 and 4 stopped at a loss of 0.105 and 0.403 (margin 23.4 and 7.4) and moved length by only +22.6 and +1.8. Behavior tracks the margin, which fits the 0.5B-tuned learning rate and epoch count being too weak for some 1.5B initializations. The size comparison is therefore confounded by under-fitting and is not a clean scale effect. The learning curve (seeds 1–3) points the same way. The effect stayed near zero up to N = 2 for all three, became large only at N = 10 for seeds 1 and 2 (+214 and +151 words), and stayed near zero even at N = 10 for seed 3 (+6.4).
+
+**The shuffled control is cleaner.** At 1.5B, shuffled labels produce no lengthening (−5.0 words, 100% clean), unlike +41.9 at 0.5B, so the genuine effect is entirely label-dependent at this size.
+
+**Quality.** On the working seeds, trained answers are repetitive: trigram repetition 0.36–0.49, against 0.023 for base, and 14–42% of answers are clean. After removing repeats, the token adds +39.4 effective words (working seeds +51 to +63), against +155.7 for explicit English (0.25×; at 0.5B it was 1.04×). The larger model follows the plain-English instruction much better than it uses the learned token.
+
+**Position.** On 20 prompts (base 74.1 words), the effect is +106.0 at the prefix, +46.0 mid-verb, +67.2 in the alternate form and +20.2 as a suffix. Two working seeds kept much of their effect in the suffix and alternate placements (+141 and +97 words; seed 1: −4.9). At 0.5B the alternate form kept only 15% of the prefix effect. This is a possible sign of less position-bound behavior at 1.5B, but it rests on two seeds.
+
+**Where the token acts.** Patching at the token position gives a different picture from 0.5B. In seeds 2, 3 and 5, restoring the token-position residual keeps 71–99% of the effect through layer 15 (seed 3 through layer 24), before collapsing. At 0.5B the effect had left the token position by about layer 8. Seed 1, the largest effect (−20.4 nats), restores ≈ 0 from layer 0 on, so in that seed the first layer's attention reads the vector directly. Pooled over seeds, restoration is 0.59 at layer 0, 0.55 at layer 15 and 0.03 by layer 18. The learned vectors are again near-orthogonal across seeds (|cosine| ≤ 0.11), and their nearest vocabulary rows are unrelated (cosine ≤ 0.18). Token-free logits are unchanged in every run (max difference 0).
+
+**Conclusion so far.** The gated effect replicates at 1.5B for the seeds that train, the shuffled control becomes clean, and the token keeps its information at its own position much deeper into the network. The effect is smaller, less reliable across seeds and, after removing repeats, well below plain English. 3B has not been run: with the unchanged recipe, under-fitting seeds would make its result hard to interpret.
 
 ## Question
 
@@ -62,4 +90,5 @@ An earlier attempt outside this repository targeted quick mode on an 8 GB MacBoo
 - The learning rate (0.01) was chosen at 0.5B and is not retuned per size. A weaker effect at 3B could reflect the optimizer setting rather than scale.
 - The parameter budget grows with the hidden size (896 → 1,536 → 2,048). The comparison is "one vector per model", not "equal parameters".
 - The LoRA baseline is not part of Experiment 3. Its code is size agnostic, but its matched arm was sized for 0.5B.
-- Runtimes have not been measured. There are as many generations per size as in the 0.5B full run (about 1,700), at batch size 1.
+- There are as many generations per size as in the 0.5B full run (about 1,700), at batch size 1. The 1.5B float32 run fit in 10.1 GB peak on the Colab GPU.
+- The 1.5B result is confounded by two under-fit seeds (see above); a per-size learning-rate or epoch check is needed before 3B.

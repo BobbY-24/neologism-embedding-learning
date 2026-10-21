@@ -1,0 +1,399 @@
+{
+  "peak_cuda_memory_gb": 10.096336896,
+  "seed": 4,
+  "kind": "genuine",
+  "n_examples": 20,
+  "initial_loss": 0.6931471824645996,
+  "final_loss": 0.4025432296097279,
+  "final_mean_preference_margin": 7.384793663024903,
+  "embedding_movement": 2.890411138534546,
+  "embedding_initial_final_cosine": 0.2923353314399719,
+  "pretrained_checksums_unchanged": true,
+  "max_no_token_logit_difference": 0.0,
+  "shuffle_flips": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ],
+  "initial_state": [
+    {
+      "example_index": 0,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -140.5166778564453,
+      "rejected_log_probability": -64.55152893066406,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 1,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -256.78497314453125,
+      "rejected_log_probability": -103.93893432617188,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 2,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -218.65985107421875,
+      "rejected_log_probability": -96.73483276367188,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 3,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -195.73277282714844,
+      "rejected_log_probability": -80.51130676269531,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 4,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -240.94149780273438,
+      "rejected_log_probability": -101.47756958007812,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 5,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -231.80392456054688,
+      "rejected_log_probability": -92.83515930175781,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 6,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -378.737060546875,
+      "rejected_log_probability": -63.48915100097656,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 7,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -336.720458984375,
+      "rejected_log_probability": -30.934526443481445,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 8,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -248.17401123046875,
+      "rejected_log_probability": -85.57801818847656,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 9,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -243.80169677734375,
+      "rejected_log_probability": -64.2737808227539,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 10,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -267.033203125,
+      "rejected_log_probability": -147.82217407226562,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 11,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -184.42205810546875,
+      "rejected_log_probability": -95.74937438964844,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 12,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -304.0950927734375,
+      "rejected_log_probability": -55.384769439697266,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 13,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -167.28179931640625,
+      "rejected_log_probability": -88.36965942382812,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 14,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -295.400634765625,
+      "rejected_log_probability": -60.381553649902344,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 15,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -333.1773681640625,
+      "rejected_log_probability": -77.4141616821289,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 16,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -83.50738525390625,
+      "rejected_log_probability": -53.81729507446289,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 17,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -192.26882934570312,
+      "rejected_log_probability": -73.8940200805664,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 18,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -391.16802978515625,
+      "rejected_log_probability": -119.79154968261719,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 19,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -288.76910400390625,
+      "rejected_log_probability": -95.66832733154297,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    }
+  ],
+  "final_state": [
+    {
+      "example_index": 0,
+      "loss": 0.46689572930336,
+      "chosen_log_probability": -132.78054809570312,
+      "rejected_log_probability": -62.00674819946289,
+      "r_chosen": 7.7361297607421875,
+      "r_rejected": 2.544780731201172,
+      "preference_margin": 5.191349029541016
+    },
+    {
+      "example_index": 1,
+      "loss": 0.33379191160202026,
+      "chosen_log_probability": -254.35609436035156,
+      "rejected_log_probability": -110.76708984375,
+      "r_chosen": 2.4288787841796875,
+      "r_rejected": -6.828155517578125,
+      "preference_margin": 9.257034301757812
+    },
+    {
+      "example_index": 2,
+      "loss": 0.2909972071647644,
+      "chosen_log_probability": -201.16636657714844,
+      "rejected_log_probability": -90.09552001953125,
+      "r_chosen": 17.493484497070312,
+      "r_rejected": 6.639312744140625,
+      "preference_margin": 10.854171752929688
+    },
+    {
+      "example_index": 3,
+      "loss": 0.3074176013469696,
+      "chosen_log_probability": -182.91864013671875,
+      "rejected_log_probability": -77.91622161865234,
+      "r_chosen": 12.814132690429688,
+      "r_rejected": 2.5950851440429688,
+      "preference_margin": 10.219047546386719
+    },
+    {
+      "example_index": 4,
+      "loss": 0.43831145763397217,
+      "chosen_log_probability": -234.66473388671875,
+      "rejected_log_probability": -101.17758178710938,
+      "r_chosen": 6.276763916015625,
+      "r_rejected": 0.29998779296875,
+      "preference_margin": 5.976776123046875
+    },
+    {
+      "example_index": 5,
+      "loss": 0.3466060161590576,
+      "chosen_log_probability": -216.4315948486328,
+      "rejected_log_probability": -86.27545928955078,
+      "r_chosen": 15.372329711914062,
+      "r_rejected": 6.559700012207031,
+      "preference_margin": 8.812629699707031
+    },
+    {
+      "example_index": 6,
+      "loss": 0.3040059506893158,
+      "chosen_log_probability": -368.37457275390625,
+      "rejected_log_probability": -63.47523498535156,
+      "r_chosen": 10.36248779296875,
+      "r_rejected": 0.013916015625,
+      "preference_margin": 10.34857177734375
+    },
+    {
+      "example_index": 7,
+      "loss": 0.42893001437187195,
+      "chosen_log_probability": -329.2799987792969,
+      "rejected_log_probability": -29.737489700317383,
+      "r_chosen": 7.440460205078125,
+      "r_rejected": 1.1970367431640625,
+      "preference_margin": 6.2434234619140625
+    },
+    {
+      "example_index": 8,
+      "loss": 0.48723211884498596,
+      "chosen_log_probability": -237.69003295898438,
+      "rejected_log_probability": -79.74930572509766,
+      "r_chosen": 10.483978271484375,
+      "r_rejected": 5.828712463378906,
+      "preference_margin": 4.655265808105469
+    },
+    {
+      "example_index": 9,
+      "loss": 0.3582330644130707,
+      "chosen_log_probability": -234.93634033203125,
+      "rejected_log_probability": -63.829559326171875,
+      "r_chosen": 8.8653564453125,
+      "r_rejected": 0.44422149658203125,
+      "preference_margin": 8.421134948730469
+    },
+    {
+      "example_index": 10,
+      "loss": 0.5439795255661011,
+      "chosen_log_probability": -257.6422119140625,
+      "rejected_log_probability": -141.67672729492188,
+      "r_chosen": 9.3909912109375,
+      "r_rejected": 6.14544677734375,
+      "preference_margin": 3.24554443359375
+    },
+    {
+      "example_index": 11,
+      "loss": 0.5281993746757507,
+      "chosen_log_probability": -176.4564208984375,
+      "rejected_log_probability": -91.40957641601562,
+      "r_chosen": 7.96563720703125,
+      "r_rejected": 4.3397979736328125,
+      "preference_margin": 3.6258392333984375
+    },
+    {
+      "example_index": 12,
+      "loss": 0.3234116733074188,
+      "chosen_log_probability": -293.2684631347656,
+      "rejected_log_probability": -54.185829162597656,
+      "r_chosen": 10.826629638671875,
+      "r_rejected": 1.1989402770996094,
+      "preference_margin": 9.627689361572266
+    },
+    {
+      "example_index": 13,
+      "loss": 0.41017839312553406,
+      "chosen_log_probability": -159.59532165527344,
+      "rejected_log_probability": -87.47391510009766,
+      "r_chosen": 7.6864776611328125,
+      "r_rejected": 0.8957443237304688,
+      "preference_margin": 6.790733337402344
+    },
+    {
+      "example_index": 14,
+      "loss": 0.39878565073013306,
+      "chosen_log_probability": -286.0430908203125,
+      "rejected_log_probability": -58.15721893310547,
+      "r_chosen": 9.3575439453125,
+      "r_rejected": 2.224334716796875,
+      "preference_margin": 7.133209228515625
+    },
+    {
+      "example_index": 15,
+      "loss": 0.18706683814525604,
+      "chosen_log_probability": -316.32574462890625,
+      "rejected_log_probability": -76.37551879882812,
+      "r_chosen": 16.85162353515625,
+      "r_rejected": 1.0386428833007812,
+      "preference_margin": 15.812980651855469
+    },
+    {
+      "example_index": 16,
+      "loss": 0.5759048461914062,
+      "chosen_log_probability": -75.17782592773438,
+      "rejected_log_probability": -47.988525390625,
+      "r_chosen": 8.329559326171875,
+      "r_rejected": 5.828769683837891,
+      "preference_margin": 2.5007896423339844
+    },
+    {
+      "example_index": 17,
+      "loss": 0.3176319897174835,
+      "chosen_log_probability": -182.2710723876953,
+      "rejected_log_probability": -73.7347183227539,
+      "r_chosen": 9.997756958007812,
+      "r_rejected": 0.1593017578125,
+      "preference_margin": 9.838455200195312
+    },
+    {
+      "example_index": 18,
+      "loss": 0.6208497285842896,
+      "chosen_log_probability": -387.1282653808594,
+      "rejected_log_probability": -117.25410461425781,
+      "r_chosen": 4.039764404296875,
+      "r_rejected": 2.537445068359375,
+      "preference_margin": 1.5023193359375
+    },
+    {
+      "example_index": 19,
+      "loss": 0.38243550062179565,
+      "chosen_log_probability": -278.84893798828125,
+      "rejected_log_probability": -93.38706970214844,
+      "r_chosen": 9.920166015625,
+      "r_rejected": 2.2812576293945312,
+      "preference_margin": 7.638908386230469
+    }
+  ]
+}

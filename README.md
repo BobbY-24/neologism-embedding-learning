@@ -5,7 +5,7 @@
 
 > Instead of fine-tuning an entire language model, can we add one new token and optimize only its embedding from preference pairs—and when does that embedding begin to behave like a reusable word rather than a soft control vector?
 
-> **Status / Scope: work in progress.** Experiment 1, Experiment 2 (quick and **full multi-seed**), the LoRA baseline and the interpretability analyses are complete on `Qwen/Qwen2.5-0.5B-Instruct`, which serves as a development and mechanistic testbed. The full runs ran on a Colab GPU through [`notebooks/colab_runner.ipynb`](notebooks/colab_runner.ipynb). A within-family scale replication (Qwen2.5-1.5B and 3B) is implemented and CPU-tested but not run. Cross-family replication has not started. All results are within one 0.5B model and should not be generalized to language models broadly.
+> **Status / Scope: work in progress.** Experiment 1, Experiment 2 (quick and **full multi-seed**), the LoRA baseline and the interpretability analyses are complete on `Qwen/Qwen2.5-0.5B-Instruct`, which serves as a development and mechanistic testbed. The full runs ran on a Colab GPU through [`notebooks/colab_runner.ipynb`](notebooks/colab_runner.ipynb). The within-family scale replication has run at Qwen2.5-1.5B; 3B has not been run. Cross-family replication has not started. All results are within one 0.5B model and should not be generalized to language models broadly.
 
 ## Done vs pending
 
@@ -18,10 +18,11 @@
 | Interpretability: vocabulary neighbours, logit lens, activation patching | ✅ | ✅ `results/experiment_2/full/interp/` |
 | Colab driver notebook | ✅ | n/a |
 | CPU tests (tiny random Qwen2; no download) | ✅ in CI | n/a |
-| Experiment 3: within-family scale (1.5B in fp32, 3B in bf16; frozen 0.5B data; full protocol) | ✅ | ⏳ not run; the 0.5B reference it compares against is now complete |
+| Experiment 3: within-family scale, 1.5B (fp32; frozen 0.5B data; full protocol) | ✅ | ✅ `results/experiment_3/full/` |
+| Experiment 3: 3B (bf16) | ✅ | ⏳ not run |
 | Cross-family replication | ❌ | ❌ |
 
-Every number below comes from a completed run. Experiment 3 is described in [docs/experiment_3.md](docs/experiment_3.md) and reports no numbers yet.
+Every number below comes from a completed run. Experiment 3 (scale) is summarized below and detailed in [docs/experiment_3.md](docs/experiment_3.md).
 
 This repository is a controlled framework for studying the progression
 
@@ -169,6 +170,27 @@ Together these suggest a two-stage picture. Information is read out of the token
 
 **Vocabulary neighbours.** The learned vectors are not near any length-related word. For every seed, the nearest input-embedding rows (tied with the unembedding in this model) are unrelated multilingual subwords at cosine ≤ 0.16, both for E_w itself and for the update E_w − E_w⁽⁰⁾. Their averaged update direction is not interpretable either. Together with the near-orthogonal seeds, this indicates that E_w works as an off-manifold control vector, not as a position in the model's lexical space.
 
+## Scale replication: Qwen2.5-1.5B
+
+The same frozen data, hyperparameters and seeds were run on the 1.5B model, with a 1,536-dimension vector (float32, Colab GPU, 2026-10-20). Details are in [docs/experiment_3.md](docs/experiment_3.md).
+
+| | 0.5B | 1.5B |
+|---|---:|---:|
+| Trained Δ words vs base (5 seeds) | +240.9 (seeds +114 to +349) | +117.7 (seeds +1.8 to +212) |
+| Shuffled-label Δ | +41.9 | −5.0 |
+| Explicit English Δ | +131.9 | +180.4 |
+| Effective Δ words, trained vs explicit | +94.9 vs +91.4 | +39.4 vs +155.7 |
+| Token-position patching, pooled restoration | 49% at L2, ≤3% from L8 | 59% at L0, 55% at L15, 3% by L18 |
+
+![Scale comparison](results/experiment_3/full/scale_comparison_full.png)
+
+- **The effect replicates, but only for seeds that train.** Seeds 1, 2 and 5 fit (loss ≤ 0.04) and add +167 to +212 words. Seeds 3 and 4 under-fit (loss 0.105 and 0.403) and add almost nothing. The learning rate and epoch count were tuned at 0.5B, so this is not yet a clean scale effect.
+- **The control becomes cleaner and the token stays gated.** Shuffled labels do nothing at 1.5B, and token-free logits are unchanged in every run.
+- **The larger model prefers plain English.** After removing repeats, the token gives a quarter of the explicit instruction's effect.
+- **The mechanism shifts.** In three of five seeds, the information stays at the token position through about layer 15 (of 28) before moving, against about layer 8 (of 24) at 0.5B. This is preliminary: it rests on few seeds, and the effect sizes differ.
+
+3B has not been run.
+
 ## Evidence ladder
 
 | Claim | Current evidence | Scope |
@@ -180,7 +202,7 @@ Together these suggest a two-stage picture. Information is read out of the token
 | Token specificity vs LoRA | **Strong** | LoRA leaks fully to plain prompts; neologism cannot |
 | Word-like compositional behavior | **Absent** | Effect collapses away from the training position |
 | Where the token acts | **Preliminary** | Read out of the token position by ~layer 8; stop effect emerges in the final layers |
-| Scale generalization | **Unknown** | 1.5B / 3B replication implemented, not yet executed |
+| Scale generalization | **Weak / mixed** | Replicates at 1.5B for 3/5 seeds; smaller effect, 2 seeds under-fit; 3B not run |
 | Cross-family generalization | **Unknown** | Qwen only |
 | Richer concepts | **Unknown** | Length/elaboration only |
 

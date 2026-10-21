@@ -1,0 +1,164 @@
+[
+  {
+    "seed": 1,
+    "training_examples": 0,
+    "mean_heldout_words": 61.44444444444444,
+    "mean_delta_words": -8.583333333333334,
+    "proportion_delta_positive": 0.3055555555555556,
+    "final_mean_preference_margin": 0.0,
+    "same_initial_embedding_hash": "df7c3bd60555643457134d5da53e63d589f2a90798b2700e2789bdff95ec8ffd"
+  },
+  {
+    "seed": 1,
+    "training_examples": 1,
+    "mean_heldout_words": 60.97222222222222,
+    "mean_delta_words": -9.055555555555555,
+    "proportion_delta_positive": 0.3333333333333333,
+    "final_mean_preference_margin": 5.762626647949219,
+    "same_initial_embedding_hash": "df7c3bd60555643457134d5da53e63d589f2a90798b2700e2789bdff95ec8ffd"
+  },
+  {
+    "seed": 1,
+    "training_examples": 2,
+    "mean_heldout_words": 66.69444444444444,
+    "mean_delta_words": -3.3333333333333335,
+    "proportion_delta_positive": 0.4722222222222222,
+    "final_mean_preference_margin": 10.148670196533203,
+    "same_initial_embedding_hash": "df7c3bd60555643457134d5da53e63d589f2a90798b2700e2789bdff95ec8ffd"
+  },
+  {
+    "seed": 1,
+    "training_examples": 5,
+    "mean_heldout_words": 130.69444444444446,
+    "mean_delta_words": 60.666666666666664,
+    "proportion_delta_positive": 0.8611111111111112,
+    "final_mean_preference_margin": 30.638887023925783,
+    "same_initial_embedding_hash": "df7c3bd60555643457134d5da53e63d589f2a90798b2700e2789bdff95ec8ffd"
+  },
+  {
+    "seed": 1,
+    "training_examples": 10,
+    "mean_heldout_words": 283.5,
+    "mean_delta_words": 213.47222222222223,
+    "proportion_delta_positive": 1.0,
+    "final_mean_preference_margin": 39.777317428588866,
+    "same_initial_embedding_hash": "df7c3bd60555643457134d5da53e63d589f2a90798b2700e2789bdff95ec8ffd"
+  },
+  {
+    "seed": 1,
+    "training_examples": 20,
+    "mean_heldout_words": 236.86111111111111,
+    "mean_delta_words": 166.83333333333334,
+    "proportion_delta_positive": 0.9722222222222222,
+    "final_mean_preference_margin": 51.01360244750977,
+    "same_initial_embedding_hash": "df7c3bd60555643457134d5da53e63d589f2a90798b2700e2789bdff95ec8ffd"
+  },
+  {
+    "seed": 2,
+    "training_examples": 0,
+    "mean_heldout_words": 57.5,
+    "mean_delta_words": -12.527777777777779,
+    "proportion_delta_positive": 0.25,
+    "final_mean_preference_margin": 0.0,
+    "same_initial_embedding_hash": "2a42f2fc322ab01495a1059b78d85c31cc6aa946520b2c446d885b1f54bcc71e"
+  },
+  {
+    "seed": 2,
+    "training_examples": 1,
+    "mean_heldout_words": 68.22222222222223,
+    "mean_delta_words": -1.8055555555555556,
+    "proportion_delta_positive": 0.4722222222222222,
+    "final_mean_preference_margin": 3.893054962158203,
+    "same_initial_embedding_hash": "2a42f2fc322ab01495a1059b78d85c31cc6aa946520b2c446d885b1f54bcc71e"
+  },
+  {
+    "seed": 2,
+    "training_examples": 2,
+    "mean_heldout_words": 66.27777777777777,
+    "mean_delta_words": -3.75,
+    "proportion_delta_positive": 0.4166666666666667,
+    "final_mean_preference_margin": 3.76788330078125,
+    "same_initial_embedding_hash": "2a42f2fc322ab01495a1059b78d85c31cc6aa946520b2c446d885b1f54bcc71e"
+  },
+  {
+    "seed": 2,
+    "training_examples": 5,
+    "mean_heldout_words": 77.13888888888889,
+    "mean_delta_words": 7.111111111111111,
+    "proportion_delta_positive": 0.6111111111111112,
+    "final_mean_preference_margin": 17.322795104980468,
+    "same_initial_embedding_hash": "2a42f2fc322ab01495a1059b78d85c31cc6aa946520b2c446d885b1f54bcc71e"
+  },
+  {
+    "seed": 2,
+    "training_examples": 10,
+    "mean_heldout_words": 221.11111111111111,
+    "mean_delta_words": 151.08333333333334,
+    "proportion_delta_positive": 0.9444444444444444,
+    "final_mean_preference_margin": 25.79042339324951,
+    "same_initial_embedding_hash": "2a42f2fc322ab01495a1059b78d85c31cc6aa946520b2c446d885b1f54bcc71e"
+  },
+  {
+    "seed": 2,
+    "training_examples": 20,
+    "mean_heldout_words": 255.13888888888889,
+    "mean_delta_words": 185.11111111111111,
+    "proportion_delta_positive": 1.0,
+    "final_mean_preference_margin": 36.429833602905276,
+    "same_initial_embedding_hash": "2a42f2fc322ab01495a1059b78d85c31cc6aa946520b2c446d885b1f54bcc71e"
+  },
+  {
+    "seed": 3,
+    "training_examples": 0,
+    "mean_heldout_words": 73.11111111111111,
+    "mean_delta_words": 3.0833333333333335,
+    "proportion_delta_positive": 0.5277777777777778,
+    "final_mean_preference_margin": 0.0,
+    "same_initial_embedding_hash": "9b1128e6405318bedb54ad925f0eef3cb99ef4020ba2f4808b9e5398d802eb5e"
+  },
+  {
+    "seed": 3,
+    "training_examples": 1,
+    "mean_heldout_words": 73.44444444444444,
+    "mean_delta_words": 3.4166666666666665,
+    "proportion_delta_positive": 0.5555555555555556,
+    "final_mean_preference_margin": 12.010356903076172,
+    "same_initial_embedding_hash": "9b1128e6405318bedb54ad925f0eef3cb99ef4020ba2f4808b9e5398d802eb5e"
+  },
+  {
+    "seed": 3,
+    "training_examples": 2,
+    "mean_heldout_words": 78.52777777777777,
+    "mean_delta_words": 8.5,
+    "proportion_delta_positive": 0.5833333333333334,
+    "final_mean_preference_margin": 10.301189422607422,
+    "same_initial_embedding_hash": "9b1128e6405318bedb54ad925f0eef3cb99ef4020ba2f4808b9e5398d802eb5e"
+  },
+  {
+    "seed": 3,
+    "training_examples": 5,
+    "mean_heldout_words": 77.02777777777777,
+    "mean_delta_words": 7,
+    "proportion_delta_positive": 0.6388888888888888,
+    "final_mean_preference_margin": 12.409230804443359,
+    "same_initial_embedding_hash": "9b1128e6405318bedb54ad925f0eef3cb99ef4020ba2f4808b9e5398d802eb5e"
+  },
+  {
+    "seed": 3,
+    "training_examples": 10,
+    "mean_heldout_words": 76.47222222222223,
+    "mean_delta_words": 6.444444444444445,
+    "proportion_delta_positive": 0.5833333333333334,
+    "final_mean_preference_margin": 17.067098808288574,
+    "same_initial_embedding_hash": "9b1128e6405318bedb54ad925f0eef3cb99ef4020ba2f4808b9e5398d802eb5e"
+  },
+  {
+    "seed": 3,
+    "training_examples": 20,
+    "mean_heldout_words": 92.58333333333333,
+    "mean_delta_words": 22.555555555555557,
+    "proportion_delta_positive": 0.7777777777777778,
+    "final_mean_preference_margin": 23.395725440979003,
+    "same_initial_embedding_hash": "9b1128e6405318bedb54ad925f0eef3cb99ef4020ba2f4808b9e5398d802eb5e"
+  }
+]

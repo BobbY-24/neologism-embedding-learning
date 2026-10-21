@@ -1,0 +1,323 @@
+seed,vector,space,rank,token_id,token,decoded,cosine_similarity
+1,initial,input_embedding,1,121245,è§İ,觎,0.10247348994016647
+1,initial,input_embedding,2,12494,Ġconsequ, consequ,0.098046213388443
+1,initial,input_embedding,3,130018,ÙĨØ¸,نظ,0.09490467607975006
+1,initial,input_embedding,4,111297,éģ©çĶ¨,適用,0.09367169439792633
+1,initial,input_embedding,5,121590,è§ĳ,觑,0.09363905340433121
+1,initial,input_embedding,6,105731,åıĹçĲĨ,受理,0.09254633635282516
+1,initial,input_embedding,7,49687,Ġsuccession, succession,0.08949240297079086
+1,initial,input_embedding,8,101438,åħģ,允,0.0883849710226059
+1,initial,input_embedding,9,125382,ÅŁtÄ±r,ştır,0.08772652596235275
+1,initial,input_embedding,10,42411,ä»ĸ,他,0.08724633604288101
+1,initial,input_embedding,11,108891,éĢļè¿ĩå¯¹,通过对,0.08719334006309509
+1,initial,input_embedding,12,117437,åĩŃåĢŁçĿĢ,凭借着,0.08686918020248413
+1,initial,input_embedding,13,95,¢,�,0.0867270827293396
+1,initial,input_embedding,14,130097,Ġnghá»ĭ, nghị,0.08616245537996292
+1,initial,input_embedding,15,31530,Ġ*., *.,0.08484805375337601
+1,initial,input_embedding,16,659,Ġ., .,0.08362530171871185
+1,initial,input_embedding,17,133084,ëĨį,농,0.08259947597980499
+1,initial,input_embedding,18,101321,åľ¨äºİ,在于,0.08251211047172546
+1,initial,input_embedding,19,131511,zÅĤ,zł,0.08250764012336731
+1,initial,input_embedding,20,22588,_FL,_FL,0.082344651222229
+1,learned,input_embedding,1,17305,.Sprintf,.Sprintf,0.15687264502048492
+1,learned,input_embedding,2,61246,/ioutil,/ioutil,0.15687218308448792
+1,learned,input_embedding,3,56373,:initComponents,:initComponents,0.14070582389831543
+1,learned,input_embedding,4,90443,ĠiNdEx, iNdEx,0.1387142539024353
+1,learned,input_embedding,5,48150,ĠFStar, FStar,0.13158319890499115
+1,learned,input_embedding,6,147928,ðŁĶ¼,🔼,0.1310252696275711
+1,learned,input_embedding,7,46498,NdEx,NdEx,0.12976980209350586
+1,learned,input_embedding,8,97863,.MouseEventHandler,.MouseEventHandler,0.12976381182670593
+1,learned,input_embedding,9,32078,TestingModule,TestingModule,0.12875226140022278
+1,learned,input_embedding,10,85317,StackNavigator,StackNavigator,0.12846414744853973
+1,learned,input_embedding,11,94937,.DataGridViewTriState,.DataGridViewTriState,0.12820442020893097
+1,learned,input_embedding,12,30140,.IContainer,.IContainer,0.12796737253665924
+1,learned,input_embedding,13,94677,ĠTunis, Tunis,0.12767119705677032
+1,learned,input_embedding,14,91300,.OrderByDescending,.OrderByDescending,0.12741371989250183
+1,learned,input_embedding,15,49332,ĠJung, Jung,0.1268724948167801
+1,learned,input_embedding,16,81660,ĠByz, Byz,0.12638068199157715
+1,learned,input_embedding,17,88441,.Guna,.Guna,0.12585347890853882
+1,learned,input_embedding,18,44603,.InvariantCulture,.InvariantCulture,0.1254536509513855
+1,learned,input_embedding,19,48131,ĠLOGIN, LOGIN,0.12535236775875092
+1,learned,input_embedding,20,150008,âĴ½,Ⓗ,0.12409437447786331
+1,update,input_embedding,1,61246,/ioutil,/ioutil,0.17214517295360565
+1,update,input_embedding,2,17305,.Sprintf,.Sprintf,0.16246025264263153
+1,update,input_embedding,3,46498,NdEx,NdEx,0.14908692240715027
+1,update,input_embedding,4,56373,:initComponents,:initComponents,0.1482352614402771
+1,update,input_embedding,5,94937,.DataGridViewTriState,.DataGridViewTriState,0.1437443047761917
+1,update,input_embedding,6,49332,ĠJung, Jung,0.14258208870887756
+1,update,input_embedding,7,93856,ĠforCellReuseIdentifier, forCellReuseIdentifier,0.14244034886360168
+1,update,input_embedding,8,30140,.IContainer,.IContainer,0.1417812556028366
+1,update,input_embedding,9,90443,ĠiNdEx, iNdEx,0.1399618238210678
+1,update,input_embedding,10,150008,âĴ½,Ⓗ,0.1384648233652115
+1,update,input_embedding,11,88441,.Guna,.Guna,0.13835203647613525
+1,update,input_embedding,12,48150,ĠFStar, FStar,0.13806970417499542
+1,update,input_embedding,13,146728,áĬķ,ን,0.13724693655967712
+1,update,input_embedding,14,147928,ðŁĶ¼,🔼,0.13586769998073578
+1,update,input_embedding,15,86562,.unsplash,.unsplash,0.13400161266326904
+1,update,input_embedding,16,85317,StackNavigator,StackNavigator,0.133684903383255
+1,update,input_embedding,17,56591,.InputStreamReader,.InputStreamReader,0.13314127922058105
+1,update,input_embedding,18,39629,ĉTokenName,	TokenName,0.13236600160598755
+1,update,input_embedding,19,62149,.BatchNorm,.BatchNorm,0.1317131072282791
+1,update,input_embedding,20,149619,á¼¿,Ἷ,0.13153888285160065
+2,initial,input_embedding,1,99452,æĭĽ,招,0.0992160215973854
+2,initial,input_embedding,2,3212,_x,_x,0.0937814936041832
+2,initial,input_embedding,3,64,a,a,0.09281812608242035
+2,initial,input_embedding,4,3218,ĠAct, Act,0.09224551171064377
+2,initial,input_embedding,5,304,Ġin, in,0.09069641679525375
+2,initial,input_embedding,6,45549,Ġallev, allev,0.08928818255662918
+2,initial,input_embedding,7,856,Ġx, x,0.0890699103474617
+2,initial,input_embedding,8,2414,Act,Act,0.08760233223438263
+2,initial,input_embedding,9,87,x,x,0.08641210198402405
+2,initial,input_embedding,10,7725,berg,berg,0.0855705663561821
+2,initial,input_embedding,11,33780,Ġathlete, athlete,0.0842745453119278
+2,initial,input_embedding,12,2890,Ġarr, arr,0.08252457529306412
+2,initial,input_embedding,13,102561,æĭ¨,拨,0.08044020086526871
+2,initial,input_embedding,14,1160,Ġact, act,0.07967810332775116
+2,initial,input_embedding,15,12,-,-,0.0795586109161377
+2,initial,input_embedding,16,1417,ĠSh, Sh,0.07941719889640808
+2,initial,input_embedding,17,7937,ĠMichael, Michael,0.07872753590345383
+2,initial,input_embedding,18,104439,åĽ½åĬ¡éĻ¢,国务院,0.07840307801961899
+2,initial,input_embedding,19,535,ost,ost,0.07742325961589813
+2,initial,input_embedding,20,105853,æİĴæŁ¥,排查,0.07612287998199463
+2,learned,input_embedding,1,15433,ĠOs, Os,0.12930893898010254
+2,learned,input_embedding,2,120320,é¸ª,鸪,0.11841265857219696
+2,learned,input_embedding,3,110015,çĽĽä¸ĸ,盛世,0.11587228626012802
+2,learned,input_embedding,4,148526,ê±ĺ,걘,0.11572116613388062
+2,learned,input_embedding,5,134222,ĠfotoÄŁ, fotoğ,0.11176136881113052
+2,learned,input_embedding,6,118111,é»ĦåŁĶ,黄埔,0.10961684584617615
+2,learned,input_embedding,7,19440,ĠAtlanta, Atlanta,0.10906083881855011
+2,learned,input_embedding,8,136419,Ġ×Ĳ×Ļ×¨×ķ×¢, אירוע,0.10896941274404526
+2,learned,input_embedding,9,42873,_archive,_archive,0.10874192416667938
+2,learned,input_embedding,10,35493,ĠGates, Gates,0.10786639153957367
+2,learned,input_embedding,11,146556,ðŁĶ·,🔷,0.10586120188236237
+2,learned,input_embedding,12,62826,.HttpServlet,.HttpServlet,0.10527344793081284
+2,learned,input_embedding,13,23486,.XtraEditors,.XtraEditors,0.10485759377479553
+2,learned,input_embedding,14,142806,à¹Ģà¸Ĺà¸¨à¸ģà¸²,เทศกา,0.10467103868722916
+2,learned,input_embedding,15,132518,Ġ×Ķ×¡×ķ, הסו,0.10449692606925964
+2,learned,input_embedding,16,115411,å¤§åıĳå¿«ä¸ī,大发快三,0.10431715846061707
+2,learned,input_embedding,17,131690,Ġ×ª×Ĵ×ķ×ĳ×Ķ, תגובה,0.10407431423664093
+2,learned,input_embedding,18,136337,Ġlá»Ńa, lửa,0.10361029207706451
+2,learned,input_embedding,19,135880,Ġ×ŀ×Ĳ×ķ, מאו,0.10333149135112762
+2,learned,input_embedding,20,110258,éĹ®è´£,问责,0.10324425250291824
+2,update,input_embedding,1,15433,ĠOs, Os,0.13112330436706543
+2,update,input_embedding,2,148526,ê±ĺ,걘,0.12926091253757477
+2,update,input_embedding,3,118111,é»ĦåŁĶ,黄埔,0.12310557067394257
+2,update,input_embedding,4,23486,.XtraEditors,.XtraEditors,0.12095440179109573
+2,update,input_embedding,5,110015,çĽĽä¸ĸ,盛世,0.11908062547445297
+2,update,input_embedding,6,142179,Ġê°Ģìļ´, 가운,0.11823687702417374
+2,update,input_embedding,7,120320,é¸ª,鸪,0.11758026480674744
+2,update,input_embedding,8,136419,Ġ×Ĳ×Ļ×¨×ķ×¢, אירוע,0.11658074706792831
+2,update,input_embedding,9,146556,ðŁĶ·,🔷,0.11405850946903229
+2,update,input_embedding,10,134222,ĠfotoÄŁ, fotoğ,0.11324167996644974
+2,update,input_embedding,11,135880,Ġ×ŀ×Ĳ×ķ, מאו,0.11287758499383926
+2,update,input_embedding,12,118812,èªĵè¨Ģ,誓言,0.11256837844848633
+2,update,input_embedding,13,105495,æĹŃ,旭,0.11190974712371826
+2,update,input_embedding,14,140342,Ġ×Ķ×ľ×Ĳ×ķ×ŀ×Ļ, הלאומי,0.11135780811309814
+2,update,input_embedding,15,115411,å¤§åıĳå¿«ä¸ī,大发快三,0.11114490777254105
+2,update,input_embedding,16,132518,Ġ×Ķ×¡×ķ, הסו,0.11088989675045013
+2,update,input_embedding,17,118647,å½©ç¥ŀ,彩神,0.11020271480083466
+2,update,input_embedding,18,150464,áĢ§,ဧ,0.10953257977962494
+2,update,input_embedding,19,110258,éĹ®è´£,问责,0.10904768109321594
+2,update,input_embedding,20,98418,.IGNORE,.IGNORE,0.10886205732822418
+3,initial,input_embedding,1,60984,submenu,submenu,0.11673861742019653
+3,initial,input_embedding,2,145755,ÖĤ,ւ,0.11561796069145203
+3,initial,input_embedding,3,90058,Ġmassac, massac,0.11108244955539703
+3,initial,input_embedding,4,3858,_array,_array,0.10922516882419586
+3,initial,input_embedding,5,132471,ãĤĭãģ®ãģ¯,るのは,0.1082131639122963
+3,initial,input_embedding,6,35037,BoxLayout,BoxLayout,0.10470382869243622
+3,initial,input_embedding,7,52850,.createTextNode,.createTextNode,0.10459087789058685
+3,initial,input_embedding,8,1334,Ġarray, array,0.10383663326501846
+3,initial,input_embedding,9,66177,ĠOCT, OCT,0.10354076325893402
+3,initial,input_embedding,10,62058,-array,-array,0.10347390174865723
+3,initial,input_embedding,11,92323,ĠsendData, sendData,0.10106933861970901
+3,initial,input_embedding,12,115635,æĺıè¿·,昏迷,0.10079599171876907
+3,initial,input_embedding,13,14034,oga,oga,0.10007457435131073
+3,initial,input_embedding,14,30194,October,October,0.09981443732976913
+3,initial,input_embedding,15,45382,Ġvegetarian, vegetarian,0.09966991096735
+3,initial,input_embedding,16,121144,æ¥«,楫,0.09879947453737259
+3,initial,input_embedding,17,17724,_ARRAY,_ARRAY,0.09860995411872864
+3,initial,input_embedding,18,134950,×ķ×¦×Ĵ,וצג,0.09836094081401825
+3,initial,input_embedding,19,6527,ĠOctober, October,0.09777731448411942
+3,initial,input_embedding,20,96341,.loadData,.loadData,0.09733927994966507
+3,learned,input_embedding,1,23972,matchCondition,matchCondition,0.17516881227493286
+3,learned,input_embedding,2,94556,.DataGridViewContentAlignment,.DataGridViewContentAlignment,0.1705198734998703
+3,learned,input_embedding,3,142219,ĠÐ¾Ð±ÑīÐµÑģÑĤÐ²ÐµÐ½Ð½Ð¾, общественно,0.16949507594108582
+3,learned,input_embedding,4,66650,_typeDefinitionSize,_typeDefinitionSize,0.1675156205892563
+3,learned,input_embedding,5,79417,ĠDecompiled, Decompiled,0.1653958261013031
+3,learned,input_embedding,6,93552,BracketAccess,BracketAccess,0.16152064502239227
+3,learned,input_embedding,7,71916,ĠEnumerableStream, EnumerableStream,0.1614180952310562
+3,learned,input_embedding,8,68751,(UnmanagedType,(UnmanagedType,0.15960274636745453
+3,learned,input_embedding,9,88375,elementGuidId,elementGuidId,0.15887805819511414
+3,learned,input_embedding,10,59305,stringLiteral,stringLiteral,0.1584039032459259
+3,learned,input_embedding,11,49074,PlainOldData,PlainOldData,0.15834638476371765
+3,learned,input_embedding,12,97781,PermissionsResult,PermissionsResult,0.15698803961277008
+3,learned,input_embedding,13,43593,BASEPATH,BASEPATH,0.15601280331611633
+3,learned,input_embedding,14,98549,.TestCheck,.TestCheck,0.15539108216762543
+3,learned,input_embedding,15,150473,áĦ¢,ᄢ,0.1549840271472931
+3,learned,input_embedding,16,65248,managedType,managedType,0.1547214835882187
+3,learned,input_embedding,17,83625,<AudioSource,<AudioSource,0.15335482358932495
+3,learned,input_embedding,18,72407,.styleable,.styleable,0.1532716602087021
+3,learned,input_embedding,19,19023,Ġgraduate, graduate,0.15188275277614594
+3,learned,input_embedding,20,58651,ĠprincipalTable, principalTable,0.15154361724853516
+3,update,input_embedding,1,142219,ĠÐ¾Ð±ÑīÐµÑģÑĤÐ²ÐµÐ½Ð½Ð¾, общественно,0.17376625537872314
+3,update,input_embedding,2,94556,.DataGridViewContentAlignment,.DataGridViewContentAlignment,0.17305287718772888
+3,update,input_embedding,3,23972,matchCondition,matchCondition,0.17021603882312775
+3,update,input_embedding,4,66650,_typeDefinitionSize,_typeDefinitionSize,0.16344746947288513
+3,update,input_embedding,5,79417,ĠDecompiled, Decompiled,0.1577925980091095
+3,update,input_embedding,6,71916,ĠEnumerableStream, EnumerableStream,0.15761710703372955
+3,update,input_embedding,7,88375,elementGuidId,elementGuidId,0.15718117356300354
+3,update,input_embedding,8,90620,ProducesResponseType,ProducesResponseType,0.15539118647575378
+3,update,input_embedding,9,68751,(UnmanagedType,(UnmanagedType,0.1539238840341568
+3,update,input_embedding,10,58651,ĠprincipalTable, principalTable,0.15371719002723694
+3,update,input_embedding,11,150473,áĦ¢,ᄢ,0.15037135779857635
+3,update,input_embedding,12,49074,PlainOldData,PlainOldData,0.1501694768667221
+3,update,input_embedding,13,93552,BracketAccess,BracketAccess,0.1499437391757965
+3,update,input_embedding,14,83625,<AudioSource,<AudioSource,0.14874526858329773
+3,update,input_embedding,15,43593,BASEPATH,BASEPATH,0.1484246402978897
+3,update,input_embedding,16,49732,getActiveSheet,getActiveSheet,0.14822138845920563
+3,update,input_embedding,17,72407,.styleable,.styleable,0.14700233936309814
+3,update,input_embedding,18,70355,imachinery,imachinery,0.1465313583612442
+3,update,input_embedding,19,95217,ĠButterKnife, ButterKnife,0.1463184803724289
+3,update,input_embedding,20,34432,@SuppressWarnings,@SuppressWarnings,0.14543089270591736
+4,initial,input_embedding,1,45962,Ġpessoas, pessoas,0.10737137496471405
+4,initial,input_embedding,2,9914,Space,Space,0.10396943986415863
+4,initial,input_embedding,3,39492,ĠJoshua, Joshua,0.1005217581987381
+4,initial,input_embedding,4,17888,ĠGro, Gro,0.0995279997587204
+4,initial,input_embedding,5,76335,Gro,Gro,0.09781638532876968
+4,initial,input_embedding,6,41411,gro,gro,0.09746512025594711
+4,initial,input_embedding,7,10487,Ġgro, gro,0.0954553559422493
+4,initial,input_embedding,8,111204,çļĦå¥½å¤Ħ,的好处,0.09312531352043152
+4,initial,input_embedding,9,144280,ë¤Ħ,뤄,0.0929759293794632
+4,initial,input_embedding,10,115631,ä½ľåĿĬ,作坊,0.09133004397153854
+4,initial,input_embedding,11,8746,space,space,0.08917509019374847
+4,initial,input_embedding,12,95602,ĠRaum, Raum,0.08772870898246765
+4,initial,input_embedding,13,47223,OfBirth,OfBirth,0.08653008937835693
+4,initial,input_embedding,14,32884,_VIDEO,_VIDEO,0.08606612682342529
+4,initial,input_embedding,15,5475,Server,Server,0.08605724573135376
+4,initial,input_embedding,16,62694,Het,Het,0.08582942932844162
+4,initial,input_embedding,17,91615,izu,izu,0.08572907000780106
+4,initial,input_embedding,18,112687,å¢ŀéķ¿çİĩ,增长率,0.08504226803779602
+4,initial,input_embedding,19,25956,Ġ:), :),0.08498750627040863
+4,initial,input_embedding,20,50744,Josh,Josh,0.0848725214600563
+4,learned,input_embedding,1,8891,Ġrestrict, restrict,0.11758172512054443
+4,learned,input_embedding,2,58438,Ġprohibits, prohibits,0.1075592190027237
+4,learned,input_embedding,3,64851,Ġrestricting, restricting,0.10733257234096527
+4,learned,input_embedding,4,105406,åĪĽå§ĭäºº,创始人,0.10713706910610199
+4,learned,input_embedding,5,114053,æ³ķå¸ĪèģĮä¸ļ,法师职业,0.10528025776147842
+4,learned,input_embedding,6,105117,çļĦçī¹çĤ¹,的特点,0.10498710721731186
+4,learned,input_embedding,7,105217,æĢ»è£ģ,总裁,0.10418196767568588
+4,learned,input_embedding,8,110116,æĹ¥æ¶Īæģ¯,日消息,0.10377547144889832
+4,learned,input_embedding,9,111481,ä¸ĵè®¿,专访,0.10278864204883575
+4,learned,input_embedding,10,46491,Ġdenies, denies,0.10271251946687698
+4,learned,input_embedding,11,106955,æĺ¯ä¸Ģæ¬¾,是一款,0.10178700089454651
+4,learned,input_embedding,12,108653,æłĩå¿ĹçĿĢ,标志着,0.10072372108697891
+4,learned,input_embedding,13,78366,Ġprohibiting, prohibiting,0.10029590129852295
+4,learned,input_embedding,14,1265,Ġshould, should,0.09972609579563141
+4,learned,input_embedding,15,369,Ġfor, for,0.09908953309059143
+4,learned,input_embedding,16,105057,çļĦä¼ĺåĬ¿,的优势,0.09855807572603226
+4,learned,input_embedding,17,110004,æĶ¶å½ķ,收录,0.09815743565559387
+4,learned,input_embedding,18,113078,ä¸»è¦ģçĶ¨äºİ,主要用于,0.09739013761281967
+4,learned,input_embedding,19,40324,Ġexplores, explores,0.09712696820497513
+4,learned,input_embedding,20,79312,Ġregulates, regulates,0.09656550735235214
+4,update,input_embedding,1,8891,Ġrestrict, restrict,0.11657576262950897
+4,update,input_embedding,2,106955,æĺ¯ä¸Ģæ¬¾,是一款,0.10987262427806854
+4,update,input_embedding,3,108041,æºĲäºİ,源于,0.10902385413646698
+4,update,input_embedding,4,64851,Ġrestricting, restricting,0.10722406208515167
+4,update,input_embedding,5,79312,Ġregulates, regulates,0.1068648248910904
+4,update,input_embedding,6,58438,Ġprohibits, prohibits,0.1066131442785263
+4,update,input_embedding,7,108653,æłĩå¿ĹçĿĢ,标志着,0.10624948143959045
+4,update,input_embedding,8,5610,Ġcontains, contains,0.10546212643384933
+4,update,input_embedding,9,117134,éļ¶å±ŀäºİ,隶属于,0.10427625477313995
+4,update,input_embedding,10,5108,ĠĠĠĠĠĠĠĠĠĠĠĠĠĠĠĠĠĠĠĠĠĠĠĠ,                        ,0.10327347368001938
+4,update,input_embedding,11,114053,æ³ķå¸ĪèģĮä¸ļ,法师职业,0.10318280756473541
+4,update,input_embedding,12,110004,æĶ¶å½ķ,收录,0.10248605906963348
+4,update,input_embedding,13,369,Ġfor, for,0.10246875882148743
+4,update,input_embedding,14,117170,çĶ¨å¾®ä¿¡æī«,用微信扫,0.1012524664402008
+4,update,input_embedding,15,1265,Ġshould, should,0.10117648541927338
+4,update,input_embedding,16,114943,éļĲçŀĴ,隐瞒,0.10071320086717606
+4,update,input_embedding,17,40324,Ġexplores, explores,0.09972022473812103
+4,update,input_embedding,18,20711,Ġãĥ, �,0.09910883754491806
+4,update,input_embedding,19,38651,Ġfuer, fuer,0.09848342835903168
+4,update,input_embedding,20,117375,åºĶçĶ¨æŁ¥çľĭ,应用查看,0.09837362170219421
+5,initial,input_embedding,1,4770,.map,.map,0.11117838323116302
+5,initial,input_embedding,2,62734,ThanOr,ThanOr,0.10283740609884262
+5,initial,input_embedding,3,45732,.GetAll,.GetAll,0.10177451372146606
+5,initial,input_embedding,4,103810,æ¿Ĵ,濒,0.10174189507961273
+5,initial,input_embedding,5,114290,æĿ¥è®¿,来访,0.09981599450111389
+5,initial,input_embedding,6,8982,.Append,.Append,0.09868174046278
+5,initial,input_embedding,7,95536,ensex,ensex,0.09813790768384933
+5,initial,input_embedding,8,135488,ãĤĴãģĶ,をご,0.09807199239730835
+5,initial,input_embedding,9,119235,åĺŁ,嘟,0.0970965102314949
+5,initial,input_embedding,10,84911,Ġzug, zug,0.09656167775392532
+5,initial,input_embedding,11,73479,.every,.every,0.09457214921712875
+5,initial,input_embedding,12,90699,Ġspp, spp,0.09370004385709763
+5,initial,input_embedding,13,14386,pletion,pletion,0.09219788014888763
+5,initial,input_embedding,14,28103,.getAll,.getAll,0.09215912222862244
+5,initial,input_embedding,15,81819,leftrightarrow,leftrightarrow,0.0914573147892952
+5,initial,input_embedding,16,32970,Ġbooked, booked,0.09126654267311096
+5,initial,input_embedding,17,20246,[]>,[]>,0.09104232490062714
+5,initial,input_embedding,18,24308,etermine,etermine,0.09100543707609177
+5,initial,input_embedding,19,79261,.Lookup,.Lookup,0.09083899110555649
+5,initial,input_embedding,20,56945,Ġwollen, wollen,0.09075643122196198
+5,learned,input_embedding,1,54684,à¸Ľ,ป,0.12249507755041122
+5,learned,input_embedding,2,23538,iÃ©n,ién,0.1170642077922821
+5,learned,input_embedding,3,409,Ġde, de,0.1145264208316803
+5,learned,input_embedding,4,96093,Ã©gorie,égorie,0.1136462539434433
+5,learned,input_embedding,5,7774,Ġqui, qui,0.11339074373245239
+5,learned,input_embedding,6,311,Ġto, to,0.10952147096395493
+5,learned,input_embedding,7,124293,à¸Ħà¸¡,คม,0.10548052936792374
+5,learned,input_embedding,8,111984,éŃģ,魁,0.10517308115959167
+5,learned,input_embedding,9,125543,ĠÐ´Ðµ, де,0.1050303727388382
+5,learned,input_embedding,10,429,Ġthat, that,0.10064401477575302
+5,learned,input_embedding,11,132311,ĠëĤĺëĬĶ, 나는,0.09973214566707611
+5,learned,input_embedding,12,134425,ĠÑĢÐ°ÑģÐ¿Ð¾Ð», распол,0.09946952015161514
+5,learned,input_embedding,13,1709,Ġque, que,0.09944478422403336
+5,learned,input_embedding,14,127725,ĠbÃ¶lÃ¼m, bölüm,0.09909150749444962
+5,learned,input_embedding,15,150389,Úĸ,ږ,0.0989774614572525
+5,learned,input_embedding,16,24302,Ġuit, uit,0.09849291294813156
+5,learned,input_embedding,17,139484,Ġê·¸ê²ĥìĿĦ, 그것을,0.09839565306901932
+5,learned,input_embedding,18,123901,Ġ×ł, נ,0.09762229025363922
+5,learned,input_embedding,19,98614,Ð¾Ð»Ð¸ÑĩÐµÑģÑĤÐ²Ð¾,оличество,0.09755264222621918
+5,learned,input_embedding,20,26579,)))));Ċ,")))));
+",0.09719985723495483
+5,update,input_embedding,1,409,Ġde, de,0.11869625747203827
+5,update,input_embedding,2,23538,iÃ©n,ién,0.11819642037153244
+5,update,input_embedding,3,124293,à¸Ħà¸¡,คม,0.1098627820611
+5,update,input_embedding,4,96093,Ã©gorie,égorie,0.1059776097536087
+5,update,input_embedding,5,54684,à¸Ľ,ป,0.1058514416217804
+5,update,input_embedding,6,111984,éŃģ,魁,0.10566318035125732
+5,update,input_embedding,7,60573,quipe,quipe,0.10333501547574997
+5,update,input_embedding,8,311,Ġto, to,0.10293503105640411
+5,update,input_embedding,9,150389,Úĸ,ږ,0.10274126380681992
+5,update,input_embedding,10,123901,Ġ×ł, נ,0.1009223684668541
+5,update,input_embedding,11,1110,://,://,0.10042967647314072
+5,update,input_embedding,12,139484,Ġê·¸ê²ĥìĿĦ, 그것을,0.10023631900548935
+5,update,input_embedding,13,125543,ĠÐ´Ðµ, де,0.1000216007232666
+5,update,input_embedding,14,7774,Ġqui, qui,0.09982211887836456
+5,update,input_embedding,15,107672,é¢Ĩå¯¼äºº,领导人,0.09977498650550842
+5,update,input_embedding,16,4914,Ġpour, pour,0.0980253666639328
+5,update,input_embedding,17,26579,)))));Ċ,")))));
+",0.09779554605484009
+5,update,input_embedding,18,132311,ĠëĤĺëĬĶ, 나는,0.09771927446126938
+5,update,input_embedding,19,429,Ġthat, that,0.09750299155712128
+5,update,input_embedding,20,61564,nite,nite,0.09708652645349503
+all,mean_update,input_embedding,1,88375,elementGuidId,elementGuidId,0.14409184455871582
+all,mean_update,input_embedding,2,58651,ĠprincipalTable, principalTable,0.14053376019001007
+all,mean_update,input_embedding,3,128318,Ġhá»£, hợ,0.13902316987514496
+all,mean_update,input_embedding,4,87439,CHAPTER,CHAPTER,0.13718192279338837
+all,mean_update,input_embedding,5,62149,.BatchNorm,.BatchNorm,0.13378611207008362
+all,mean_update,input_embedding,6,97750,ĠArchived, Archived,0.13299396634101868
+all,mean_update,input_embedding,7,91388,ĠGUIDATA, GUIDATA,0.1314176321029663
+all,mean_update,input_embedding,8,123118,ð«ĺ¨,𫘨,0.12750081717967987
+all,mean_update,input_embedding,9,136420,Ġ×Ĳ×Ļ×¨×ķ×¢×Ļ×Ŀ, אירועים,0.12566038966178894
+all,mean_update,input_embedding,10,86716,ĠInstituto, Instituto,0.12435563653707504
+all,mean_update,input_embedding,11,143336,×¡×¤×ĺ×ŀ×ĳ×¨,ספטמבר,0.12191131711006165
+all,mean_update,input_embedding,12,72522,ĠforCell, forCell,0.1213914081454277
+all,mean_update,input_embedding,13,60745,currentColor,currentColor,0.12080449610948563
+all,mean_update,input_embedding,14,95324,ĠCHAPTER, CHAPTER,0.11967726796865463
+all,mean_update,input_embedding,15,45919,.SimpleDateFormat,.SimpleDateFormat,0.11963268369436264
+all,mean_update,input_embedding,16,89015,ãģĵãĤĵãģ«ãģ¡ãģ¯,こんにちは,0.11952712386846542
+all,mean_update,input_embedding,17,143843,ĠniektÃ³rych, niektórych,0.11948465555906296
+all,mean_update,input_embedding,18,132721,ãĤĴæĦŁãģĺ,を感じ,0.11946383118629456
+all,mean_update,input_embedding,19,122559,å½ĸ,彖,0.11914976686239243
+all,mean_update,input_embedding,20,148068,ãĦ¸,ㄸ,0.11781055480241776

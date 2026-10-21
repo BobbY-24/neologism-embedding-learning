@@ -1,0 +1,57 @@
+{
+  "peak_cuda_memory_gb": 10.097683456,
+  "seed": 2,
+  "kind": "genuine",
+  "n_examples": 2,
+  "initial_loss": 0.6931471824645996,
+  "final_loss": 0.530136376619339,
+  "final_mean_preference_margin": 3.76788330078125,
+  "embedding_movement": 1.1847816705703735,
+  "embedding_initial_final_cosine": 0.6803231239318848,
+  "pretrained_checksums_unchanged": true,
+  "max_no_token_logit_difference": 0.0,
+  "shuffle_flips": [
+    false,
+    false
+  ],
+  "initial_state": [
+    {
+      "example_index": 0,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -139.049560546875,
+      "rejected_log_probability": -64.760986328125,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    },
+    {
+      "example_index": 1,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -256.504638671875,
+      "rejected_log_probability": -103.79421997070312,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    }
+  ],
+  "final_state": [
+    {
+      "example_index": 0,
+      "loss": 0.6334435343742371,
+      "chosen_log_probability": -137.76611328125,
+      "rejected_log_probability": -64.70953369140625,
+      "r_chosen": 1.283447265625,
+      "r_rejected": 0.05145263671875,
+      "preference_margin": 1.23199462890625
+    },
+    {
+      "example_index": 1,
+      "loss": 0.4268292188644409,
+      "chosen_log_probability": -250.93783569335938,
+      "rejected_log_probability": -104.53118896484375,
+      "r_chosen": 5.566802978515625,
+      "r_rejected": -0.736968994140625,
+      "preference_margin": 6.30377197265625
+    }
+  ]
+}

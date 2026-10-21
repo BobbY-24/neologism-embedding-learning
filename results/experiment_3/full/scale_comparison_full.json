@@ -1,0 +1,52 @@
+{
+  "mode": "full",
+  "dataset_policy": "reuse_frozen_0.5b",
+  "rows": [
+    {
+      "run": "experiment_2",
+      "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+      "dtype": "float32",
+      "device": "cuda",
+      "hidden_size": 896,
+      "model_parameters": 494032768,
+      "n_prompts": 36,
+      "n_seeds": 5,
+      "mean_base_words": 83.66666666666667,
+      "base_passes_screen": 1.0,
+      "mean_delta_base": 240.91111111111113,
+      "seed_min_delta_base": 114.11111111111111,
+      "seed_max_delta_base": 349.3888888888889,
+      "proportion_delta_positive": 0.9888888888888889,
+      "mean_shuffled_delta_base": 41.9537037037037,
+      "explicit_delta_base": 131.88888888888889,
+      "explicit_effect_ratio": 1.8266217354675653,
+      "mean_final_loss": 0.06294766196515411,
+      "mean_final_preference_margin": 33.10781608581543,
+      "interp_stop_logprob_effect": -11.185221030991427,
+      "per_seed_delta_base": "{\"1\": 349.3888888888889, \"2\": 315.9166666666667, \"3\": 114.11111111111111, \"4\": 192, \"5\": 233.13888888888889}"
+    },
+    {
+      "run": "qwen2.5-1.5b-float32",
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+      "dtype": "float32",
+      "device": "cuda",
+      "hidden_size": 1536,
+      "model_parameters": 1543714304,
+      "n_prompts": 36,
+      "n_seeds": 5,
+      "mean_base_words": 70.02777777777777,
+      "base_passes_screen": 0.9166666666666666,
+      "mean_delta_base": 117.67222222222223,
+      "seed_min_delta_base": 1.7777777777777777,
+      "seed_max_delta_base": 212.08333333333334,
+      "proportion_delta_positive": 0.85,
+      "mean_shuffled_delta_base": -5.0092592592592595,
+      "explicit_delta_base": 180.36111111111111,
+      "explicit_effect_ratio": 0.652425689203758,
+      "mean_final_loss": 0.11715148784569465,
+      "mean_final_preference_margin": 31.408347091674806,
+      "interp_stop_logprob_effect": -11.184187622104785,
+      "per_seed_delta_base": "{\"1\": 166.83333333333334, \"2\": 185.11111111111111, \"3\": 22.555555555555557, \"4\": 1.7777777777777777, \"5\": 212.08333333333334}"
+    }
+  ]
+}

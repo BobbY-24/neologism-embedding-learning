@@ -1,0 +1,38 @@
+{
+  "peak_cuda_memory_gb": 9.776329216,
+  "seed": 1,
+  "kind": "genuine",
+  "n_examples": 1,
+  "initial_loss": 0.6931471824645996,
+  "final_loss": 0.4459637403488159,
+  "final_mean_preference_margin": 5.762626647949219,
+  "embedding_movement": 0.7880856394767761,
+  "embedding_initial_final_cosine": 0.7956116199493408,
+  "pretrained_checksums_unchanged": true,
+  "max_no_token_logit_difference": 0.0,
+  "shuffle_flips": [
+    false
+  ],
+  "initial_state": [
+    {
+      "example_index": 0,
+      "loss": 0.6931471824645996,
+      "chosen_log_probability": -141.17385864257812,
+      "rejected_log_probability": -64.60630798339844,
+      "r_chosen": 0.0,
+      "r_rejected": 0.0,
+      "preference_margin": 0.0
+    }
+  ],
+  "final_state": [
+    {
+      "example_index": 0,
+      "loss": 0.4459637403488159,
+      "chosen_log_probability": -135.41754150390625,
+      "rejected_log_probability": -64.61261749267578,
+      "r_chosen": 5.756317138671875,
+      "r_rejected": -0.00630950927734375,
+      "preference_margin": 5.762626647949219
+    }
+  ]
+}
